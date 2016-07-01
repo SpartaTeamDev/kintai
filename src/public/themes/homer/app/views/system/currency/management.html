@@ -1,0 +1,120 @@
+<div class="animate-panel" ng-init="ctrl.initData()">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+                <div class="input-group pull-right">
+                    <input type="text" class="form-control" placeholder="search" ng-model="CurrencysVM.GetSearchParam('SearchCode').Value" ng-change="CurrencysVM.searchCurrencys()" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="CurrencysVM.searchCurrencys()">
+                            <i class="glyphicon glyphicon-search"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div ng-show="Processing.GetProcessing('Currencys').Value" class="row" style="z-index: 2000; position: absolute; left: 50%">
+            <div class="col-md-5 col-md-offset-5">
+                <img src="images/loading-bars.svg"  width="64" height="64" alt="Loading..." />
+            </div>
+        </div>
+        <div class="row">
+            <table width="100%" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td class="k-header" style="text-align: center"></td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="CurrencysVM.startSort('Name')">Name  
+                              <div ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Name'" class="pull-right">
+                                  <a ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Name'&&CurrencysVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Name'&&CurrencysVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="CurrencysVM.startSort('Iso4217Code')">Code
+                            <div ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Iso4217Code'" class="pull-right">
+                                <a ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Iso4217Code'&&CurrencysVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                <a ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Iso4217Code'&&CurrencysVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                            </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="CurrencysVM.startSort('Rate')">Rate  
+                              <div ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Rate'" class="pull-right">
+                                  <a ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Rate'&&CurrencysVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="CurrencysVM.SortedField!=null&&CurrencysVM.SortedField.Name=='Rate'&&CurrencysVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in CurrencysVM.ArrCurrency">
+                    <tr ng-show="item.isedit == false" ng-class="{'normalrow':(($index%2)==0),'alternativerow':($index%2!=0)}">
+                        <td style="text-align: center" class="col-md-1">
+                            <button class="btn btn-default" ng-show="item.allowedit" ng-click="startEditCurrency(item)" title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
+                            <button class="btn btn-default" ng-show="item.allowremove" ng-click="removeCurrency(item)" title="Remove"><i class="glyphicon glyphicon-trash"></i></button>
+                        </td>
+                       <td class="col-md-2">
+                           {{item.Name}}
+                       </td>
+                        <td class="col-md-2">
+                            {{item.Iso4217Code}}
+                        </td>
+                       <td class="col-md-2">
+                           {{item.Rate}}
+                       </td>
+                    </tr>
+                    <tr ng-show="item.isedit == true" ng-class="{'normalrow':(($index%2)==0),'alternativerow':($index%2!=0)}">
+                        <td class="col-md-1" style="text-align: center">
+                            <button class="btn btn-default" ng-click="finishEditCurrency(item)" title="Save"><i class="glyphicon glyphicon-ok"></i></button>
+                            <button class="btn btn-default" ng-click="cancelEditCurrency(item)" title="Cancel"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                       <td class="col-md-2">
+                               <input type="text" ng-model="item.Name"  ng-change="onChangeCurrency_Name(item)" ng-class="[{'validateinput':ValManager().Get('Name').IsValid==false}]" class="form-control" />
+                               <div class="col-md-12" style="color: Red" data-bind="with:">
+                                    <span ng-visible="item.valmanager.Get('Name').IsValid==false&&item.valmanager.Get('Name').ValMsg!=''">{{item.valmanager.Get('Name').ValMsg}}</span>
+                               </div>
+                       </td>
+                        <td class="col-md-2">
+                            <input type="text" ng-model="item.Iso4217Code"  ng-change="onChangeCurrency_Iso4217Code(item)" ng-class="[{'validateinput':item.valmanager.Get('Iso4217Code').IsValid==false}]" class="form-control" />
+                            <div class="col-md-12" style="color: Red" >
+                                <span ng-visible="item.valmanager.Get('Iso4217Code').IsValid==false&&item.valmanager.Get('Iso4217Code').ValMsg!=''">{{item.valmanager.Get('Iso4217Code').ValMsg}}</span>
+                            </div>
+                        </td>
+                       <td class="col-md-2">
+                           <input  type="number" ng-model = "item.Rate" class="form-control col-md-12"
+                                   ng-change="onChangeCurrency_Rate(item)" ng-class="[{'validateinput':item.valmanager.Get('Rate').IsValid==false}]"
+                                   />
+                           <div class="col-md-12" style="color: Red" >
+                               <span ng-visible="item.valmanager.Get('Rate').IsValid==false&&item.valmanager.Get('Rate').ValMsg!=''">{{item.valmanager.Get('Rate').ValMsg}}</span>
+                           </div>
+                       </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <div class="row">
+                                <div class="control-group col-md-4">
+                                    <div class="controls">
+                                        <a class="btn btn-default" ng-click="startAddCurrency()"><i class="glyphicon glyphicon-plus" title="New"></i>New</a>
+                                    </div>
+                                </div>
+                                <div class=" col-md-8">
+                                    <div class="pull-right">
+                                        <ul class="pagination">
+                                            <li><a>Total <b>{{ CurrencysVM.Paging.TotalItems }}</b> items &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Page <b>{{CurrencysVM.Paging.PageIndex}} / {{CurrencysVM.Paging.TotalPages }}</b></a></li>
+                                            <li ng-class="{disabled: CurrencysVM.Paging.PageIndex==1}"><a ng-click="CurrencysVM.gotoPrevPage()">&laquo;</a></li>
+                                            <li ng-repeat-start="page in CurrencysVM.Paging.Pages" ng-class="{active: page == CurrencysVM.Paging.PageIndex}">
+                                                <a ng-click="CurrencysVM.gotoPage(page)">{{page}}</a>
+                                            </li>
+                                            <li ng-repeat-end class="divider"></li>
+                                            <li ng-class="{disabled:CurrencysVM.Paging.PageIndex >= CurrencysVM.Paging.TotalPages}"><a ng-click="CurrencysVM.gotoNextPage()">&raquo;</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+(function() {
+/**
+ * @author ntd1712
+ */
+chaos.service("LoginModel", Anonymous);
+
+function Anonymous(AbstractModel) {
+    function LoginModel(data) {
+        LoginModel.parent.constructor.apply(this, [data, LoginModel.getFields()]);
+    }
+    extend(LoginModel, AbstractModel);
+
+    /**
+     * @returns {String}
+     */
+    LoginModel.getRoute = function() {
+        return "auth/login";
+    };
+
+    /**
+     * @return {Object[]}
+     */
+    LoginModel.getFields = function() {
+        return [{
+            data: "email",
+            value: ""
+        },{
+            data: "password",
+            value: ""
+        },{
+            data: "remember_token",
+            value: true
+        }];
+    };
+
+    return LoginModel;
+}
+
+})();

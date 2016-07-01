@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html ng-app="homer">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css"/>
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap-sweetalert/lib/sweet-alert.css"/>
+    <link rel="stylesheet" href="bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css"/>
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css"/>
+    <link rel="stylesheet" href="bower_components/Snarl/dist/snarl.min.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/style.css -->
+    <link rel="stylesheet" href="styles/pe-icon-7-stroke-helper.css"/>
+    <link rel="stylesheet" href="styles/style.css"/>
+    <link rel="stylesheet" href="styles/custom.css"/>
+    <!-- endbuild -->
+
+</head>
+
+<!-- Body -->
+<!-- appCtrl controller with serveral data used in theme on diferent view -->
+<!-- landing-scrollspy is directive for scrollspy used in landing page -->
+<body ng-controller="appCtrl" class="{{$state.current.data.specialClass}}" landing-scrollspy backdrop="true">
+
+<!-- Simple splash screen-->
+<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Homer - Responsive Admin Theme</h1><p>Special AngularJS Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p><img src="images/loading-bars.svg" width="64" height="64" /> </div> </div>
+<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- Page view wrapper -->
+    <div ui-view autoscroll="true"></div>
+
+<!-- build:js(.) scripts/vendor.js -->
+<script src="bower_components/underscore/underscore-min.js"></script>
+<script src="bower_components/lockr/lockr.min.js"></script>
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/Snarl/dist/snarl.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+<script src="bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables_plugins/api/fnSetFilteringDelay.js"></script>
+<script src="bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="bower_components/icheck/icheck.min.js"></script>
+<script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+<script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+<script src="bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+<script src="bower_components/checklist-model/checklist-model.js"></script>
+<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+<!-- endbuild -->
+
+<!--
+ You need to include this script on any page that has a Google Map.
+ When using Google Maps on your own site you MUST signup for your own API key at:
+ https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+ After your sign up replace the key in the URL below..
+-->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script>
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/theme.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/common/directives/directives.js"></script>
+<script src="scripts/common/directives/touchSpin.js"></script>
+<script src="scripts/common/filters/props.js"></script>
+<script src="scripts/common/factories/abstract.model.js"></script>
+<script src="scripts/common/factories/abstract.repository.js"></script>
+<script src="scripts/common/factories/abstract.controller.js"></script>
+<script src="scripts/common/providers/request.provider.js"></script>
+<script src="scripts/common/david/acommon.js"></script>
+<script src="scripts/common/david/avalidate.js"></script>
+<script src="scripts/system/auth/login.model.js"></script>
+<script src="scripts/system/auth/login.repository.js"></script>
+<script src="scripts/system/auth/login.controller.js"></script>
+<script src="scripts/system/auth/login.route.js"></script>
+<script src="scripts/system/audit/audit.model.js"></script>
+<script src="scripts/system/audit/audit.repository.js"></script>
+<script src="scripts/system/audit/audit.controller.js"></script>
+<script src="scripts/system/audit/audit.route.js"></script>
+<script src="scripts/system/lookup/lookup.model.js"></script>
+<script src="scripts/system/lookup/lookup.repository.js"></script>
+<script src="scripts/system/lookup/lookup.controller.js"></script>
+<script src="scripts/system/lookup/lookup.route.js"></script>
+<script src="scripts/system/setting/setting.model.js"></script>
+<script src="scripts/system/setting/setting.repository.js"></script>
+<script src="scripts/system/setting/setting.controller.js"></script>
+<script src="scripts/system/setting/setting.route.js"></script>
+<script src="scripts/account/permission/permission.model.js"></script>
+<script src="scripts/account/permission/permission.repository.js"></script>
+<script src="scripts/account/permission/permission.controller.js"></script>
+<script src="scripts/account/permission/permission.route.js"></script>
+<script src="scripts/account/role/role.model.js"></script>
+<script src="scripts/account/role/role.repository.js"></script>
+<script src="scripts/account/role/role.controller.js"></script>
+<script src="scripts/account/role/role.route.js"></script>
+<script src="scripts/account/user/user.model.js"></script>
+<script src="scripts/account/user/user.repository.js"></script>
+<script src="scripts/account/user/user.controller.js"></script>
+<script src="scripts/account/user/user.route.js"></script>
+<script src="scripts/system/media/media.jmodel.js"></script>
+<script src="scripts/system/media/media.jpageviewmodel.js"></script>
+<script src="scripts/system/media/media.jviewmodel.js"></script>
+<script src="scripts/system/media/media.jsviewmodel.js"></script>
+<script src="scripts/system/media/media.admin.js"></script>
+<script src="scripts/system/media/media.route.js"></script>
+<script src="scripts/system/calendar/calendar.model.js"></script>
+<script src="scripts/system/calendar/calendar.repository.js"></script>
+<script src="scripts/system/calendar/calendar.controller.js"></script>
+<script src="scripts/system/calendar/calendar.route.js"></script>
+<script src="scripts/store/booking/booking.jmodel.js"></script>
+<script src="scripts/store/booking/booking.jpageviewmodel.js"></script>
+<script src="scripts/store/booking/booking.jviewmodel.js"></script>
+<script src="scripts/store/booking/booking.jsviewmodel.js"></script>
+<script src="scripts/store/booking/booking.admin.js"></script>
+<script src="scripts/store/booking/booking.management.js"></script>
+<script src="scripts/store/booking/booking.route.js"></script>
+<script src="scripts/store/category/category.jmodel.js"></script>
+<script src="scripts/store/category/category.jpageviewmodel.js"></script>
+<script src="scripts/store/category/category.jviewmodel.js"></script>
+<script src="scripts/store/category/category.jsviewmodel.js"></script>
+<script src="scripts/store/category/category.admin.js"></script>
+<script src="scripts/store/category/category.management.js"></script>
+<script src="scripts/store/category/category.route.js"></script>
+<script src="scripts/store/customer/customer.jmodel.js"></script>
+<script src="scripts/store/customer/customer.jpageviewmodel.js"></script>
+<script src="scripts/store/customer/customer.jviewmodel.js"></script>
+<script src="scripts/store/customer/customer.jsviewmodel.js"></script>
+<script src="scripts/store/customer/customer.admin.js"></script>
+<script src="scripts/store/customer/customer.management.js"></script>
+<script src="scripts/store/customer/customer.route.js"></script>
+<script src="scripts/store/customer/customer.detail.js"></script>
+<script src="scripts/store/expense/expense.jmodel.js"></script>
+<script src="scripts/store/expense/expense.jpageviewmodel.js"></script>
+<script src="scripts/store/expense/expense.jviewmodel.js"></script>
+<script src="scripts/store/expense/expense.jsviewmodel.js"></script>
+<script src="scripts/store/expense/expense.admin.js"></script>
+<script src="scripts/store/expense/expense.management.js"></script>
+<script src="scripts/store/expense/expense.route.js"></script>
+<script src="scripts/store/expense/expense.detail.js"></script>
+<script src="scripts/store/expense/expense.report.js"></script>
+<script src="scripts/store/expensedetail/expensedetail.jmodel.js"></script>
+<script src="scripts/store/expensedetail/expensedetail.jpageviewmodel.js"></script>
+<script src="scripts/store/expensedetail/expensedetail.jviewmodel.js"></script>
+<script src="scripts/store/expensedetail/expensedetail.jsviewmodel.js"></script>
+<script src="scripts/store/expensedetail/expensedetail.admin.js"></script>
+<script src="scripts/store/expensedetail/expensedetail.route.js"></script>
+<script src="scripts/store/income/income.jmodel.js"></script>
+<script src="scripts/store/income/income.jpageviewmodel.js"></script>
+<script src="scripts/store/income/income.jviewmodel.js"></script>
+<script src="scripts/store/income/income.jsviewmodel.js"></script>
+<script src="scripts/store/income/income.admin.js"></script>
+<script src="scripts/store/income/income.management.js"></script>
+<script src="scripts/store/income/income.detail.js"></script>
+<script src="scripts/store/income/income.route.js"></script>
+<script src="scripts/store/income/income.report.js"></script>
+<script src="scripts/store/incomedetail/incomedetail.jmodel.js"></script>
+<script src="scripts/store/incomedetail/incomedetail.jpageviewmodel.js"></script>
+<script src="scripts/store/incomedetail/incomedetail.jviewmodel.js"></script>
+<script src="scripts/store/incomedetail/incomedetail.jsviewmodel.js"></script>
+<script src="scripts/store/incomedetail/incomedetail.admin.js"></script>
+<script src="scripts/store/incomedetail/incomedetail.route.js"></script>
+<script src="scripts/store/incomepromotion/incomepromotion.jmodel.js"></script>
+<script src="scripts/store/incomepromotion/incomepromotion.jpageviewmodel.js"></script>
+<script src="scripts/store/incomepromotion/incomepromotion.jviewmodel.js"></script>
+<script src="scripts/store/incomepromotion/incomepromotion.jsviewmodel.js"></script>
+<script src="scripts/store/incomepromotion/incomepromotion.admin.js"></script>
+<script src="scripts/store/incomepromotion/incomepromotion.route.js"></script>
+<script src="scripts/store/product/product.jmodel.js"></script>
+<script src="scripts/store/product/product.jpageviewmodel.js"></script>
+<script src="scripts/store/product/product.jviewmodel.js"></script>
+<script src="scripts/store/product/product.jsviewmodel.js"></script>
+<script src="scripts/store/product/product.admin.js"></script>
+<script src="scripts/store/product/product.management.js"></script>
+<script src="scripts/store/product/product.route.js"></script>
+<script src="scripts/store/promotion/promotion.jmodel.js"></script>
+<script src="scripts/store/promotion/promotion.jpageviewmodel.js"></script>
+<script src="scripts/store/promotion/promotion.jviewmodel.js"></script>
+<script src="scripts/store/promotion/promotion.jsviewmodel.js"></script>
+<script src="scripts/store/promotion/promotion.admin.js"></script>
+<script src="scripts/store/promotion/promotion.management.js"></script>
+<script src="scripts/store/promotion/promotion.route.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

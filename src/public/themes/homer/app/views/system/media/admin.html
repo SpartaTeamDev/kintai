@@ -1,0 +1,205 @@
+<div class="animate-panel" ng-init="ctrl.initData()">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+                <div class="input-group pull-right">
+                    <input type="text" class="form-control" placeholder="search" ng-model="MediasVM.GetSearchParam('SearchCode').Value" ng-change="MediasVM.searchMedias()" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="MediasVM.searchMedias()">
+                            <i class="glyphicon glyphicon-search"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div ng-show="Processing.GetProcessing('Medias').Value" class="row" style="z-index: 2000; position: absolute; left: 50%">
+            <div class="col-md-5 col-md-offset-5">
+                <img src="images/loading-bars.svg"  width="64" height="64" alt="Loading..." />
+            </div>
+        </div>
+        <div class="row">
+            <table width="100%" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td class="k-header" style="text-align: center"></td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('CustomerId')">CustomerId  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='CustomerId'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='CustomerId'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='CustomerId'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('OriginName')">OriginName  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='OriginName'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='OriginName'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='OriginName'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('FileName')">FileName  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileName'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileName'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileName'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('FileExt')">FileExt  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileExt'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileExt'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileExt'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('FileType')">FileType  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileType'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileType'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileType'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('FileSize')">FileSize  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileSize'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileSize'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileSize'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('FilePath')">FilePath  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FilePath'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FilePath'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FilePath'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="MediasVM.startSort('FileUrl')">FileUrl  
+                              <div ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileUrl'" class="pull-right">
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileUrl'&&MediasVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="MediasVM.SortedField!=null&&MediasVM.SortedField.Name=='FileUrl'&&MediasVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in MediasVM.ArrMedia">
+                    <tr ng-class="{'normalrow':(($index%2)==0),'alternativerow':($index%2!=0)}">
+                        <td style="text-align: center" class="col-md-1">
+                            <button class="btn btn-default" ng-show="item.allowedit" ng-click="startEditPopupMedia(item)" title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
+                            <button class="btn btn-default" ng-show="item.allowremove" ng-click="removeMedia(item)" title="Remove"><i class="glyphicon glyphicon-trash"></i></button>
+                        </td>
+                       <td class="col-md-2">
+                           {{item.CustomerName}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.OriginName}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.FileName}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.FileExt}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.FileType}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.FileSize}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.FilePath}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.FileUrl}}
+                       </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="9">
+                            <div class="row">
+                                <div class="control-group col-md-4">
+                                    <div class="controls">
+                                        <a class="btn btn-default" ng-click="startAddPopupMedia()"><i class="glyphicon glyphicon-plus" title="New"></i>New</a>
+                                    </div>
+                                </div>
+                                <div class=" col-md-8">
+                                    <div class="pull-right">
+                                        <ul class="pagination">
+                                            <li><a>Total <b>{{ MediasVM.Paging.TotalItems }}</b> items &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Page <b>{{MediasVM.Paging.PageIndex}} / {{MediasVM.Paging.TotalPages }}</b></a></li>
+                                            <li ng-class="{disabled: MediasVM.Paging.PageIndex==1}"><a ng-click="MediasVM.gotoPrevPage()">&laquo;</a></li>
+                                            <li ng-repeat-start="page in MediasVM.Paging.Pages" ng-class="{active: page == MediasVM.Paging.PageIndex}">
+                                                <a ng-click="MediasVM.gotoPage(page)">{{page}}</a>
+                                            </li>
+                                            <li ng-repeat-end class="divider"></li>
+                                            <li ng-class="{disabled:MediasVM.Paging.PageIndex >= MediasVM.Paging.TotalPages}"><a ng-click="MediasVM.gotoNextPage()">&raquo;</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+   <div class="modal fade" id="popupMedia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 10px 10px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">Media</h5>
+                </div>
+                <div class="modal-body" ng-if="MediaVM!=null">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row" ng-show="MediaVM.Processing.GetProcessing('Media').Value">
+                                <div class="col-md-6 col-md-offset-6" style="position: absolute">
+                                    <img src="images/loading-bars.svg"  width="64" height="64" alt="Loading..." />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row" ng-show="MediaVM.Media.isedit == true">
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlCustomerId">CustomerId</label>
+                           <select id="ctrlCustomerId" ng-model = "MediaVM.Media.CustomerId" ng-options="obj.Name as obj.Id for obj in CustomersVM.ArrCustomer"></select>
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlOriginName">OriginName</label>
+                           <input id="ctrlOriginName" type = "text" ng-model = "MediaVM.Media.OriginName"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlFileName">FileName</label>
+                           <input id="ctrlFileName" type = "text" ng-model = "MediaVM.Media.FileName"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlFileExt">FileExt</label>
+                           <input id="ctrlFileExt" type = "text" ng-model = "MediaVM.Media.FileExt"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlFileType">FileType</label>
+                           <input id="ctrlFileType" type = "text" ng-model = "MediaVM.Media.FileType"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlFileSize">FileSize</label>
+                           <input id="ctrlFileSize" type = "text" ng-model = "MediaVM.Media.FileSize"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlFilePath">FilePath</label>
+                           <input id="ctrlFilePath" type = "text" ng-model = "MediaVM.Media.FilePath"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlFileUrl">FileUrl</label>
+                           <input id="ctrlFileUrl" type = "text" ng-model = "MediaVM.Media.FileUrl"  class="form-control col-md-12" />
+                       </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" ng-if="MediaVM!=null">
+                    <div class="pull-right">
+                        <button class="btn btn-default" ng-click="finishEditPopupMedia()">Save</button>&nbsp;
+                        <button type="button" class="btn  btn-default" data-dismiss="modal">
+                            Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

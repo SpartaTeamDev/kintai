@@ -1,0 +1,182 @@
+<div class="animate-panel" ng-init="ctrl.initData()">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+                <div class="input-group pull-right">
+                    <input type="text" class="form-control" placeholder="search" ng-model="ProvincesVM.GetSearchParam('SearchCode').Value" ng-change="ProvincesVM.searchProvinces()" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="ProvincesVM.searchProvinces()">
+                            <i class="glyphicon glyphicon-search"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div ng-show="Processing.GetProcessing('Provinces').Value" class="row" style="z-index: 2000; position: absolute; left: 50%">
+            <div class="col-md-5 col-md-offset-5">
+                <img src="images/loading-bars.svg"  width="64" height="64" alt="Loading..." />
+            </div>
+        </div>
+        <div class="row">
+            <table width="100%" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td class="k-header" style="text-align: center"></td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="ProvincesVM.startSort('Name')">Name  
+                              <div ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='Name'" class="pull-right">
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='Name'&&ProvincesVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='Name'&&ProvincesVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="ProvincesVM.startSort('Code')">Code  
+                              <div ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='Code'" class="pull-right">
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='Code'&&ProvincesVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='Code'&&ProvincesVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="ProvincesVM.startSort('ZipCode')">ZipCode  
+                              <div ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='ZipCode'" class="pull-right">
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='ZipCode'&&ProvincesVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='ZipCode'&&ProvincesVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="ProvincesVM.startSort('AreaCode')">AreaCode  
+                              <div ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='AreaCode'" class="pull-right">
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='AreaCode'&&ProvincesVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='AreaCode'&&ProvincesVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="ProvincesVM.startSort('NumberPlate')">NumberPlate  
+                              <div ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='NumberPlate'" class="pull-right">
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='NumberPlate'&&ProvincesVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='NumberPlate'&&ProvincesVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                        <td class="k-header" style="text-align: center; cursor: pointer" ng-click="ProvincesVM.startSort('CountryId')">CountryId  
+                              <div ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='CountryId'" class="pull-right">
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='CountryId'&&ProvincesVM.SortedField.Direction==true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                  <a ng-show="ProvincesVM.SortedField!=null&&ProvincesVM.SortedField.Name=='CountryId'&&ProvincesVM.SortedField.Direction==false"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                              </div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in ProvincesVM.ArrProvince">
+                    <tr >
+                        <td style="text-align: center" class="col-md-1">
+                            <button class="btn btn-default" ng-show="item.allowedit" ng-click="startEditPopupProvince(item)" title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
+                            <button class="btn btn-default" ng-show="item.allowremove" ng-click="removeProvince(item)" title="Remove"><i class="glyphicon glyphicon-trash"></i></button>
+                        </td>
+                       <td class="col-md-2">
+                           {{item.Name}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.Code}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.ZipCode}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.AreaCode}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.NumberPlate}}
+                       </td>
+                       <td class="col-md-2">
+                           {{item.CountryName}}
+                       </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <div class="row">
+                                <div class="control-group col-md-4">
+                                    <div class="controls">
+                                        <a class="btn btn-default" ng-click="startAddPopupProvince()"><i class="glyphicon glyphicon-plus" title="New"></i>New</a>
+                                    </div>
+                                </div>
+                                <div class=" col-md-8">
+                                    <div class="pull-right">
+                                        <ul class="pagination">
+                                            <li><a>Total <b>{{ ProvincesVM.Paging.TotalItems }}</b> items &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Page <b>{{ProvincesVM.Paging.PageIndex}} / {{ProvincesVM.Paging.TotalPages }}</b></a></li>
+                                            <li ng-class="{disabled: ProvincesVM.Paging.PageIndex==1}"><a ng-click="ProvincesVM.gotoPrevPage()">&laquo;</a></li>
+                                            <li ng-repeat-start="page in ProvincesVM.Paging.Pages" ng-class="{active: page == ProvincesVM.Paging.PageIndex}">
+                                                <a ng-click="ProvincesVM.gotoPage(page)">{{page}}</a>
+                                            </li>
+                                            <li ng-repeat-end class="divider"></li>
+                                            <li ng-class="{disabled:ProvincesVM.Paging.PageIndex >= ProvincesVM.Paging.TotalPages}"><a ng-click="ProvincesVM.gotoNextPage()">&raquo;</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+   <div class="modal fade" id="popupProvince" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 10px 10px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">Province</h5>
+                </div>
+                <div class="modal-body" ng-if="ProvinceVM!=null">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row" ng-show="ProvinceVM.Processing.GetProcessing('Province').Value">
+                                <div class="col-md-6 col-md-offset-6" style="position: absolute">
+                                    <img src="images/loading-bars.svg"  width="64" height="64" alt="Loading..." />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row" ng-show="ProvinceVM.Province.isedit == true">
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlName">Name</label>
+                               <input id="ctrlName" type="text" ng-model="ProvinceVM.Province.Name"  ng-change="onChangeProvince_Name(ProvinceVM.Province)" ng-class="[{'validateinput':ValManager().Get('Name').IsValid==false}]" class="form-control" />
+                               <div class="row" style="color: Red" data-bind="with:">
+                                    <span ng-visible="ProvinceVM.Province.valmanager.Get('Name').IsValid==false&&ProvinceVM.Province.valmanager.Get('Name').ValMsg!=''">{{ProvinceVM.Province.valmanager.Get('Name').ValMsg}}</span>
+                               </div>
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlCode">Code</label>
+                           <input id="ctrlCode" type = "text" ng-model = "ProvinceVM.Province.Code"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlZipCode">ZipCode</label>
+                           <input id="ctrlZipCode" type = "text" ng-model = "ProvinceVM.Province.ZipCode"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlAreaCode">AreaCode</label>
+                           <input id="ctrlAreaCode" type = "text" ng-model = "ProvinceVM.Province.AreaCode"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlNumberPlate">NumberPlate</label>
+                           <input id="ctrlNumberPlate" type = "text" ng-model = "ProvinceVM.Province.NumberPlate"  class="form-control col-md-12" />
+                       </div>
+                       <div class="col-md-12">
+                           <label class="control-label" for="ctrlCountryId">CountryId</label>
+                           <select id="ctrlCountryId" ng-model = "ProvinceVM.Province.CountryId" ng-options="item.name for item in CountrysVM.ArrCountry track by obj.Id"></select>
+                       </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" ng-if="ProvinceVM!=null">
+                    <div class="pull-right">
+                        <button class="btn btn-default" ng-click="finishEditPopupProvince()">Save</button>&nbsp;
+                        <button type="button" class="btn  btn-default" data-dismiss="modal">
+                            Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

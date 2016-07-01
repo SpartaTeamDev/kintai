@@ -1,0 +1,62 @@
+<div id="navigation">
+    <!-- user profile -->
+    <div class="profile-picture">
+        <img src="{{ 'images/logo.png' }}" alt="logo" style="width:100px"/>
+    </div>
+    <!-- side menu -->
+    <ul class="nav" id="side-menu" side-navigation>
+        <li class="vmenublue" ui-sref-active="active">
+            <a ui-sref="staff.index"><span class="nav-label">Dashboard</span></a>
+        </li>
+        <li class="vmenuorange" if-role="backend.account" ng-class="{ active: account_active }"
+        ng-init="account_active = $state.includes('user') || $state.includes('role') || $state.includes('permission')">
+            <a href="#"><span class="nav-label">Account</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level" ng-class="{ in: account_active }">
+                <li if-role="backend.account.user" ng-class="{ active: $state.includes('user') }">
+                    <a href="#"><span class="nav-label">User</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" ng-class="{ in: $state.includes('user') }">
+                        <li ui-sref-active="active"><a ui-sref="user.index">Manage Users</a></li>
+                        <li ui-sref-active="active"><a ui-sref="user.create">Create User</a></li>
+                    </ul>
+                </li>
+                <li if-role="backend.account.role" ng-class="{ active: $state.includes('role') }">
+                    <a href="#"><span class="nav-label">Role</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" ng-class="{ in: $state.includes('role') }">
+                        <li ui-sref-active="active"><a ui-sref="role.index">Manage Roles</a></li>
+                        <li ui-sref-active="active"><a ui-sref="role.create">Create Role</a></li>
+                    </ul>
+                </li>
+                <li if-role="backend.account.permission" ng-class="{ active: $state.includes('permission') }">
+                    <a href="#"><span class="nav-label">Permission</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" ng-class="{ in: $state.includes('permission') }">
+                        <li ui-sref-active="active"><a ui-sref="permission.index">Manage Permissions</a></li>
+                        <li ui-sref-active="active"><a ui-sref="permission.create">Create Permission</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="vmenubrown" if-role="backend.system" ng-class="{ active: system_active }"
+        ng-init="system_active = $state.includes('setting') || $state.includes('lookup') || $state.includes('audit')">
+            <a href="#"><span class="nav-label">System</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level" ng-class="{ in: system_active }">
+                <li if-role="backend.system.setting" ng-class="{ active: $state.includes('setting') }">
+                    <a href="#"><span class="nav-label">Setting</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" ng-class="{ in: $state.includes('setting') }">
+                        <li ui-sref-active="active"><a ui-sref="setting.index">Manage Settings</a></li>
+                        <li ui-sref-active="active"><a ui-sref="setting.create">Create Setting</a></li>
+                    </ul>
+                </li>
+                <li if-role="backend.system.lookup" ng-class="{ active: $state.includes('lookup') }">
+                    <a href="#"><span class="nav-label">Lookup</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" ng-class="{ in: $state.includes('lookup') }">
+                        <li ui-sref-active="active"><a ui-sref="lookup.index">Manage Lookups</a></li>
+                        <li ui-sref-active="active"><a ui-sref="lookup.create">Create Lookup</a></li>
+                    </ul>
+                </li>
+                <li if-role="backend.system.audit" ui-sref-active="active">
+                    <a ui-sref="audit"><span class="nav-label">Audit Trails</span></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
