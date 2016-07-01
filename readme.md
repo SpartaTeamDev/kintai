@@ -23,3 +23,6 @@ sudo service apache2 reload
 IncludeOptional "d:/wamp/www/kintai/apache/httpd-vhosts.conf"
 
 # Restart WampServer
+
+# Member
+Hoàng Sơn
