@@ -11,8 +11,8 @@
     <link rel="shortcut icon" type="image/ico" href="{{ url('/favicon.ico') }}"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Dosis:400,500,600,700|Open+Sans:400,600|EB+Garamond"/>
 @if ($isProduction)
-    <link rel="stylesheet" href="styles/vendor.7a2944d3.css"/>
-    <link rel="stylesheet" href="styles/style.977c632d.css"/>
+    <link rel="stylesheet" href="styles/vendor.e1b60f2b.css"/>
+    <link rel="stylesheet" href="styles/style.96716834.css"/>
 @else
     <link rel="stylesheet" href="../bower_components/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="../bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.css"/>
@@ -35,7 +35,7 @@
     <![endif]-->
     <div ui-view autoscroll="true"></div>
 @if ($isProduction)
-    <script src="scripts/vendor.1113560a.js"></script>
+    <script src="scripts/vendor.72eb041d.js"></script>
 @else
     <script src="../bower_components/underscore/underscore.js"></script>
     <script src="../bower_components/lockr/lockr.js"></script>
@@ -63,7 +63,7 @@
 window.CONFIG = {!! json_encode(['app' => $config['app'], 'cookie' => $config['cookie'], 'urls' => $config['urls']]) !!};
     /*]]>*/</script>
 @if ($isProduction)
-    <script src="scripts/scripts.5a503538.js"></script>
+    <script src="scripts/scripts.8459a70c.js"></script>
 @else
     <script src="scripts/theme.js"></script>
     <script src="scripts/app.js"></script>

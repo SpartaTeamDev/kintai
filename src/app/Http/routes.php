@@ -20,7 +20,7 @@ Route::group(['prefix' => 'api'], function()
     ]);
 });
 
-Route::group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function()
+Route::group(['prefix' => 'api'/*, 'middleware' => 'jwt.auth'*/], function()
 {
     foreach (glob(__DIR__ . '/Controllers/*/*.*') as $v)
     {
