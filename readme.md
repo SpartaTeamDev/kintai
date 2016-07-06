@@ -24,6 +24,10 @@ IncludeOptional "d:/wamp/www/kintai/apache/httpd-vhosts.conf"
 
 # Restart WampServer
 
+
+# Install db sample
+php artisan db:seed
+
 # Member
-Hoàng Sơn
-Quốc Cường
+> Hoàng Sơn
+> Quốc Cường
