@@ -160,6 +160,9 @@ return [
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
 
+        /**
+         * @author ntd1712
+         */
         'Atrauzzi\LaravelDoctrine\ServiceProvider',
         'Barryvdh\Cors\ServiceProvider',
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
