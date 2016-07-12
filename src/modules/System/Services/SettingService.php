@@ -13,7 +13,7 @@ class SettingService extends AbstractBaseService
     protected function onAfterSave(UpdateEventArgs $eventArgs, $isDeleted = false)
     {
         // write data to cached file(s)
-        if (file_exists($target = $this->getConfig()->get('paths.configPath')))
+        if (file_exists($target = $this->getConfig()->get('paths.config')))
         {
             $response = $this->readAll();
             $config = require $target;

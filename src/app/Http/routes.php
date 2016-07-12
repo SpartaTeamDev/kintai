@@ -10,9 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', 'AuthController@spa');
+Route::get('/', 'AuthController@spa');       // load SPA template
 
-Route::group(['prefix' => 'api'], function()
+Route::group(['prefix' => 'api'], function() // access without authorization; used for login, reset password, etc.
 {
     Route::post('auth/renewtoken', ['middleware' => 'jwt.refresh', 'uses' => 'AuthController@ping']);
     Route::controllers([

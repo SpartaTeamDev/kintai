@@ -262,13 +262,14 @@ class AuthController extends Controller
         }
 
         // prepare data for email
-        $html = new MimePart(nl2br(strtr(\Lang::get('auth.identity_tpl'), [
+        $part = new MimePart(nl2br(strtr(\Lang::get('auth.identity_tpl'), [
             ':name' => $entity->getName(),
-            ':link' => $this->getConfig()->get('app.url') . '/#/reset?k=' . base64_encode($entity->getEmail())
+            ':link' => $this->getConfig()->get('app.url') . $this->getConfig()->get('urls.reset')
+                . base64_encode($entity->getEmail())
         ])));
-        $html->type = 'text/html';
+        $part->type = 'text/html';
         $body = new MimeMessage;
-        $body->addPart($html);
+        $body->addPart($part);
 
         $message = new Message;
         $message
@@ -277,8 +278,7 @@ class AuthController extends Controller
             ->setSubject(\Lang::get('auth.identity_subject'))
             ->setBody($body);
 
-        $transport = new SmtpTransport(new SmtpOptions([
-            'name' => 'mail.biziwave.net',
+        $smtp = new SmtpTransport(new SmtpOptions([
             'host' => $this->getConfig()->get('mail.host'),
             'port' => (int)$this->getConfig()->get('mail.port'),
             'connection_config' => [
@@ -287,7 +287,7 @@ class AuthController extends Controller
             ],
             'connection_class' => 'login'
         ]));
-        $transport->send($message);
+        $smtp->send($message);
 
         // bye!
         return ['success' => true];
@@ -295,6 +295,7 @@ class AuthController extends Controller
 
     /**
      * The "reset (password)" action
+     * @todo Make sure we are the one who have requested to reset password
      *
      * @param   \Request $request
      * @return  array

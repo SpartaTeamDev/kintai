@@ -31,7 +31,7 @@ class MediaService extends AbstractBaseService
         {
             /** @var \Symfony\Component\HttpFoundation\File\File $target */
             $target = $payload['file']->move(
-                $this->getConfig()->get('paths.uploadPath') . DIRECTORY_SEPARATOR . $this->getConfig()->get('app.key'),
+                $this->getConfig()->get('paths.upload') . DIRECTORY_SEPARATOR . $this->getConfig()->get('app.key'),
                 $post['FileName'] . '.' . $post['FileExt']);
 
             $post['FileType'] = $target->getMimeType();

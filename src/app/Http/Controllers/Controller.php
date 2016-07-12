@@ -16,7 +16,7 @@ abstract class Controller extends AbstractLaravelRestController
                 'app' => array_slice(config('app'), 0, 10), // remove "providers" & "aliases" keys
                 'cookie' => ['name' => config('session.cookie'), 'expires' => config('session.lifetime')],
                 'mail' => config('mail'),
-                'paths' => ['configPath' => $configPath = base_path('modules/config.params.php')],
+                'paths' => ['config' => $configPath = base_path('modules/config.params.php')],
             ], require_once $configPath),
             require_once base_path('modules/config.services.php')
         );

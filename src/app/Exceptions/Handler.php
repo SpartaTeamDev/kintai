@@ -43,7 +43,7 @@ class Handler extends ExceptionHandler
         {
             return response()->json(['error' => 'csrf_invalid'], 500);
         }
-        elseif ($e instanceof \Exception)
+        elseif ($e instanceof \Throwable)
         {
             return response()->json(['error' => (bool)config('app.debug') ? $e->getMessage() :
                 'An error occurred, please contact the administrator'], 500);

@@ -1,5 +1,3 @@
-# Login information: demo@example.com / @demo*
-
 ###################
 # For UBUNTU users
 ###################
@@ -24,6 +22,12 @@ IncludeOptional "d:/wamp/www/kintai/apache/httpd-vhosts.conf"
 
 # Restart WampServer
 
-# Member
-Hoàng Sơn
-Quốc Cường
+####################
+# Installation
+####################
+
+# Create a new database named "kintai"
+# cd to the "src" directory, run the command "composer install" in terminal
+# And then run another command "php artisan db:seed"
+# cd to the "src/public/themes/homer" directory, run the command "bower install"
+# Login information: demo@example.com / @demo*
