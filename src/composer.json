@@ -17,7 +17,6 @@
     "tymon/jwt-auth": "dev-master"
   },
   "require-dev": {
-    "fzaninotto/faker": "dev-master",
     "barryvdh/laravel-ide-helper": "dev-master"
   },
   "suggest": {

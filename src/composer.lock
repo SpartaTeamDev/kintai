@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "af9ae248bf0d7b403a117788168c3a8d",
+    "hash": "01944679abad8fdceeb0c5bd2049b6d8",
     "content-hash": "49403e212206864de359936e68350015",
     "packages": [
         {
@@ -221,12 +221,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ntd1712/common.git",
-                "reference": "126fd97d6b2cac327a46bd0312c6312a03a29a01"
+                "reference": "440f17374465a36cd6986fe72b79864a82e3049f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ntd1712/common/zipball/126fd97d6b2cac327a46bd0312c6312a03a29a01",
-                "reference": "126fd97d6b2cac327a46bd0312c6312a03a29a01",
+                "url": "https://api.github.com/repos/ntd1712/common/zipball/440f17374465a36cd6986fe72b79864a82e3049f",
+                "reference": "440f17374465a36cd6986fe72b79864a82e3049f",
                 "shasum": ""
             },
             "archive": {
@@ -243,8 +243,9 @@
             "require": {
                 "doctrine/orm": "2.5.2",
                 "hassankhan/config": "dev-develop",
-                "league/container": "dev-master",
+                "league/container": "~2.0",
                 "php": ">=5.4",
+                "symfony/polyfill-php55": "~1.0",
                 "zendframework/zend-db": "2.5.1",
                 "zendframework/zend-filter": "2.5.1",
                 "zendframework/zend-http": "2.5.1",
@@ -255,7 +256,9 @@
                 "zendframework/zend-validator": "2.5.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8"
+                "fzaninotto/faker": "dev-master",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -286,7 +289,7 @@
                 "source": "https://github.com/ntd1712/common/tree/master",
                 "issues": "https://github.com/ntd1712/common/issues"
             },
-            "time": "2016-07-11 14:52:57"
+            "time": "2016-07-13 16:10:03"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1315,12 +1318,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hassankhan/config.git",
-                "reference": "86ca8f1f895863fc5956b4368696e58a2489d81c"
+                "reference": "b0889ebfc13521c8a533abe30c5646477f86ece2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hassankhan/config/zipball/86ca8f1f895863fc5956b4368696e58a2489d81c",
-                "reference": "86ca8f1f895863fc5956b4368696e58a2489d81c",
+                "url": "https://api.github.com/repos/hassankhan/config/zipball/b0889ebfc13521c8a533abe30c5646477f86ece2",
+                "reference": "b0889ebfc13521c8a533abe30c5646477f86ece2",
                 "shasum": ""
             },
             "require": {
@@ -1364,7 +1367,7 @@
                 "yaml",
                 "yml"
             ],
-            "time": "2016-05-14 14:17:28"
+            "time": "2016-07-13 14:52:18"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1776,16 +1779,16 @@
         },
         {
             "name": "league/container",
-            "version": "dev-master",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/container.git",
-                "reference": "93b3f4f72c5871121e4702b7da265e1147ddc8e6"
+                "reference": "c0e7d947b690891f700dc4967ead7bdb3d6708c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/container/zipball/93b3f4f72c5871121e4702b7da265e1147ddc8e6",
-                "reference": "93b3f4f72c5871121e4702b7da265e1147ddc8e6",
+                "url": "https://api.github.com/repos/thephpleague/container/zipball/c0e7d947b690891f700dc4967ead7bdb3d6708c1",
+                "reference": "c0e7d947b690891f700dc4967ead7bdb3d6708c1",
                 "shasum": ""
             },
             "require": {
@@ -1836,7 +1839,7 @@
                 "provider",
                 "service"
             ],
-            "time": "2016-04-14 09:45:18"
+            "time": "2016-03-17 11:07:59"
         },
         {
             "name": "league/flysystem",
@@ -3077,6 +3080,62 @@
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
             "time": "2016-01-14 10:11:16"
+        },
+        {
+            "name": "symfony/polyfill-php55",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php55.git",
+                "reference": "bf2ff9ad6be1a4772cb873e4eea94d70daa95c6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/bf2ff9ad6be1a4772cb873e4eea94d70daa95c6d",
+                "reference": "bf2ff9ad6be1a4772cb873e4eea94d70daa95c6d",
+                "shasum": ""
+            },
+            "require": {
+                "ircmaxell/password-compat": "~1.0",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php55\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 5.5+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-05-18 14:26:46"
         },
         {
             "name": "symfony/polyfill-php56",
