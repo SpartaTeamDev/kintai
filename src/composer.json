@@ -20,7 +20,6 @@
     "barryvdh/laravel-ide-helper": "dev-master"
   },
   "suggest": {
-    "ircmaxell/password-compat": "To support the BCrypt encoder",
     "symfony/security-core": "Symfony Security Component - Core Library"
   },
   "repositories": [{
