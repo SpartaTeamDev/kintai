@@ -17,7 +17,8 @@
     "tymon/jwt-auth": "dev-master"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "dev-master"
+    "barryvdh/laravel-ide-helper": "dev-master",
+    "fzaninotto/faker": "~1.6"
   },
   "suggest": {
     "symfony/security-core": "Symfony Security Component - Core Library"

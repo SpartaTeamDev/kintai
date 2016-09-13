@@ -11,7 +11,7 @@ function RequestProvider() {
                 if (401 === response.status) {
                     // handled by angular-jwt, $rootScope.$broadcast("unauthenticated", response);
                 }
-                else {
+                else if (response.data) {
                     switch (response.data.error) {
                         case "token_expired":
                         case "token_not_provided":

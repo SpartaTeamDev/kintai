@@ -1,5 +1,5 @@
 {{--*/ $isProduction = 'production' === $config['app.env']; /*--}}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ $config['app.locale'] }}" ng-app="homer">
 <head>
     <base href="{{ url('/themes/' . $config['app.theme']) . ($isProduction ? '/dist' : '/app') }}/"/>
