@@ -5,34 +5,40 @@
 chaos.config(configBlocks)
      .run(runBlocks);
 
-function configBlocks($compileProvider, $httpProvider, $urlRouterProvider, jwtInterceptorProvider) {
-    jwtInterceptorProvider.tokenGetter = function($http, config, jwtHelper) {
-        if (".html" === config.url.substr(config.url.length - 5)) {
-            return null;
-        }
+function configBlocks($compileProvider, $httpProvider, $urlRouterProvider, jwtOptionsProvider) {
+    jwtOptionsProvider.config({
+        tokenGetter: function($http, options, jwtHelper) {
+            if (".html" === options.url.substr(options.url.length - 5)) {
+                return null;
+            }
 
-        var token = Lockr.get(CONFIG.cookie.name + "_jwt");
+            var token = Lockr.get(CONFIG.cookie.name + "_jwt");
 
-        if (!token) {
-            return null;
-        }
-        else if (jwtHelper.isTokenExpired(token)) {
-            return $http({
-                url: $http.defaults.route + "auth/renewtoken?token=" + token,
-                skipAuthorization: true,
-                method: "POST"
-            }).then(function(response) {
-                if (response.headers("authorization")) {
-                    token = (response.headers("authorization") + "").replace(/bearer\s*/i, "");
-                    Lockr.set(CONFIG.cookie.name + "_jwt", token);
+            if (!token) {
+                return null;
+            }
+            else if (jwtHelper.isTokenExpired(token)) {
+                return $http({
+                    url: $http.defaults.route + "auth/renewtoken?token=" + token,
+                    skipAuthorization: true,
+                    method: "POST"
+                }).then(function(response) {
+                    if (response.headers("authorization")) {
+                        token = (response.headers("authorization") + "").replace(/bearer\s*/i, "");
+                        Lockr.set(CONFIG.cookie.name + "_jwt", token);
 
-                    return token;
-                }
-            });
-        }
+                        return token;
+                    }
+                });
+            }
 
-        return token;
-    };
+            return token;
+        },
+        unauthenticatedRedirector: function($state) {
+            $state.go("login", {}, { reload: true });
+        },
+        whiteListedDomains: ["localhost", "127.0.0.1"]
+    });
 
     $httpProvider.interceptors.push("jwtInterceptor");
     $httpProvider.interceptors.push("RequestProvider");
