@@ -166,8 +166,10 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        'Atrauzzi\LaravelDoctrine\ServiceProvider',
+        'Barryvdh\Cors\ServiceProvider',
+        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
         /*
          * Application Service Providers...
@@ -177,14 +179,6 @@ return [
         'App\Providers\ConfigServiceProvider',
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
-
-        /**
-         * @author ntd1712
-         */
-        'Atrauzzi\LaravelDoctrine\ServiceProvider',
-        'Barryvdh\Cors\ServiceProvider',
-        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
     ],
 
     /*
