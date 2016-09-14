@@ -6,7 +6,7 @@
 127.0.0.1   kintai.local
 
 # Copy the .conf file
-sudo cp /var/www/html/kintai/apache/kintai.local.conf /etc/apache2/sites-available/
+sudo cp /var/www/html/kintai/deploys/20160622/local/kintai.local.conf /etc/apache2/sites-available/
 sudo a2ensite kintai.local.conf
 sudo service apache2 reload
 
@@ -18,7 +18,7 @@ sudo service apache2 reload
 127.0.0.1   kintai.local
 
 # Add the following line to c:\wamp\bin\apache\apache2.4.9\conf\extra\httpd-vhosts.conf
-IncludeOptional "d:/wamp/www/kintai/apache/httpd-vhosts.conf"
+IncludeOptional "d:/wamp/www/kintai/deploys/20160622/local/httpd-vhosts.conf"
 
 # Restart WampServer
 

@@ -1,7 +1,7 @@
 {
   "name": "chaos/kintai",
   "type": "project",
-  "description": "The Kintai project",
+  "description": "The New Kintai project",
   "keywords": ["ntd1712", "kintai"],
   "homepage": "http://taingheso.com",
   "license": "ntd1712",
@@ -19,9 +19,6 @@
   "require-dev": {
     "barryvdh/laravel-ide-helper": "dev-master",
     "fzaninotto/faker": "~1.6"
-  },
-  "suggest": {
-    "symfony/security-core": "Symfony Security Component - Core Library"
   },
   "repositories": [{
     "type": "vcs",
@@ -46,7 +43,7 @@
   },
   "scripts": {
     "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\""
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
     "post-create-project-cmd": [
       "php artisan key:generate"
@@ -61,7 +58,5 @@
   "config": {
     "discard-changes": true,
     "preferred-install": "dist"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }

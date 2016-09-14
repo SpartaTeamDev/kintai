@@ -3,10 +3,10 @@
 echo
 echo "Setting environment variables ..."
 if [ "$1" == "-p" ]; then
-    cp environments/.env.production .env
+    cp deploys/20160622/production/.env .env
 else
     if [ ! -f .env ]; then
-        cp environments/.env.example .env
+        cp deploys/20160622/local/.env .env
     fi
 
     echo "Creating modules/config.params.php file if any ..."
@@ -53,7 +53,3 @@ echo "Deleting temporary files ..."
 ls storage/framework/sessions/* | grep -v .gitignore | xargs rm -f
 ls storage/framework/views/* | grep -v .gitignore | xargs rm -f
 ls storage/logs/* | grep -v .gitignore | xargs rm -f
-
-if [ "$1" == "-p" ]; then
-    cp environments/.env.example .env
-fi

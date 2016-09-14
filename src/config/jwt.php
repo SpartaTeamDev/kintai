@@ -96,7 +96,7 @@ return [
     | Blacklist Enabled
     |--------------------------------------------------------------------------
     |
-    | In order to invalidate tokens, you must have the the blacklist enabled.
+    | In order to invalidate tokens, you must have the blacklist enabled.
     | If you do not want or need this functionality, then set this to false.
     |
     */
@@ -104,33 +104,11 @@ return [
     'blacklist_enabled' => env('JWT_BLACKLIST_ENABLED', true),
 
     /*
-    | -------------------------------------------------------------------------
-    | Blacklist Grace Period
-    | -------------------------------------------------------------------------
-    |
-    | When multiple concurrent requests are made with the same JWT,
-    | it is possible that some of them fail, due to token regeneration
-    | on every request.
-    |
-    | Set grace period in seconds to prevent parallel request failure.
-    |
-    */
-
-    'blacklist_grace_period' => env('JWT_BLACKLIST_GRACE_PERIOD', 0),
-
-    /*
     |--------------------------------------------------------------------------
     | Providers
     |--------------------------------------------------------------------------
     |
     | Specify the various providers used throughout the package.
-    |
-    | Note: it is also possible to pass a closure,
-    | if you want more control. e.g.
-    |
-    | 'auth' => function ($app) {
-    |     return new Tymon\JWTAuth\Providers\Auth\Illuminate($app['auth']);
-    | }
     |
     */
 
@@ -168,9 +146,7 @@ return [
         |
         */
 
-        'auth' => function ($app) {
-            return new Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter($app['auth']);
-        },
+        'auth' => 'Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter',
 
         /*
         |--------------------------------------------------------------------------
@@ -181,9 +157,7 @@ return [
         |
         */
 
-        'storage' => function ($app) {
-            return new Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter($app['cache']);
-        }
+        'storage' => 'Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter',
 
     ]
 

@@ -98,9 +98,9 @@
             'port' => env('REDIS_PORT', 6379),
             'database' => 1
         ],
-        'memcache' => [
-            'host' => '127.0.0.1',
-            'port' => 11211
+        'memcached' => [
+            'host' => env('MEMCACHED_HOST', '127.0.0.1'),
+            'port' => env('MEMCACHED_PORT', 11211)
         ],
         'providers' => [
             'memcache' => 'Atrauzzi\LaravelDoctrine\CacheProvider\MemcacheProvider',
