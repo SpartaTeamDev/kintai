@@ -101,7 +101,7 @@ function Anonymous($compile) {
             };
 
             if (undefined !== $scope.collection) {
-                var model = _.findWhere($scope.collection,
+                var model = _.find($scope.collection,
                     eval("({" + map.id + ":" + ("number" === typeof id ? id : '"' + String(id).replace(/"/g, "&quot;") + '"') + "})"));
                 handler({ data: model, success: undefined !== model });
             }

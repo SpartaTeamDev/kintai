@@ -37,7 +37,7 @@
 @if ($isProduction)
     <script src="scripts/vendor.72eb041d.js"></script>
 @else
-    <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.js"></script>
     <script src="../bower_components/lockr/lockr.js"></script>
     <script src="../bower_components/moment/moment.js"></script>
     <script src="../bower_components/Snarl/dist/snarl.js"></script>

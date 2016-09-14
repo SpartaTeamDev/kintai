@@ -26,7 +26,6 @@
     "moment-timezone": "~0.5.4",
     "sockjs-client": "~1.0.3",
     "screenfull": "~3.0.0",
-    "underscore": "~1.8.3",
     "TimelineJS3": "~3.3.9",
     "Snarl": "~0.3.2",
     "waves": "~0.7.5",

@@ -13,7 +13,7 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
 
     UserController.prototype.beforeForm = function(id, isNew) {
         $scope.roles = { data: [], primary: { Id: 0 }, secondary: [], filter: function(value) {
-            return undefined === _.findWhere([$scope.roles.primary].concat($scope.roles.secondary), { Id: value.Id });
+            return undefined === _.find([$scope.roles.primary].concat($scope.roles.secondary), { Id: value.Id });
         }};
     };
 
@@ -28,8 +28,8 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
 
         RoleRepository.index().then(function(response) {
             $scope.roles.data = response.data;
-            var defaultRole = _.findWhere($scope.roles.data, { Name: 'User' }),
-                primaryRole = _.findWhere($scope.model.Roles, { IsPrimary: true });
+            var defaultRole = _.find($scope.roles.data, { Name: 'User' }),
+                primaryRole = _.find($scope.model.Roles, { IsPrimary: true });
 
             if (undefined !== primaryRole) {
                 $scope.roles.primary = primaryRole.Role;
@@ -38,7 +38,7 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
                 $scope.roles.primary = defaultRole;
             }
 
-            _.each(_.without($scope.model.Roles, primaryRole), function(value) {
+            _.forEach(_.without($scope.model.Roles, primaryRole), function(value) {
                 $scope.roles.secondary.push(value.Role);
             });
         });
