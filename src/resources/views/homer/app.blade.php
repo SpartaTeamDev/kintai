@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../bower_components/animate.css/animate.css"/>
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../bower_components/bootstrap-sweetalert/dist/sweetalert.css"/>
-    <link rel="stylesheet" href="../bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.css"/>
+    <link rel="stylesheet" href="../bower_components/datatables.net-plugins/integration/bootstrap/3/dataTables.bootstrap.css"/>
     <link rel="stylesheet" href="../bower_components/metisMenu/dist/metisMenu.css"/>
     <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.css"/>
     <link rel="stylesheet" href="../bower_components/Snarl/dist/snarl.css"/>
@@ -44,9 +44,9 @@
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="../bower_components/bootstrap-sweetalert/dist/sweetalert.js"></script>
-    <script src="../bower_components/DataTables/media/js/jquery.dataTables.js"></script>
-    <script src="../bower_components/datatables_plugins/api/fnSetFilteringDelay.js"></script>
-    <script src="../bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="../bower_components/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="../bower_components/datatables.net-plugins/api/fnSetFilteringDelay.js"></script>
+    <script src="../bower_components/datatables.net-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
     <script src="../bower_components/icheck/icheck.js"></script>
     <script src="../bower_components/masonry/dist/masonry.pkgd.js"></script>
     <script src="../bower_components/metisMenu/dist/metisMenu.js"></script>
