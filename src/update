@@ -3,10 +3,10 @@
 echo
 echo "Setting environment variables ..."
 if [ "$1" == "-p" ]; then
-    cp deploys/20160622/production/.env .env
+    cp ../deploys/20160622/production/.env .env
 else
     if [ ! -f .env ]; then
-        cp deploys/20160622/local/.env .env
+        cp ../deploys/20160622/local/.env .env
     fi
 
     echo "Creating modules/config.params.php file if any ..."
