@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,10 +6,9 @@ chaos.controller("UserController", Anonymous);
 
 function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
     function UserController() {
-        AbstractController.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
-    UserController.prototype = Object.create(AbstractController.prototype);
-    UserController.prototype.constructor = UserController;
+    extend(UserController, AbstractController);
 
     UserController.prototype.beforeForm = function(id, isNew) {
         $scope.roles = { data: [], primary: { Id: 0 }, secondary: [], filter: function(value) {
@@ -28,7 +27,7 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
 
         RoleRepository.index().then(function(response) {
             $scope.roles.data = response.data;
-            var defaultRole = _.find($scope.roles.data, { Name: 'User' }),
+            var defaultRole = _.find($scope.roles.data, { Name: "User" }),
                 primaryRole = _.find($scope.model.Roles, { IsPrimary: true });
 
             if (undefined !== primaryRole) {
@@ -48,7 +47,7 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
         model.Roles = [$scope.roles.primary].concat($scope.roles.secondary);
     };
 
-    return new UserController();
+    return UserController.construct(arguments);
 }
 
 })();

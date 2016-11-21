@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
                 'force_password_change' => true,
                 'profile' => json_encode([
                     'DisplayName' => $faker->name,
-                    'Photo' => 'no_photo.jpg',
+                    'Photo' => '/uploads/no_photo.jpg',
                     'About' => $faker->text
                 ]),
                 'remember_token' => str_random(10)
@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder
                 'force_password_change' => true,
                 'profile' => json_encode([
                     'DisplayName' => $faker->name,
-                    'Photo' => 'no_photo.jpg',
+                    'Photo' => '/uploads/no_photo.jpg',
                     'About' => $faker->text
                 ]),
                 'remember_token' => str_random(10)

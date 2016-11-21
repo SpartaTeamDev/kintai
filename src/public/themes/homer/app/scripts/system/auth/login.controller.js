@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,7 +6,7 @@ chaos.controller("LoginController", Anonymous);
 
 function Anonymous($scope, LoginRepository, AbstractController) {
     function LoginController() {
-        LoginController.parent.constructor.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
     extend(LoginController, AbstractController);
 
@@ -14,8 +14,8 @@ function Anonymous($scope, LoginRepository, AbstractController) {
         this.repository.store(model).then(
             function(response) {
                 delete $scope.$parent.error;
-                Lockr.set(CONFIG.cookie.name + "_jwt", response.data.token);
-                $scope.$state.go(CONFIG.app.defaultRoute, {}, { reload: true });
+                Lockr.set(CFG.session.cookie + "_jwt", response.data.token);
+                $scope.$state.go(CFG.app.defaultRoute, {}, { reload: true });
             },
             function(response) {
                 $scope.$parent.error = response.data.error || "Could not log in";
@@ -30,7 +30,7 @@ function Anonymous($scope, LoginRepository, AbstractController) {
                 $scope.$state.go("login", {}, { reload: true });
             })
             .finally(function() {
-                Lockr.rm(CONFIG.cookie.name + "_jwt");
+                Lockr.rm(CFG.session.cookie + "_jwt");
             });
 
         return this;
@@ -67,7 +67,7 @@ function Anonymous($scope, LoginRepository, AbstractController) {
         return this;
     };
 
-    return new LoginController();
+    return LoginController.construct(arguments);
 }
 
 })();

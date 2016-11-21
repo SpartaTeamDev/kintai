@@ -1,10 +1,11 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.config(configBlocks);
 
-function configBlocks($stateProvider) {
+function configBlocks($stateProvider, $translatePartialLoaderProvider) {
+    $translatePartialLoaderProvider.addPart("staff");
     $stateProvider
         .state("staff", {
             url: "/staff",

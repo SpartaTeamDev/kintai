@@ -11,18 +11,17 @@
     <link rel="shortcut icon" type="image/ico" href="{{ url('/favicon.ico') }}"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Dosis:400,500,600,700|Open+Sans:400,600|EB+Garamond"/>
 @if ($isProduction)
-    <link rel="stylesheet" href="styles/vendor.e1b60f2b.css"/>
+    <link rel="stylesheet" href="styles/vendor.d78eb1c6.css"/>
     <link rel="stylesheet" href="styles/style.96716834.css"/>
 @else
-    <link rel="stylesheet" href="../bower_components/fontawesome/css/font-awesome.css"/>
-    <link rel="stylesheet" href="../bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.css"/>
-    <link rel="stylesheet" href="../bower_components/animate.css/animate.css"/>
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../bower_components/bootstrap-sweetalert/dist/sweetalert.css"/>
-    <link rel="stylesheet" href="../bower_components/datatables.net-plugins/integration/bootstrap/3/dataTables.bootstrap.css"/>
-    <link rel="stylesheet" href="../bower_components/metisMenu/dist/metisMenu.css"/>
-    <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.css"/>
-    <link rel="stylesheet" href="../bower_components/Snarl/dist/snarl.css"/>
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="../node_modules/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.css"/>
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.css"/>
+    <link rel="stylesheet" href="../node_modules/Snarl/dist/snarl.css"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap-sweetalert/dist/sweetalert.css"/>
+    <link rel="stylesheet" href="../node_modules/datatables.net-bs/css/dataTables.bootstrap.css"/>
+    <link rel="stylesheet" href="../node_modules/ui-select/dist/select.css"/>
     <link rel="stylesheet" href="styles/pe-icon-7-stroke-helper.css"/>
     <link rel="stylesheet" href="styles/style.css"/>
     <link rel="stylesheet" href="styles/custom.css"/>
@@ -35,35 +34,37 @@
     <![endif]-->
     <div ui-view autoscroll="true"></div>
 @if ($isProduction)
-    <script src="scripts/vendor.72eb041d.js"></script>
+    <script src="scripts/vendor.ba03903f.js"></script>
 @else
-    <script src="../bower_components/lodash/dist/lodash.js"></script>
-    <script src="../bower_components/lockr/lockr.js"></script>
-    <script src="../bower_components/moment/moment.js"></script>
-    <script src="../bower_components/Snarl/dist/snarl.js"></script>
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="../bower_components/bootstrap-sweetalert/dist/sweetalert.js"></script>
-    <script src="../bower_components/datatables.net/js/jquery.dataTables.js"></script>
-    <script src="../bower_components/datatables.net-plugins/api/fnSetFilteringDelay.js"></script>
-    <script src="../bower_components/datatables.net-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-    <script src="../bower_components/icheck/icheck.js"></script>
-    <script src="../bower_components/masonry/dist/masonry.pkgd.js"></script>
-    <script src="../bower_components/metisMenu/dist/metisMenu.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="../bower_components/angular-ui-select/dist/select.js"></script>
-    <script src="../bower_components/angular-datatables/dist/angular-datatables.js"></script>
-    <script src="../bower_components/angular-jwt/dist/angular-jwt.js"></script>
-    <script src="../bower_components/checklist-model/checklist-model.js"></script>
-    <script src="../bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="../node_modules/lockr/lockr.js"></script>
+    <script src="../node_modules/lodash/lodash.js"></script>
+    <script src="../node_modules/moment/moment.js"></script>
+    <script src="../node_modules/Snarl/dist/snarl.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../node_modules/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <script src="../node_modules/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="../node_modules/drmonty-datatables-plugins/api/fnSetFilteringDelay.js"></script>
+    <script src="../node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
+    <script src="../node_modules/icheck/icheck.js"></script>
+    <script src="../node_modules/masonry-layout/dist/masonry.pkgd.js"></script>
+    <script src="../node_modules/metismenu/dist/metisMenu.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../node_modules/ui-select/dist/select.js"></script>
+    <script src="../node_modules/angular-datatables/dist/angular-datatables.js"></script>
+    <script src="../node_modules/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="../node_modules/angular-translate/dist/angular-translate.js"></script>
+    <script src="../node_modules/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="../node_modules/checklist-model/checklist-model.js"></script>
+    <script src="../node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
 @endif
     <script>/*<![CDATA[*/
-window.CONFIG = {!! json_encode(['app' => $config['app'], 'cookie' => $config['cookie'], 'urls' => $config['urls']]) !!};
+window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['session'], 'urls' => $config['urls']]) !!};
     /*]]>*/</script>
 @if ($isProduction)
-    <script src="scripts/scripts.8459a70c.js"></script>
+    <script src="scripts/scripts.51fdec14.js"></script>
 @else
     <script src="scripts/theme.js"></script>
     <script src="scripts/app.js"></script>

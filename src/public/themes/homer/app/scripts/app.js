@@ -8,35 +8,63 @@ window.chaos = angular.module("homer", [
     "ui.select",
     "datatables",
     "angular-jwt",
+    "pascalprecht.translate",
     "checklist-model",
     "ngFileUpload"
 ]);
 
-if (window.swal) {
+/**
+ * To support pascalprecht.translate::useStorage
+ */
+chaos.factory("Lockr", function() {
+    return angular.extend(Lockr, {
+        put: function() {
+            return Lockr.set.apply(this, arguments);
+        }
+    });
+});
+
+if (void 0 !== window.swal) {
     /**
-     * @param {String|*} message
-     * @param {String} [text=undefined]
-     * @param {String} [type=undefined]
+     * @param {string|Object} message
+     * @param {string=} text
+     * @param {("error"|"warning"|"info"|"success"|"input"|"prompt")} type The allowed type of the message
+     * @link https://lipis.github.io/bootstrap-sweetalert Documentation of swal
      */
     window.alert = function(message, text, type) {
-        swal(String(message), text, type);
+        swal("object" === typeof message ? message : String(message), text, type);
     };
 
     /**
-     * @param {String} message
-     * @param {Object} [options=undefined]
-     * @param {Function} [handler=undefined]
-     * @param {Object} [context=undefined]
+     * @param {string|Function|*} message
+     * @param {Function=} handler
+     * @param {Object=} context
      */
-    window.confirm = function(message, options, handler, context) {
+    window.confirm = function(message, handler, context) {
+        switch (typeof message) {
+            case "function":
+                if (3 > arguments.length) {
+                    context = handler;
+                }
+
+                handler = message;
+                message = {};
+                break;
+            case "string":
+                message = { title: message };
+                break;
+            default:
+                message = Object(message);
+        }
+
         return !!swal(angular.extend({
-            title: message || "Are you sure?",
-            text: "You won't be able to undo this action, and you may also lose any data entered",
+            title: "Are you sure?",
+            text: "You won't be able to undo the changes.",
             type: "warning",
             showCancelButton: true,
             showLoaderOnConfirm: true,
             confirmButtonText: "Yes, do it"
-        }, options),
+        }, message),
         function(isConfirm) {
             if (isConfirm && "function" === typeof handler) {
                 handler.call(context);
@@ -45,17 +73,16 @@ if (window.swal) {
     };
 }
 
-if (!window.notify) {
+if (void 0 === window.notify) {
     /**
-     * @param {String|*} message
-     * @param {Object} [options=undefined]
+     * @param {string|Object} message
      */
-    window.notify = function(message, options) {
-        if (window.Snarl) {
+    window.notify = function(message) {
+        if (void 0 !== window.Snarl) {
             Snarl.addNotification(angular.extend({
-                text: message,
+                text: "...",
                 icon: '<i class="fa fa-info-circle"></i>'
-            }, options));
+            }, "string" === typeof message ? { text: message } : Object(message)));
         }
         else {
             alert.apply(null, arguments);
@@ -65,27 +92,59 @@ if (!window.notify) {
 
 })();
 
-if ("function" !== typeof inherit) {
+if (void 0 === Object.create) {
     /**
-     * @param {Object} [proto]
+     * @param {Object=} proto
      * @returns {Object}
      */
-    function inherit(proto) {
+    Object.create = function(proto) {
         function F() {}
         F.prototype = proto;
         return new F();
+    };
+}
+
+if (void 0 === Function.prototype.construct) {
+    /**
+     * @param   {Array=} args
+     * @returns {Object}
+     */
+    Function.prototype.construct = function(args) {
+        var instance = Object.create(this.prototype);
+        this.apply(instance, args);
+        return instance;
     }
 }
 
-if ("function" !== typeof extend) {
+if (void 0 === window.extend) {
     /**
-     * @param {Object} [Child]
-     * @param {Object} [Parent]
+     * @param {Object} child
+     * @param {Object} parent
+     * @returns {Object}
      */
-    function extend(Child, Parent) {
-        Parent.prototype.constructor = Parent; // @link http://goo.gl/PxO37U
-        Child.prototype = inherit(Parent.prototype);
-        Child.prototype.constructor = Child;
-        Child.parent = Parent.prototype;
+    function extend(child, parent) {
+        function F() {
+            this.constructor = child;
+            this.__super__ = parent.prototype;
+        }
+
+        parent.prototype.constructor = parent; // @link http://goo.gl/PxO37U
+        F.prototype = parent.prototype;
+        // F.__super__ = parent.prototype;
+
+        var old_proto = child.prototype;
+        child.prototype = new F();
+
+        for (var key in old_proto) {
+            if (old_proto.hasOwnProperty(key)) {
+                child.prototype[key] = old_proto[key];
+            }
+        }
+
+        for (key in parent) {
+            if (!child.hasOwnProperty(key) && parent.hasOwnProperty(key)) {
+                child[key] = parent[key];
+            }
+        }
     }
 }

@@ -1,52 +1,58 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
-chaos.value("UserModel", UserModel);
+chaos.service("UserModel", Anonymous);
 
-function UserModel(data) {
-    data = data || {};
-    var fields = arguments.callee.getFields(),
-        length = fields.length, key;
-    for (key = 0; key < length; key++) {
-        this[fields[key].data] = data[fields[key].data] || fields[key].value;
+function Anonymous(AbstractModel) {
+    function UserModel(data) {
+        this.__super__.constructor.apply(this, [data, UserModel.getFields()]);
     }
+    extend(UserModel, AbstractModel);
+
+    /**
+     * @returns {string}
+     */
+    UserModel.getRoute = function() {
+        return "user";
+    };
+
+    /**
+     * @return {Object[]}
+     */
+    UserModel.getFields = function() {
+        return [{
+            data: "Id",
+            value: 0,
+            visible: false
+        },{
+            data: "Name",
+            title: "Username",
+            value: ""
+        },{
+            data: "Email",
+            title: "Email",
+            value: ""
+        },{
+            data: "Password",
+            value: "",
+            visible: false
+        },{
+            data: "ForcePasswordChange",
+            value: true,
+            visible: false
+        },{
+            data: "Profile",
+            value: "",
+            visible: false
+        },{
+            data: "Roles",
+            value: [],
+            visible: false
+        }];
+    };
+
+    return UserModel;
 }
-
-UserModel.getRoute = function() {
-    return "user";
-};
-
-UserModel.getFields = function() {
-    return [{
-        data: "Id",
-        value: 0,
-        visible: false
-    },{
-        data: "Name",
-        value: "",
-        title: "Username"
-    },{
-        data: "Email",
-        value: "",
-        title: "Email"
-    },{
-        data: "Password",
-        value: "",
-        visible: false
-    },{
-        data: "ForcePasswordChange",
-        value: true,
-        visible: false
-    },{
-        data: "Profile",
-        value: "",
-        visible: false
-    },{
-        data: "Roles",
-        value: [],
-        visible: false
-    }];
-};
 
 })();

@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,11 +6,11 @@ chaos.controller("AuditController", Anonymous);
 
 function Anonymous($scope, AuditRepository, AbstractController) {
     function AuditController() {
-        AuditController.parent.constructor.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
     extend(AuditController, AbstractController);
 
-    return new AuditController();
+    return AuditController.construct(arguments);
 }
 
 })();

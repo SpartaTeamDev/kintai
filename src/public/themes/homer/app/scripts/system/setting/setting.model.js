@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,12 +6,12 @@ chaos.service("SettingModel", Anonymous);
 
 function Anonymous(AbstractModel) {
     function SettingModel(data) {
-        SettingModel.parent.constructor.apply(this, [data, SettingModel.getFields()]);
+        this.__super__.constructor.apply(this, [data, SettingModel.getFields()]);
     }
     extend(SettingModel, AbstractModel);
 
     /**
-     * @returns {String}
+     * @returns {string}
      */
     SettingModel.getRoute = function() {
         return "setting";

@@ -1,11 +1,11 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.config(configBlocks);
 
-function configBlocks($stateProvider) {
-    var route = "views/account/user/";
+function configBlocks($stateProvider, $translatePartialLoaderProvider) {
+    $translatePartialLoaderProvider.addPart("user");
     $stateProvider
         .state("user", {
             url: "/user",
@@ -13,12 +13,12 @@ function configBlocks($stateProvider) {
             data: {
                 pageTitle: "User"
             },
-            abstract: true,
-            controller: "UserController as ctrl"
+            controller: "UserController as ctrl",
+            abstract: true
         })
         .state("user.index", {
             url: "",
-            templateUrl: route + "grid.html",
+            templateUrl: "views/account/user/grid.html",
             data: {
                 pageTitle: "Manage Users",
                 pageDesc: "From here you can browse all of the latest user accounts"
@@ -31,7 +31,7 @@ function configBlocks($stateProvider) {
                     templateUrl: "views/common/simple-form.html"
                 },
                 "@user.create": {
-                    templateUrl: route + "form.html"
+                    templateUrl: "views/account/user/form.html"
                 }
             },
             data: {
@@ -47,7 +47,7 @@ function configBlocks($stateProvider) {
                     templateUrl: "views/common/simple-form.html"
                 },
                 "@user.edit": {
-                    templateUrl: route + "form.html"
+                    templateUrl: "views/account/user/form.html"
                 }
             },
             data: {

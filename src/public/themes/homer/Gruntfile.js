@@ -33,8 +33,8 @@ module.exports = function (grunt) {
                         return [
                             connect.static('.tmp'),
                             connect().use(
-                                '/bower_components',
-                                connect.static('./bower_components')
+                                '/node_modules',
+                                connect.static('./node_modules')
                             ),
                             connect.static(appConfig.app)
                         ];
@@ -130,25 +130,25 @@ module.exports = function (grunt) {
                     },{
                         expand: true,
                         dot: true,
-                        cwd: 'bower_components/fontawesome',
+                        cwd: 'node_modules/font-awesome',
                         src: ['fonts/*.*'],
                         dest: '<%= theme.dist %>'
                     },{
                         expand: true,
                         dot: true,
-                        cwd: 'bower_components/material-design-iconic-font/dist',
+                        cwd: 'node_modules/material-design-iconic-font/dist',
                         src: ['fonts/*.*'],
                         dest: '<%= theme.dist %>'
                     },{
                         expand: true,
                         dot: true,
-                        cwd: 'bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke',
+                        cwd: 'node_modules/pixeden-stroke-7-icon/pe-icon-7-stroke',
                         src: ['fonts/*.*'],
                         dest: '<%= theme.dist %>'
                     },{
                         expand: true,
                         dot: true,
-                        cwd: 'bower_components/bootstrap',
+                        cwd: 'node_modules/bootstrap/dist',
                         src: ['fonts/*.*'],
                         dest: '<%= theme.dist %>'
                     }

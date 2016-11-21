@@ -13,8 +13,10 @@ abstract class Controller extends AbstractLaravelRestController
     {
         parent::__construct(
             array_replace_recursive([
-                'app' => array_slice(config('app'), 0, 10), // remove "providers" & "aliases" keys
-                'cookie' => ['name' => config('session.cookie'), 'expires' => config('session.lifetime')],
+                'app' => array_diff_key(config('app'), ['providers' => 0, 'aliases' => 0]),
+                'session' => ['expires' => config('session.lifetime')] + array_diff_key(config('session'), [
+                    'driver' => 0, 'lifetime' => 0, 'files' => 0, 'connection' => 0, 'table' => 0, 'store' => 0
+                ]),
                 'mail' => config('mail'),
                 'paths' => ['config' => $configPath = base_path('modules/config.params.php')],
             ], require_once $configPath),
@@ -26,7 +28,7 @@ abstract class Controller extends AbstractLaravelRestController
     // public function getInit()
     // {
     //     $data = $this->getService()->entity->toSimpleArray();
-    //     $data['uuid'] = uuid();
+    //     $data['uuid'] = \Ramsey\Uuid\Uuid::uuid4();
     //
     //     return [
     //         'result' => 'Success',

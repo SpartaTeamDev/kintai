@@ -1,43 +1,49 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
-chaos.value("RoleModel", RoleModel);
+chaos.service("RoleModel", Anonymous);
 
-function RoleModel(data) {
-    data = data || {};
-    var fields = arguments.callee.getFields(),
-        length = fields.length, key;
-    for (key = 0; key < length; key++) {
-        this[fields[key].data] = data[fields[key].data] || fields[key].value;
+function Anonymous(AbstractModel) {
+    function RoleModel(data) {
+        this.__super__.constructor.apply(this, [data, RoleModel.getFields()]);
     }
+    extend(RoleModel, AbstractModel);
+
+    /**
+     * @returns {string}
+     */
+    RoleModel.getRoute = function() {
+        return "role";
+    };
+
+    /**
+     * @return {Object[]}
+     */
+    RoleModel.getFields = function() {
+        return [{
+            data: "Id",
+            value: 0,
+            visible: false
+        },{
+            data: "Name",
+            title: "Name",
+            value: "",
+            class: "col-xs-4"
+        },{
+            data: "Description",
+            title: "Description",
+            value: "",
+            class: "text-wrap",
+            sortable: false
+        },{
+            data: "Permissions",
+            value: [],
+            visible: false
+        }];
+    };
+
+    return RoleModel;
 }
-
-RoleModel.getRoute = function() {
-    return "role";
-};
-
-RoleModel.getFields = function() {
-    return [{
-        data: "Id",
-        value: 0,
-        visible: false
-    },{
-        data: "Name",
-        value: "",
-        title: "Name",
-        class: "col-xs-4"
-    },{
-        data: "Description",
-        value: "",
-        title: "Description",
-        class: "text-wrap",
-        sortable: false
-    },{
-        data: "Permissions",
-        value: [],
-        visible: false
-    }];
-};
 
 })();

@@ -1,24 +1,26 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.config(configBlocks);
 
-function configBlocks($stateProvider) {
+function configBlocks($stateProvider, $translatePartialLoaderProvider) {
+    $translatePartialLoaderProvider.addPart("login");
     $stateProvider
         .state("login", {
             url: "/login",
             templateUrl: "views/system/auth/login.html",
             data: {
+                allowGuest: true,
                 pageTitle: "Login",
                 specialClass: "blank"
             },
             controller: "LoginController as ctrl",
             onEnter: function() {
-                switch ((CONFIG.auth || {}).default) {
+                switch ((CFG.auth || {}).default) {
                     case "oauth2":
-                        var url = CONFIG.auth.redirectUri,
-                            token = Lockr.get(CONFIG.cookie.name + "_ret");
+                        var url = CFG.auth.drivers.oauth2.redirectUri,
+                            token = Lockr.get(CFG.session.cookie + "_ret");
 
                         if (token) {
                             url += "?grant=refresh_token&refresh_token=" + token;
@@ -26,10 +28,9 @@ function configBlocks($stateProvider) {
 
                         return location.replace(url);
                     default:
-                        Lockr.rm(CONFIG.cookie.name + "_jwt");
+                        Lockr.rm(CFG.session.cookie + "_jwt");
                 }
-            },
-            guest: true
+            }
         })
         .state("logout", {
             templateUrl: "views/system/auth/logout.html",
@@ -39,38 +40,40 @@ function configBlocks($stateProvider) {
             url: "/recovery",
             templateUrl: "views/system/auth/recovery.html",
             data: {
+                allowGuest: true,
                 pageTitle: "Recovery Password",
                 specialClass: "blank"
             },
-            controller: "LoginController as ctrl",
-            guest: true
+            controller: "LoginController as ctrl"
         })
         .state("reset", {
             url: "/reset",
             templateUrl: "views/system/auth/reset.html",
             data: {
+                allowGuest: true,
                 pageTitle: "Reset Password",
                 specialClass: "blank"
             },
-            controller: "LoginController as ctrl",
-            guest: true
+            controller: "LoginController as ctrl"
         })
         .state("oauth2", {
             url: "/oauth2",
+            data: {
+                allowGuest: true
+            },
             controller: "LoginController as ctrl",
             onEnter: function($state) {
                 var parts = location.hash.split("?s=")[1].split("&r=");
 
                 if (parts[0]) {
-                    Lockr.set(CONFIG.cookie.name + "_jwt", parts[0]);
-                    Lockr.set(CONFIG.cookie.name + "_ret", parts[1]);
+                    Lockr.set(CFG.session.cookie + "_jwt", parts[0]);
+                    Lockr.set(CFG.session.cookie + "_ret", parts[1]);
 
-                    return $state.go(CONFIG.app.defaultRoute, {}, { reload: true });
+                    return $state.go(CFG.app.defaultRoute, {}, { reload: true });
                 }
 
                 throw new Error("invalid_token");
-            },
-            guest: true
+            }
         });
 }
 

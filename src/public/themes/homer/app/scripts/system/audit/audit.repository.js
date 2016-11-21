@@ -1,16 +1,16 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.service("AuditRepository", Anonymous);
 
-function Anonymous($http, AuditModel, AbstractRepository) {
+function Anonymous(AuditModel, AbstractRepository) {
     function AuditRepository() {
-        AuditRepository.parent.constructor.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
     extend(AuditRepository, AbstractRepository);
 
-    return new AuditRepository();
+    return AuditRepository.construct(arguments);
 }
 
 })();

@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,12 +6,12 @@ chaos.service("RegisterModel", Anonymous);
 
 function Anonymous(AbstractModel) {
     function RegisterModel(data) {
-        RegisterModel.parent.constructor.apply(this, [data, RegisterModel.getFields()]);
+        this.__super__.constructor.apply(this, [data, RegisterModel.getFields()]);
     }
     extend(RegisterModel, AbstractModel);
 
     /**
-     * @returns {String}
+     * @returns {string}
      */
     RegisterModel.getRoute = function() {
         return "auth/register";

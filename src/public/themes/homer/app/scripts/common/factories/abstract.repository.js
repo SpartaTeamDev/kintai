@@ -4,34 +4,36 @@
  */
 chaos.factory("AbstractRepository", Anonymous);
 
-function Anonymous() {
+function Anonymous($cacheFactory, $http) {
     // Private static attributes
-    var $http;
+    var map = {
+        data: "data",
+        success: "success"
+    };
 
     /**
      * @constructor
-     * @param {Function} $httpProvider
-     * @param {Function} model
+     * @param {AbstractModel} model
      */
-    function AbstractRepository($httpProvider, model) {
-        $http = $httpProvider;
+    function AbstractRepository(model) {
         this.model = model;
         this.route = ($http.defaults.route || "/api/") + model.getRoute();
+        this.cache = true;
     }
 
     // Public, non-privileged methods
     AbstractRepository.prototype = {
         /**
-         * @param {Object.<String|Object>} [params=undefined]
+         * @param {Object.<String|Object>} [params]
          * @returns {Object} HttpPromise
          */
         index: function(params) {
             var me = this;
             return $http
-                .get(this.route, { params: params, cache: true })
+                .get(this.route, { params: params, cache: this.cache })
                 .then(function(response) {
-                    if (response.data.success) {
-                        response.data.data = me.exchangeArray(response.data.data, me.model);
+                    if (response.data[map.success]) {
+                        response.data[map.data] = me.exchangeArray(response.data[map.data]);
                     }
 
                     return response.data;
@@ -42,20 +44,20 @@ function Anonymous() {
          * @returns {Object} HttpPromise
          */
         store: function(model) {
-            this.refine();
+            this.clearCache();
             return $http.post(this.route, model);
         },
         /**
-         * @param {Number|*} id
+         * @param {(number|*)} id
          * @returns {Object} HttpPromise
          */
         show: function(id) {
             var me = this;
             return $http
-                .get(this.route + "/" + id, { cache: true })
+                .get(this.route + "/" + id, { cache: this.cache })
                 .then(function(response) {
-                    if (response.data.success) {
-                        response.data.data = me.exchangeObject(response.data.data, me.model);
+                    if (response.data[map.success]) {
+                        response.data[map.data] = me.exchangeObject(response.data[map.data]);
                     }
 
                     return response.data;
@@ -63,57 +65,52 @@ function Anonymous() {
         },
         /**
          * @param {Object} model
-         * @param {Number|*} id
+         * @param {(number|*)} id
          * @returns {Object} HttpPromise
          */
         update: function(model, id) {
-            this.refine();
+            this.clearCache();
             return $http.put(this.route + "/" + id, model);
         },
         /**
-         * @param {Number|*} id
+         * @param {(number|*)} id
          * @returns {Object} HttpPromise
          */
         destroy: function(id) {
-            this.refine();
+            this.clearCache();
             return $http.delete(this.route + "/" + id);
         },
         /**
-         * @returns {Object} AbstractRepository
+         * @returns {AbstractRepository}
          */
-        refine: function() {
-            if ("function" === typeof $http.defaults.$cacheFactory) {
-                $http.defaults.$cacheFactory.get("$http").removeAll();
-            }
-
+        clearCache: function() {
+            $cacheFactory.get("$http").removeAll();
             return this;
         },
         /**
-         * @param {Object} data
-         * @param {Function} model
-         * @returns {Object}
+         * @param {(Object|Object[])} data
+         * @returns {(AbstractModel|AbstractModel[])}
          */
-        exchangeObject: function(data, model) {
-            return new model(data);
-        },
-        /**
-         * @param {Object|Object[]} data
-         * @param {Function} model
-         * @returns {Object|Object[]}
-         */
-        exchangeArray: function(data, model) {
+        exchangeArray: function(data) {
             if (Array.isArray(data)) {
                 var collection = [],
                     len = data.length, i;
 
                 for (i = 0; i < len; i++) {
-                    collection.push(this.exchangeObject(data[i], model));
+                    collection.push(this.exchangeObject(data[i]));
                 }
 
                 return collection;
             }
 
-            return this.exchangeObject(data, model);
+            return this.exchangeObject(data);
+        },
+        /**
+         * @param {Object} data
+         * @returns {AbstractModel}
+         */
+        exchangeObject: function(data) {
+            return new this.model(data);
         }
     };
 

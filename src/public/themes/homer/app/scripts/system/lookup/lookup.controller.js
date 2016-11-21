@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,11 +6,11 @@ chaos.controller("LookupController", Anonymous);
 
 function Anonymous($scope, LookupRepository, AbstractController) {
     function LookupController() {
-        LookupController.parent.constructor.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
     extend(LookupController, AbstractController);
 
-    return new LookupController();
+    return LookupController.construct(arguments);
 }
 
 })();

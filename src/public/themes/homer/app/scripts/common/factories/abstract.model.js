@@ -15,7 +15,7 @@ function Anonymous() {
     /**
      * @constructor
      * @param {Object} data
-     * @param {Object[]} [fields=undefined]
+     * @param {Object[]} [fields]
      */
     function AbstractModel(data, fields) {
         $data = data || {};
@@ -35,6 +35,21 @@ function Anonymous() {
         getData: function() {
             return $data;
         }
+    };
+
+    // Public static methods
+    /**
+     * @returns {string}
+     */
+    AbstractModel.getRoute = function() {
+        return "";
+    };
+
+    /**
+     * @return {Object[]}
+     */
+    AbstractModel.getFields = function() {
+        return [];
     };
 
     return AbstractModel;

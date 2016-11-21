@@ -1,17 +1,16 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
-chaos.factory("PermissionRepository", Anonymous);
+chaos.service("PermissionRepository", Anonymous);
 
-function Anonymous($http, PermissionModel, AbstractRepository) {
+function Anonymous(PermissionModel, AbstractRepository) {
     function PermissionRepository() {
-        AbstractRepository.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
-    PermissionRepository.prototype = Object.create(AbstractRepository.prototype);
-    PermissionRepository.prototype.constructor = PermissionRepository;
+    extend(PermissionRepository, AbstractRepository);
 
-    return new PermissionRepository();
+    return PermissionRepository.construct(arguments);
 }
 
 })();

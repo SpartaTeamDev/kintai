@@ -1,17 +1,16 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.factory("UserRepository", Anonymous);
 
-function Anonymous($http, UserModel, AbstractRepository) {
+function Anonymous(UserModel, AbstractRepository) {
     function UserRepository() {
-        AbstractRepository.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
-    UserRepository.prototype = Object.create(AbstractRepository.prototype);
-    UserRepository.prototype.constructor = UserRepository;
+    extend(UserRepository, AbstractRepository);
 
-    return new UserRepository();
+    return UserRepository.construct(arguments);
 }
 
 })();

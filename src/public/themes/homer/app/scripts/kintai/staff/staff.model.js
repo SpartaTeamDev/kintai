@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,12 +6,12 @@ chaos.service("StaffModel", Anonymous);
 
 function Anonymous(AbstractModel) {
     function StaffModel(data) {
-        StaffModel.parent.constructor.apply(this, [data, StaffModel.getFields()]);
+        this.__super__.constructor.apply(this, [data, StaffModel.getFields()]);
     }
     extend(StaffModel, AbstractModel);
 
     /**
-     * @returns {String}
+     * @returns {string}
      */
     StaffModel.getRoute = function() {
         return "staff";

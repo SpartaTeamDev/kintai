@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,12 +6,11 @@ chaos.controller("RoleController", Anonymous);
 
 function Anonymous($scope, RoleRepository, PermissionRepository, AbstractController) {
     function RoleController() {
-        AbstractController.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
-    RoleController.prototype = Object.create(AbstractController.prototype);
-    RoleController.prototype.constructor = RoleController;
+    extend(RoleController, AbstractController);
 
-    RoleController.prototype.afterForm = function() {
+    RoleController.prototype.beforeForm = function() {
         PermissionRepository.index().then(function(response) {
             $scope.permissions = response.data;
         });
@@ -31,7 +30,7 @@ function Anonymous($scope, RoleRepository, PermissionRepository, AbstractControl
         }
     };
 
-    return new RoleController();
+    return RoleController.construct(arguments);
 }
 
 })();

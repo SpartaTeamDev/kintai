@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,12 +6,11 @@ chaos.controller("PermissionController", Anonymous);
 
 function Anonymous($scope, PermissionRepository, AbstractController) {
     function PermissionController() {
-        AbstractController.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
-    PermissionController.prototype = Object.create(AbstractController.prototype);
-    PermissionController.prototype.constructor = PermissionController;
+    extend(PermissionController, AbstractController);
 
-    return new PermissionController();
+    return PermissionController.construct(arguments);
 }
 
 })();

@@ -1,11 +1,11 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.config(configBlocks);
 
-function configBlocks($stateProvider) {
-    var route = "views/account/permission/";
+function configBlocks($stateProvider, $translatePartialLoaderProvider) {
+    $translatePartialLoaderProvider.addPart("permission");
     $stateProvider
         .state("permission", {
             url: "/permission",
@@ -31,7 +31,7 @@ function configBlocks($stateProvider) {
                     templateUrl: "views/common/simple-form.html"
                 },
                 "@permission.create": {
-                    templateUrl: route + "form.html"
+                    templateUrl: "views/account/permission/form.html"
                 }
             },
             data: {
@@ -47,7 +47,7 @@ function configBlocks($stateProvider) {
                     templateUrl: "views/common/simple-form.html"
                 },
                 "@permission.edit": {
-                    templateUrl: route + "form.html"
+                    templateUrl: "views/account/permission/form.html"
                 }
             },
             data: {

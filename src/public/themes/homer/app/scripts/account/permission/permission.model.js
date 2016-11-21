@@ -1,39 +1,45 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
-chaos.value("PermissionModel", PermissionModel);
+chaos.service("PermissionModel", Anonymous);
 
-function PermissionModel(data) {
-    data = data || {};
-    var fields = arguments.callee.getFields(),
-        length = fields.length, key;
-    for (key = 0; key < length; key++) {
-        this[fields[key].data] = data[fields[key].data] || fields[key].value;
+function Anonymous(AbstractModel) {
+    function PermissionModel(data) {
+        this.__super__.constructor.apply(this, [data, PermissionModel.getFields()]);
     }
+    extend(PermissionModel, AbstractModel);
+
+    /**
+     * @returns {string}
+     */
+    PermissionModel.getRoute = function() {
+        return "permission";
+    };
+
+    /**
+     * @return {Object[]}
+     */
+    PermissionModel.getFields = function() {
+        return [{
+            data: "Id",
+            value: 0,
+            visible: false
+        },{
+            data: "Name",
+            title: "Name",
+            value: "",
+            class: "col-xs-4"
+        },{
+            data: "Description",
+            title: "Description",
+            value: "",
+            class: "text-wrap",
+            sortable: false
+        }];
+    };
+
+    return PermissionModel;
 }
-
-PermissionModel.getRoute = function() {
-    return "permission";
-};
-
-PermissionModel.getFields = function() {
-    return [{
-        data: "Id",
-        value: 0,
-        visible: false
-    },{
-        data: "Name",
-        value: "",
-        title: "Name",
-        class: "col-xs-4"
-    },{
-        data: "Description",
-        value: "",
-        title: "Description",
-        class: "text-wrap",
-        sortable: false
-    }];
-};
 
 })();

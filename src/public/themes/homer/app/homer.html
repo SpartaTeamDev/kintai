@@ -12,29 +12,27 @@
 
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="bower_components/pe-icon-7-stroke/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" />
-    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" />
-    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css" />
-    <link rel="stylesheet" href="bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
-    <link rel="stylesheet" href="bower_components/blueimp-gallery/css/blueimp-gallery.min.css" />
-    <link rel="stylesheet" href="bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css" />
-    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css" />
-    <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css" />
     <link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.min.css" />
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css" />
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css" />
+    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css" />
+    <link rel="stylesheet" href="bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/style.css -->
-    <link rel="stylesheet" href="styles/pe-icon-7-stroke-helper.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
     <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
 
@@ -55,69 +53,52 @@
     <div ui-view autoscroll="true"></div>
 
 <!-- build:js(.) scripts/vendor.js -->
-<script src="bower_components/chartjs/Chart.min.js"></script>
-<script src="bower_components/moment/min/moment.min.js"></script>
-<script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.min.js"></script>
-<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
-<script src="bower_components/underscore/underscore-min.js"></script>
-<script src="bower_components/backbone/backbone-min.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/underscore/underscore.min.js"></script>
+<script src="bower_components/angular-underscore/angular-underscore.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
 <script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
-<script src="bower_components/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
-<script src="bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
-<script src="bower_components/datatables_plugins/api/fnSetFilteringDelay.js"></script>
-<script src="bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-<script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-<script src="bower_components/fullcalendar/dist/gcal.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-bootstrap-tour/dist/angular-bootstrap-tour.min.js"></script>
 <script src="bower_components/icheck/icheck.min.js"></script>
 <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
-<script src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="bower_components/summernote/dist/summernote.min.js"></script>
-<script src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+<script src="bower_components/angular-notify/dist/angular-notify.min.js"></script>
+<script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
 <script src="bower_components/flot/jquery.flot.js"></script>
-<script src="bower_components/flot/jquery.flot.pie.js"></script>
 <script src="bower_components/flot/jquery.flot.resize.js"></script>
+<script src="bower_components/flot/jquery.flot.pie.js"></script>
 <script src="bower_components/flot.curvedlines/curvedLines.js"></script>
 <script src="bower_components/flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="bower_components/angular-flot/angular-flot.js"></script>
 <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<script src="bower_components/chartjs/Chart.min.js"></script>
+<script src="bower_components/angles/angles.js"></script>
 <script src="bower_components/peity/jquery.peity.min.js"></script>
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-<script src="bower_components/angular-messages/angular-messages.min.js"></script>
-<script src="bower_components/angular-resource/angular-resource.min.js"></script>
-<script src="bower_components/angular-route/angular-route.min.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="bower_components/angular-touch/angular-touch.min.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
-<script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+<script src="bower_components/angular-peity/angular-peity.js"></script>
 <script src="bower_components/angular-ui-utils/ui-utils.min.js"></script>
 <script src="bower_components/angular-ui-map/ui-map.min.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
-<script src="bower_components/angular-ui-sortable/sortable.min.js"></script>
-<script src="bower_components/angular-bootstrap-tour/dist/angular-bootstrap-tour.min.js"></script>
-<script src="bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
-<script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
-<script src="bower_components/angular-notify/dist/angular-notify.min.js"></script>
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script src="bower_components/summernote/dist/summernote.min.js"></script>
 <script src="bower_components/angular-summernote/dist/angular-summernote.min.js"></script>
-<script src="bower_components/angular-flot/angular-flot.js"></script>
-<script src="bower_components/angular-peity/angular-peity.js"></script>
-<script src="bower_components/angles/angles.js"></script>
+<script src="bower_components/ng-grid/ng-grid-2.0.14.min.js"></script>
+<script src="bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
+<script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
 <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
 <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
-<script src="bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
-<script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
 <script src="bower_components/checklist-model/checklist-model.js"></script>
-<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
-<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-<script src="bower_components/jsbarcode/JsBarcode.js"></script>
-<script src="bower_components/jsbarcode/CODE39.js"></script>
 <!-- endbuild -->
 
 <!--
@@ -129,7 +110,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script>
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="scripts/theme.js"></script>
+<script src="scripts/homer.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/filters/props.js"></script>
@@ -152,7 +133,6 @@
 <script src="scripts/controllers/datatables.js"></script>
 <script src="scripts/controllers/wizard.js"></script>
 <script src="scripts/controllers/forms.js"></script>
-<script src="scripts/controllers/draggable.js"></script>
 <script src="scripts/directives/touchSpin.js"></script>
 <!-- endbuild -->
 

@@ -1,16 +1,16 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.service("SettingRepository", Anonymous);
 
-function Anonymous($http, SettingModel, AbstractRepository) {
+function Anonymous(SettingModel, AbstractRepository) {
     function SettingRepository() {
-        SettingRepository.parent.constructor.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
     extend(SettingRepository, AbstractRepository);
 
-    return new SettingRepository();
+    return SettingRepository.construct(arguments);
 }
 
 })();

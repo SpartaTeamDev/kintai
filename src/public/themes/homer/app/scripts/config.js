@@ -5,19 +5,37 @@
 chaos.config(configBlocks)
      .run(runBlocks);
 
-function configBlocks($compileProvider, $httpProvider, $urlRouterProvider, jwtOptionsProvider) {
+function configBlocks($compileProvider, $httpProvider, $urlRouterProvider,
+                      $translateProvider, $translatePartialLoaderProvider, jwtOptionsProvider) {
+    // setup pascalprecht.translate
+    $translatePartialLoaderProvider.addPart(".messages");
+    $translateProvider
+        .fallbackLanguage(CFG.app.fallback_locale)
+        .preferredLanguage(CFG.app.locale)
+        .useLoader("$translatePartialLoader", {
+            urlTemplate: "/themes/" + CFG.app.theme + "/app/l10n/{lang}/{part}.json"
+        })
+        .useSanitizeValueStrategy("sanitize")
+        .useStorage("Lockr");
+
+    // setup angular-jwt & misc.
     jwtOptionsProvider.config({
-        tokenGetter: function($http, options, jwtHelper) {
-            if (".html" === options.url.substr(options.url.length - 5)) {
-                return null;
+        tokenGetter: ["options", "$http", "jwtHelper", function(options, $http, jwtHelper) {
+            if (options) {
+                var ext = options.url.substr(options.url.length - 5);
+
+                if (".html" === ext || ".json" === ext) {
+                    return null;
+                }
             }
 
-            var token = Lockr.get(CONFIG.cookie.name + "_jwt");
+            var token = Lockr.get(CFG.session.cookie + "_jwt");
 
             if (!token) {
                 return null;
             }
-            else if (jwtHelper.isTokenExpired(token)) {
+
+            if (jwtHelper && jwtHelper.isTokenExpired(token)) {
                 return $http({
                     url: $http.defaults.route + "auth/renewtoken?token=" + token,
                     skipAuthorization: true,
@@ -25,7 +43,7 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider, jwtOp
                 }).then(function(response) {
                     if (response.headers("authorization")) {
                         token = (response.headers("authorization") + "").replace(/bearer\s*/i, "");
-                        Lockr.set(CONFIG.cookie.name + "_jwt", token);
+                        Lockr.set(CFG.session.cookie + "_jwt", token);
 
                         return token;
                     }
@@ -33,36 +51,37 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider, jwtOp
             }
 
             return token;
-        },
-        unauthenticatedRedirector: function($state) {
+        }],
+        unauthenticatedRedirector: ["$state", function($state) {
             $state.go("login", {}, { reload: true });
-        },
-        whiteListedDomains: ["localhost", "127.0.0.1"]
+        }],
+        whiteListedDomains: ["localhost", "127.0.0.1", String(CFG.session.domain)]
     });
 
     $httpProvider.interceptors.push("jwtInterceptor");
     $httpProvider.interceptors.push("RequestProvider");
-    $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.withCredentials = true;
     delete $httpProvider.defaults.headers.common["X-Requested-With"];
 
     $compileProvider.debugInfoEnabled(false);
     $urlRouterProvider.otherwise(function($injector) {
-        $injector.get("$state").go(CONFIG.app.defaultRoute || "setting.index", {}, { reload: true });
+        $injector.get("$state").go(
+            Lockr.get(CFG.session.cookie + "_jwt") ? (CFG.app.defaultRoute || "setting.index") : "login",
+            {}, { reload: true });
     });
 }
 
-function runBlocks($cacheFactory, $http, $rootScope, $state, jwtHelper) {
-    // what if a user is not authenticated
-    $rootScope.$on("$stateChangeStart", function(event, toState) {
-        if (!("logout" === toState.name || true === toState.guest)) {
-            var token = Lockr.get(CONFIG.cookie.name + "_jwt");
+function runBlocks($http, $rootScope, $state, $transitions, $translate, jwtHelper) {
+    // what if the user is not authenticated
+    $transitions.onBefore({}, function(/** Transition */$transition$) {
+        var to = $transition$.to();
+
+        if (!("logout" === to.name || to.data.allowGuest) || to.requiresLogin) {
+            var token = Lockr.get(CFG.session.cookie + "_jwt");
 
             if (!token) {
-                event.preventDefault();
-                $rootScope.error = "Invalid or expired session";
-
-                return $state.go("login", {}, { reload: true });
+                // event.preventDefault();
+                return $rootScope.$broadcast("unauthenticated", token);
             }
 
             if (!$rootScope.$user) {
@@ -71,16 +90,21 @@ function runBlocks($cacheFactory, $http, $rootScope, $state, jwtHelper) {
             }
         }
     });
-
+    $rootScope.$on("tokenHasExpired", function() {
+        $rootScope.$broadcast("unauthenticated");
+    });
     $rootScope.$on("unauthenticated", function() {
+        $rootScope.error = "Invalid or expired session";
+        $rootScope.isAuthenticated = false;
+
         $state.go("login", {}, { reload: true });
     });
 
     // setup defaults: $rootScope
     $rootScope.$state = $state;
+    $rootScope._ = window._;
     $rootScope.moment = window.moment;
-    $rootScope.CONFIG = window.CONFIG || {};
-    $rootScope.LANG = window.LANG || {};
+    $rootScope.CFG = window.CFG;
 
     $rootScope.$watch("toast", function(newValue) {
         if (undefined !== newValue) {
@@ -88,10 +112,15 @@ function runBlocks($cacheFactory, $http, $rootScope, $state, jwtHelper) {
             delete $rootScope.toast;
         }
     });
-    
+    $rootScope.$on("$translatePartialLoaderStructureChanged", function() {
+        $translate.refresh();
+    });
+    $rootScope.switchLanguage = function(langKey) {
+        $translate.use(langKey);
+    };
+
     // $http
-    $http.defaults.$cacheFactory = $cacheFactory;
-    $http.defaults.route = CONFIG.app.url + "/api/";
+    $http.defaults.route = CFG.app.url + "/api/";
 }
 
 })();

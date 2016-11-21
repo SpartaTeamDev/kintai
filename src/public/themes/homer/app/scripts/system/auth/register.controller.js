@@ -1,4 +1,4 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
@@ -6,7 +6,7 @@ chaos.controller("RegisterController", Anonymous);
 
 function Anonymous($scope, RegisterRepository, AbstractController) {
     function RegisterController() {
-        RegisterController.parent.constructor.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
     extend(RegisterController, AbstractController);
 
@@ -28,7 +28,7 @@ function Anonymous($scope, RegisterRepository, AbstractController) {
         delete $scope.model;
     };
 
-    return new RegisterController();
+    return RegisterController.construct(arguments);
 }
 
 })();

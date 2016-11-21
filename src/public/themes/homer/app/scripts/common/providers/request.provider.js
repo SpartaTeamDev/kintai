@@ -9,7 +9,7 @@ function RequestProvider() {
         return {
             responseError: function(response) {
                 if (401 === response.status) {
-                    // handled by angular-jwt, $rootScope.$broadcast("unauthenticated", response);
+                    // handled by angular-jwt, jwtInterceptor::responseError
                 }
                 else if (response.data) {
                     switch (response.data.error) {
@@ -24,7 +24,7 @@ function RequestProvider() {
                             break;
                         default:
                             if (418 !== response.status) {
-                                alert("Oops...", response.data.error, "error");
+                                alert("Oops...", response.data.error || "unknown_error", "error");
                             }
                     }
                 }

@@ -73,8 +73,8 @@ function unescape() {
 function ifRole() {
     return {
         restrict: "A",
-        link: function(scope, element, attrs) {
-            if (!scope.$user || !scope.$user.Permissions || !scope.$user.Permissions[attrs.ifRole]) {
+        link: function($scope, element, attrs) {
+            if (!$scope.$user || !$scope.$user.Permissions || !$scope.$user.Permissions[attrs.ifRole]) {
                 element.remove();
             }
         }

@@ -30,8 +30,8 @@ function Anonymous($compile) {
     // Public, non-privileged methods
     AbstractController.prototype = {
         /**
-         * @param {Object.<String|Object>} [params=undefined]
-         * @returns {Object} AbstractController
+         * @param {Object.<string|Object>} [params]
+         * @returns {AbstractController}
          */
         index: function(params) {
             this.repository.index(params).then(
@@ -42,14 +42,14 @@ function Anonymous($compile) {
             return this;
         },
         /**
-         * @returns {Object} AbstractController
+         * @returns {AbstractController}
          */
         create: function() {
             if ("function" === typeof this.beforeForm) {
                 this.beforeForm.call(this, undefined, true);
             }
 
-            $scope.model = this.repository.exchangeObject({}, this.repository.model);
+            $scope.model = this.repository.exchangeObject({});
             $scope.mistr = angular.copy($scope.model);
 
             if ("function" === typeof this.afterForm) {
@@ -60,21 +60,21 @@ function Anonymous($compile) {
         },
         /**
          * @param {Object} model
-         * @returns {Object} AbstractController
+         * @returns {AbstractController}
          */
         store: function(model) {
             return this.save(model, undefined, true);
         },
         /**
-         * @param {Number|*} id
-         * @returns {Object} AbstractController
+         * @param {(number|*)} id
+         * @returns {AbstractController}
          */
         show: function(id) {
             return this.edit(id);
         },
         /**
-         * @param {Number|*} id
-         * @returns {Object} AbstractController
+         * @param {(number|*)} id
+         * @returns {AbstractController}
          * @throws {Error} If ID is invalid
          */
         edit: function(id) {
@@ -119,15 +119,15 @@ function Anonymous($compile) {
         },
         /**
          * @param {Object} model
-         * @param {Number|*} id
-         * @returns {Object} AbstractController
+         * @param {(number|*)} id
+         * @returns {AbstractController}
          */
         update: function(model, id) {
             return this.save(model, id, false);
         },
         /**
-         * @param {Number|*} id
-         * @returns {Object} AbstractController
+         * @param {(number|*)} id
+         * @returns {AbstractController}
          * @throws {Error} If ID is invalid
          */
         destroy: function(id) {
@@ -140,7 +140,7 @@ function Anonymous($compile) {
             }
 
             var me = this;
-            confirm("Are you sure?", undefined, function() {
+            confirm(function() {
                 me.repository.destroy(id).then(
                     function(response) {
                         if ("function" === typeof me.afterDestroy) {
@@ -158,8 +158,8 @@ function Anonymous($compile) {
             return this;
         },
         /**
-         * @param {String} mode
-         * @returns {Object} AbstractController
+         * @param {string} mode
+         * @returns {AbstractController}
          */
         bootstrap: function(mode) {
             if (!mode) {
@@ -177,7 +177,7 @@ function Anonymous($compile) {
         },
         /**
          * @param {Object} model
-         * @returns {Object} AbstractController
+         * @returns {AbstractController|*}
          */
         cancel: function(model) {
             if (!model) {
@@ -188,14 +188,14 @@ function Anonymous($compile) {
                 return $scope.$state.go(this.route);
             }
 
-            confirm("Are you sure?", undefined, function() {
+            confirm(function() {
                 $scope.$state.go(this.route);
             }, this);
 
             return this;
         },
         /**
-         * @returns {Object} AbstractController
+         * @returns {AbstractController}
          */
         reset: function() {
             $scope.model = angular.copy($scope.mistr);
@@ -203,18 +203,18 @@ function Anonymous($compile) {
         },
         /**
          * @param {Object} model
-         * @param {Number|*} [id=undefined]
-         * @param {Boolean} [isNew=false]
-         * @returns {Object} AbstractController
+         * @param {(number|*)} [id]
+         * @param {boolean} [isNew=false]
+         * @returns {AbstractController|*}
          * @throws {Error} If ID is invalid and isNew is FALSE
          */
         save: function(model, id, isNew) {
-            if ("boolean" !== typeof isNew) {
-                isNew = Boolean($scope.$state.current.data.isNew);
-            }
-
             if (!model) {
                 model = Object($scope.model);
+            }
+
+            if ("boolean" !== typeof isNew) {
+                isNew = Boolean($scope.$state.current.data.isNew);
             }
 
             if (!isNew) {
@@ -232,7 +232,7 @@ function Anonymous($compile) {
             }
 
             if (angular.equals(model, Object($scope.mistr))) {
-                $scope.$parent.toast = "There are no changes";
+                $scope.$parent.toast = "There's no changes";
                 return $scope.$state.reload();
             }
 
@@ -269,7 +269,7 @@ function Anonymous($compile) {
             return this;
         },
         /**
-         * @param {Object} [options=undefined]
+         * @param {Object} [options]
          * @returns {Object[]}
          */
         getDTColumns: function(options) {
@@ -297,15 +297,16 @@ function Anonymous($compile) {
             return columns;
         },
         /**
-         * @param {Object} [options=undefined]
+         * @param {Object} [options]
          * @returns {Object}
          */
         getDTOptions: function(options) {
             var me = this;
+
             return angular.extend({
                 aaSorting: [],
                 // bStateSave: true,
-                oLanguage: { sUrl: "l10n/datatables/en.json" },
+                oLanguage: { sUrl: "l10n/" + CFG.app.locale + "/.datatables.json" },
                 processing: true,
                 serverSide: true,
                 sAjaxDataProp: map.data,
@@ -353,25 +354,25 @@ function Anonymous($compile) {
             }, options);
         },
         /**
-         * @param {Number|*} [id=undefined]
-         * @param {Object} [response=undefined] - For afterForm only
-         * @param {Boolean} [isNew=false]
-         * @returns {Object} AbstractController
+         * @param {(number|*)} [id]
+         * @param {Object} [response] - For afterForm only
+         * @param {boolean} [isNew=false]
+         * @returns {AbstractController}
          */
         beforeForm: undefined,
         afterForm: undefined,
         /**
          * @param {Object} model
-         * @param {Number|*} [id=undefined]
-         * @param {Boolean} [isNew=false]
-         * @returns {Object} AbstractController
+         * @param {(number|*)} [id]
+         * @param {boolean} [isNew=false]
+         * @returns {AbstractController}
          */
         beforeSave: undefined,
         afterSave: undefined,
         /**
-         * @param {Number|*} id
-         * @param {Object} [response=undefined] - For afterDestroy only
-         * @returns {Object} AbstractController
+         * @param {(number|*)} id
+         * @param {Object} [response] - For afterDestroy only
+         * @returns {AbstractController}
          */
         beforeDestroy: undefined,
         afterDestroy: undefined

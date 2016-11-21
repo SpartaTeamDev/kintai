@@ -21,7 +21,7 @@
         <div class="panel-body">
             <div class="row" ng-repeat="permission in ::permissions track by permission.Id">
                 <div class="col-sm-4 border-right"><label>
-                    <input type="checkbox" checklist-model="model.Permissions" checklist-value="permission"/>
+                    <input type="checkbox" checklist-model="model.Permissions" checklist-value="permission" checklist-comparator=".Id"/>
                     {{ permission.Name }}
                 </label></div>
                 <div class="col-sm-8"><p>{{ permission.Description }}</p></div>

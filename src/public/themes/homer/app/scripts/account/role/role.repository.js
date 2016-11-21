@@ -1,17 +1,16 @@
-(function() {
+(function() { "use strict";
 /**
  * @author ntd1712
  */
 chaos.factory("RoleRepository", Anonymous);
 
-function Anonymous($http, RoleModel, AbstractRepository) {
+function Anonymous(RoleModel, AbstractRepository) {
     function RoleRepository() {
-        AbstractRepository.apply(this, arguments.callee.caller.arguments);
+        this.__super__.constructor.apply(this, arguments);
     }
-    RoleRepository.prototype = Object.create(AbstractRepository.prototype);
-    RoleRepository.prototype.constructor = RoleRepository;
+    extend(RoleRepository, AbstractRepository);
 
-    return new RoleRepository();
+    return RoleRepository.construct(arguments);
 }
 
 })();
