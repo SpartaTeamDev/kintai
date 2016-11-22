@@ -37,8 +37,8 @@ class DatabaseSeeder extends Seeder
                         $value += [
                             'added_at' => $now,
                             'added_by' => null,
-                            'modified_at' => $now,
-                            'modified_by' => null,
+                            'edited_at' => $now,
+                            'edited_by' => null,
                             'is_deleted' => false,
                             'application_key' => config('app.key')
                         ];

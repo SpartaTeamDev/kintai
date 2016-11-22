@@ -31,13 +31,17 @@ class User extends AbstractBaseEntity
      */
     private $Password;
     /**
-     * @Doctrine\ORM\Mapping\Column(name="remember_token", type="string", length=100, nullable=true)
+     * @Doctrine\ORM\Mapping\Column(name="password_expiry_date", type="datetime", nullable=true)
      */
-    private $RememberToken;
+    private $PasswordExpiryDate;
     /**
      * @Doctrine\ORM\Mapping\Column(name="force_password_change", type="boolean", nullable=true)
      */
     private $ForcePasswordChange = false;
+    /**
+     * @Doctrine\ORM\Mapping\Column(name="remember_token", type="string", length=100, nullable=true)
+     */
+    private $RememberToken;
     /**
      * @Doctrine\ORM\Mapping\Column(name="profile", type="json_array", length=65535, nullable=true)
      */
@@ -47,6 +51,11 @@ class User extends AbstractBaseEntity
      * [HtmlEntities]
      */
     protected $Locale = 'en';
+    /**
+     * @Doctrine\ORM\Mapping\Column(name="timezone", type="string", nullable=true)
+     * [HtmlEntities]
+     */
+    protected $Timezone = 'Asia/Tokyo';
     /**
      * @Doctrine\ORM\Mapping\Column(name="open_id", type="string", length=64, nullable=true)
      * [IgnoreRules]
@@ -109,6 +118,24 @@ class User extends AbstractBaseEntity
     public function setPassword($Password)
     {
         $this->Password = $Password;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPasswordExpiryDate()
+    {
+        return $this->PasswordExpiryDate;
+    }
+
+    /**
+     * @param \DateTime $PasswordExpiryDate
+     * @return $this
+     */
+    public function setPasswordExpiryDate($PasswordExpiryDate)
+    {
+        $this->PasswordExpiryDate = $PasswordExpiryDate;
         return $this;
     }
 
@@ -181,6 +208,24 @@ class User extends AbstractBaseEntity
     public function setLocale($Locale)
     {
         $this->Locale = $Locale;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->Timezone;
+    }
+
+    /**
+     * @param string $Timezone
+     * @return $this
+     */
+    public function setTimezone($Timezone)
+    {
+        $this->Timezone = $Timezone;
         return $this;
     }
 

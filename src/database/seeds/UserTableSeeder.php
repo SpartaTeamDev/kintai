@@ -16,23 +16,23 @@ class UserTableSeeder extends Seeder
                 'email' => 'sysadmin@example.com',
                 'password' => bcrypt('@sysadmin*'),
                 'force_password_change' => true,
+                'remember_token' => str_random(10),
                 'profile' => json_encode([
                     'DisplayName' => $faker->name,
                     'Photo' => '/uploads/no_photo.jpg',
                     'About' => $faker->text
-                ]),
-                'remember_token' => str_random(10)
+                ])
             ],[
                 'name' => 'demo',
                 'email' => 'demo@example.com',
                 'password' => bcrypt('@demo*'),
                 'force_password_change' => true,
+                'remember_token' => str_random(10),
                 'profile' => json_encode([
                     'DisplayName' => $faker->name,
                     'Photo' => '/uploads/no_photo.jpg',
                     'About' => $faker->text
-                ]),
-                'remember_token' => str_random(10)
+                ])
             ]
         ];
     }
