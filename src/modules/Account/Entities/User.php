@@ -140,24 +140,6 @@ class User extends AbstractBaseEntity
     }
 
     /**
-     * @return string
-     */
-    public function getRememberToken()
-    {
-        return $this->RememberToken;
-    }
-
-    /**
-     * @param string $RememberToken
-     * @return $this
-     */
-    public function setRememberToken($RememberToken)
-    {
-        $this->RememberToken = $RememberToken;
-        return $this;
-    }
-
-    /**
      * @return bool
      */
     public function getForcePasswordChange()
@@ -172,6 +154,24 @@ class User extends AbstractBaseEntity
     public function setForcePasswordChange($ForcePasswordChange)
     {
         $this->ForcePasswordChange = $ForcePasswordChange;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRememberToken()
+    {
+        return $this->RememberToken;
+    }
+
+    /**
+     * @param string $RememberToken
+     * @return $this
+     */
+    public function setRememberToken($RememberToken)
+    {
+        $this->RememberToken = $RememberToken;
         return $this;
     }
 

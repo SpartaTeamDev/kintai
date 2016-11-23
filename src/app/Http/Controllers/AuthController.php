@@ -108,7 +108,7 @@ class AuthController extends Controller
                     'Sex' => $resourceOwner['sex']
                 ],
                 'OpenId' => $resourceOwner['userId'],
-                'ModifiedBy' => $resourceOwner['userName']
+                'EditedBy' => $resourceOwner['userName']
             ] + $this->getRequest());
             $entity = $response['data'];
         }
