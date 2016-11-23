@@ -29,5 +29,5 @@ IncludeOptional "d:/wamp/www/kintai/deploys/20151217/local/httpd-vhosts.conf"
 # Create a new database named "kintai"
 # cd to the "src" directory, run the command "composer install" in Terminal
 # And then run another command "php artisan db:seed"
-# cd to the "src/public/themes/homer" directory, run the command "bower install"
+# cd to the "src/public/themes/homer" directory, run the command "npm install"
 # Login information: demo[@example.com] / @demo*
