@@ -16,12 +16,6 @@
     <div class="form-group"><label class="control-label col-sm-2">&#42; Password</label>
         <div class="col-sm-6"><input type="password" class="form-control input-sm" placeholder="******" required ng-model="model.Password"/></div>
     </div>
-    <div class="form-group"><label class="control-label col-sm-2">Force Password Change</label>
-        <div class="checkbox col-sm-6"><label>
-            <input type="checkbox" ng-model="model.ForcePasswordChange"/>
-            Optionally require that this user change their password on next login
-        </label></div>
-    </div>
     <div class="form-group"><label class="control-label col-sm-2">&#42; Primary Role</label>
         <div class="col-sm-6">
             <select class="form-control input-sm" required ng-model="roles.primary" ng-change="roles.secondary = []"

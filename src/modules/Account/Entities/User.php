@@ -35,17 +35,14 @@ class User extends AbstractBaseEntity
      */
     private $PasswordExpiryDate;
     /**
-     * @Doctrine\ORM\Mapping\Column(name="force_password_change", type="boolean", nullable=true)
-     */
-    private $ForcePasswordChange = false;
-    /**
      * @Doctrine\ORM\Mapping\Column(name="remember_token", type="string", length=100, nullable=true)
      */
     private $RememberToken;
     /**
-     * @Doctrine\ORM\Mapping\Column(name="profile", type="json_array", length=65535, nullable=true)
+     * @Doctrine\ORM\Mapping\Column(name="open_id", type="string", length=64, nullable=true)
+     * [IgnoreRules]
      */
-    protected $Profile;
+    private $OpenId;
     /**
      * @Doctrine\ORM\Mapping\Column(name="locale", type="string", length=20, nullable=true)
      * [HtmlEntities]
@@ -57,10 +54,9 @@ class User extends AbstractBaseEntity
      */
     protected $Timezone = 'Asia/Tokyo';
     /**
-     * @Doctrine\ORM\Mapping\Column(name="open_id", type="string", length=64, nullable=true)
-     * [IgnoreRules]
+     * @Doctrine\ORM\Mapping\Column(name="profile", type="json_array", length=65535, nullable=true)
      */
-    private $OpenId;
+    protected $Profile;
     /**
      * @Doctrine\ORM\Mapping\OneToMany(targetEntity="UserRole", mappedBy="User", cascade={"all"})
      * [IgnoreData]
@@ -140,24 +136,6 @@ class User extends AbstractBaseEntity
     }
 
     /**
-     * @return bool
-     */
-    public function getForcePasswordChange()
-    {
-        return $this->ForcePasswordChange;
-    }
-
-    /**
-     * @param bool $ForcePasswordChange
-     * @return $this
-     */
-    public function setForcePasswordChange($ForcePasswordChange)
-    {
-        $this->ForcePasswordChange = $ForcePasswordChange;
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getRememberToken()
@@ -178,18 +156,18 @@ class User extends AbstractBaseEntity
     /**
      * @return string
      */
-    public function getProfile()
+    public function getOpenId()
     {
-        return $this->Profile;
+        return $this->OpenId;
     }
 
     /**
-     * @param string $Profile
+     * @param string $OpenId
      * @return $this
      */
-    public function setProfile($Profile)
+    public function setOpenId($OpenId)
     {
-        $this->Profile = $Profile;
+        $this->OpenId = $OpenId;
         return $this;
     }
 
@@ -232,18 +210,18 @@ class User extends AbstractBaseEntity
     /**
      * @return string
      */
-    public function getOpenId()
+    public function getProfile()
     {
-        return $this->OpenId;
+        return $this->Profile;
     }
 
     /**
-     * @param string $OpenId
+     * @param string $Profile
      * @return $this
      */
-    public function setOpenId($OpenId)
+    public function setProfile($Profile)
     {
-        $this->OpenId = $OpenId;
+        $this->Profile = $Profile;
         return $this;
     }
 

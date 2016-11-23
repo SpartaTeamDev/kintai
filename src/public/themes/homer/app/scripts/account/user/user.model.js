@@ -38,10 +38,6 @@ function Anonymous(AbstractModel) {
             value: "",
             visible: false
         },{
-            data: "ForcePasswordChange",
-            value: true,
-            visible: false
-        },{
             data: "Profile",
             value: "",
             visible: false
