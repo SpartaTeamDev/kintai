@@ -50,7 +50,8 @@ class UserService extends AbstractBaseService
             {
                 throw new ValidateException('Password does not match the confirm password');
             }
-            elseif (isset($payload['OldPassword']) && !$eventArgs->isNew() &&
+
+            if (isset($payload['OldPassword']) && !$eventArgs->isNew() &&
                 !\Hash::check($payload['OldPassword'], $eventArgs->getEntity()->getPassword()))
             {
                 throw new ValidateException('The old password is invalid');
