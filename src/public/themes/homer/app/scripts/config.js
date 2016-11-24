@@ -15,7 +15,7 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider,
         .useLoader("$translatePartialLoader", {
             urlTemplate: "/themes/" + CFG.app.theme + "/app/l10n/{lang}/{part}.json"
         })
-        .useSanitizeValueStrategy("sanitize")
+        // .useSanitizeValueStrategy("sanitize")
         .useStorage("Lockr");
 
     // setup angular-jwt & misc.

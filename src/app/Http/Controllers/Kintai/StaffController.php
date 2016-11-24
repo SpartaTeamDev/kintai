@@ -12,6 +12,24 @@ use App\Http\Controllers\Controller;
  */
 class StaffController extends Controller
 {
+    /**
+     * @override
+     * @example GET /lookup?filter=&sort=&start=&length=
+     */
+    public function index()
+    {
+        /** @var \Doctrine\ORM\EntityManager $entityManager */
+        // $entityManager = app(DOCTRINE_ENTITY_MANAGER); // we can't run this way
+        $entityManager = $this->getService()->getRepository()->entityManager;
+
+        /** @var \Doctrine\ORM\EntityRepository $repo */
+        $settingRepository = $entityManager->getRepository('System\Entities\Setting');
+        $data = $settingRepository->findAll();
+
+        var_dump($data); // GET /api/staff?length=10&start=0
+        die;
+    }
+
     /** {@inheritdoc} */
     public function getPage()
     {
