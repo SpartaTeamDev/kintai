@@ -27,17 +27,17 @@ function Anonymous(AbstractModel) {
             visible: false
         },{
             data: "Name",
-            title: "Name",
+            title: t("NAME"),
             value: "",
             class: "col-xs-2"
         },{
             data: "Action",
-            title: "Action",
+            title: t("ACTION"),
             value: "",
             class: "col-xs-2"
         },{
             data: "Information",
-            title: "Information",
+            title: t("INFORMATION"),
             value: "",
             class: "text-wrap",
             sortable: false
@@ -63,7 +63,7 @@ function Anonymous(AbstractModel) {
             visible: false
         },{
             data: "CreatedAt",
-            title: "Date",
+            title: t("DATE"),
             value: "",
             class: "col-xs-2",
             render: function(data) {

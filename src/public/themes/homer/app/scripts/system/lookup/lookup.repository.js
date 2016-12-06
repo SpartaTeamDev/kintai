@@ -10,7 +10,7 @@ function Anonymous(LookupModel, AbstractRepository) {
     }
     extend(LookupRepository, AbstractRepository);
 
-    return LookupRepository.construct(arguments);
+    return LookupRepository.newInstance(arguments);
 }
 
 })();

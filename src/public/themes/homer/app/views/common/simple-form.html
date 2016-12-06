@@ -5,8 +5,8 @@
             <div ui-view></div>
             <div class="hr-line-dashed"></div>
             <div class="form-group"><div class="col-sm-8 col-sm-offset-2">
-                <a class="btn btn-default" ng-click="ctrl.cancel(model)">Cancel</a>
-                <button class="btn btn-primary" ng-disabled="!error && simpleForm.$submitted"><i class="fa fa-check"></i> Save changes</button>
+                <a class="btn btn-default" ng-click="ctrl.cancel(model)">{{ 'CANCEL' | translate }}</a>
+                <button class="btn btn-primary" ng-disabled="!error && simpleForm.$submitted"><i class="fa fa-check"></i> {{ 'SAVE_CHANGES' | translate }}</button>
             </div></div>
         </form>
     </div>

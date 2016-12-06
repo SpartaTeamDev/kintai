@@ -1,3 +1,4 @@
+/modules/config.params.php
 /public/storage
 Homestead.json
 Homestead.yaml
@@ -5,4 +6,3 @@ Homestead.yaml
 /readme.md
 .phpstorm.meta.php
 _ide_helper.php
-config.params.php

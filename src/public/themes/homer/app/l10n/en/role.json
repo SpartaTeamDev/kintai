@@ -1,3 +1,10 @@
 {
-  
+  "ROLE": "Role",
+  "MANAGE_ROLES": "Manage Roles",
+  "NEW_ROLE": "New Role",
+  "EDIT_ROLE": "Edit Role",
+
+  "NAME": "Name",
+  "DESCRIPTION": "Description",
+  "PRIVILEGES": "Privileges"
 }

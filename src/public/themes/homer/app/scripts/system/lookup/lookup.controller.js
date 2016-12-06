@@ -10,7 +10,7 @@ function Anonymous($scope, LookupRepository, AbstractController) {
     }
     extend(LookupController, AbstractController);
 
-    return LookupController.construct(arguments);
+    return LookupController.newInstance(arguments);
 }
 
 })();

@@ -30,7 +30,7 @@ function Anonymous($scope, RoleRepository, PermissionRepository, AbstractControl
         }
     };
 
-    return RoleController.construct(arguments);
+    return RoleController.newInstance(arguments);
 }
 
 })();

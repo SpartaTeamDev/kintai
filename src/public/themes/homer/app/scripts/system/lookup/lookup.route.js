@@ -11,7 +11,7 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "/lookup",
             templateUrl: "views/common/content-small.html",
             data: {
-                pageTitle: "Lookup"
+                pageTitle: "LOOKUP"
             },
             controller: "LookupController as ctrl",
             abstract: true
@@ -20,8 +20,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "",
             templateUrl: "views/common/simple-grid.html",
             data: {
-                pageTitle: "Manage Lookups",
-                pageDesc: "From here you can browse all of the latest lookup values"
+                pageTitle: "MANAGE_LOOKUPS",
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
             }
         })
         .state("lookup.create", {
@@ -35,8 +35,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "New Lookup",
-                pageDesc: "From here you can create a new lookup value",
+                pageTitle: "NEW_LOOKUP",
+                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_ITEM",
                 isNew: true
             }
         })
@@ -51,8 +51,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "Edit Lookup",
-                pageDesc: "From here you can edit an existing lookup value",
+                pageTitle: "EDIT_LOOKUP",
+                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_ITEM",
                 isNew: false
             }
         });

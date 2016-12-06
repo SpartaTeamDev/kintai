@@ -10,7 +10,7 @@ function Anonymous(SettingModel, AbstractRepository) {
     }
     extend(SettingRepository, AbstractRepository);
 
-    return SettingRepository.construct(arguments);
+    return SettingRepository.newInstance(arguments);
 }
 
 })();

@@ -12,7 +12,7 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
 
     UserController.prototype.beforeForm = function(id, isNew) {
         $scope.roles = { data: [], primary: { Id: 0 }, secondary: [], filter: function(value) {
-            return undefined === _.find([$scope.roles.primary].concat($scope.roles.secondary), { Id: value.Id });
+            return void 0 === _.find([$scope.roles.primary].concat($scope.roles.secondary), { Id: value.Id });
         }};
     };
 
@@ -30,10 +30,10 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
             var defaultRole = _.find($scope.roles.data, { Name: "User" }),
                 primaryRole = _.find($scope.model.Roles, { IsPrimary: true });
 
-            if (undefined !== primaryRole) {
+            if (void 0 !== primaryRole) {
                 $scope.roles.primary = primaryRole.Role;
             }
-            else if (undefined !== defaultRole) {
+            else if (void 0 !== defaultRole) {
                 $scope.roles.primary = defaultRole;
             }
 
@@ -47,7 +47,7 @@ function Anonymous($scope, UserRepository, RoleRepository, AbstractController) {
         model.Roles = [$scope.roles.primary].concat($scope.roles.secondary);
     };
 
-    return UserController.construct(arguments);
+    return UserController.newInstance(arguments);
 }
 
 })();

@@ -1,3 +1,9 @@
 {
-  
+  "PERMISSION": "Permission",
+  "MANAGE_PERMISSIONS": "Manage Permissions",
+  "NEW_PERMISSION": "New Permission",
+  "EDIT_PERMISSION": "Edit Permission",
+
+  "NAME": "Name",
+  "DESCRIPTION": "Description"
 }

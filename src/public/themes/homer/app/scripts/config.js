@@ -1,4 +1,4 @@
-(function() { "use strict";
+(function(Lockr) { "use strict";
 /**
  * @author ntd1712
  */
@@ -13,15 +13,15 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider,
         .fallbackLanguage(CFG.app.fallback_locale)
         .preferredLanguage(CFG.app.locale)
         .useLoader("$translatePartialLoader", {
-            urlTemplate: "/themes/" + CFG.app.theme + "/app/l10n/{lang}/{part}.json"
+            urlTemplate: CFG.app.url + "/themes/" + CFG.app.theme + "/app/l10n/{lang}/{part}.json"
         })
-        // .useSanitizeValueStrategy("sanitize")
+        .useSanitizeValueStrategy("escape", "sanitizeParameters")
         .useStorage("Lockr");
 
     // setup angular-jwt & misc.
     jwtOptionsProvider.config({
         tokenGetter: ["options", "$http", "jwtHelper", function(options, $http, jwtHelper) {
-            if (options) {
+            if (void 0 !== options) {
                 var ext = options.url.substr(options.url.length - 5);
 
                 if (".html" === ext || ".json" === ext) {
@@ -31,13 +31,9 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider,
 
             var token = Lockr.get(CFG.session.cookie + "_jwt");
 
-            if (!token) {
-                return null;
-            }
-
-            if (jwtHelper && jwtHelper.isTokenExpired(token)) {
+            if (void 0 !== token && void 0 !== jwtHelper && jwtHelper.isTokenExpired(token)) {
                 return $http({
-                    url: $http.defaults.route + "auth/renewtoken?token=" + token,
+                    url: CFG.app.url + "/api/auth/renewtoken?token=" + token,
                     skipAuthorization: true,
                     method: "POST"
                 }).then(function(response) {
@@ -58,8 +54,7 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider,
         whiteListedDomains: ["localhost", "127.0.0.1", String(CFG.session.domain)]
     });
 
-    $httpProvider.interceptors.push("jwtInterceptor");
-    $httpProvider.interceptors.push("RequestProvider");
+    $httpProvider.interceptors.push("jwtInterceptor", "RequestProvider");
     $httpProvider.defaults.withCredentials = true;
     delete $httpProvider.defaults.headers.common["X-Requested-With"];
 
@@ -72,7 +67,41 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider,
 }
 
 function runBlocks($http, $rootScope, $state, $transitions, $translate, jwtHelper) {
+    // setup some defaults
+    $http.defaults.route = CFG.app.url + "/api/";
+    $rootScope.$state = $state;
+    // $rootScope._ = window._;
+    // $rootScope.CFG = window.CFG;
+    // $rootScope.moment = window.moment;
+
+    // localization & misc.
+    window.t = function(langKey) {
+        return $translate.instant(langKey);
+    };
+    $rootScope.changeLanguage = function(langKey) {
+        $translate.use(langKey);
+        location.reload(true);
+    };
+    $rootScope.$on("$translatePartialLoaderStructureChanged", function() {
+        $translate.refresh();
+    });
+    $rootScope.$watch("toast", function(newValue) {
+        if (void 0 !== newValue) {
+            chaos.notify(t(newValue));
+            delete $rootScope.toast;
+        }
+    });
+
     // what if the user is not authenticated
+    $rootScope.$on("unauthenticated", function() {
+        $rootScope.error = t("INVALID_OR_EXPIRED_SESSION");
+        $rootScope.isAuthenticated = false;
+        $state.go("login", {}, { reload: true });
+    });
+    $rootScope.$on("tokenHasExpired", function() {
+        $rootScope.$broadcast("unauthenticated");
+    });
+
     $transitions.onBefore({}, function(/** Transition */$transition$) {
         var to = $transition$.to();
 
@@ -90,37 +119,6 @@ function runBlocks($http, $rootScope, $state, $transitions, $translate, jwtHelpe
             }
         }
     });
-    $rootScope.$on("tokenHasExpired", function() {
-        $rootScope.$broadcast("unauthenticated");
-    });
-    $rootScope.$on("unauthenticated", function() {
-        $rootScope.error = "Invalid or expired session";
-        $rootScope.isAuthenticated = false;
-
-        $state.go("login", {}, { reload: true });
-    });
-
-    // setup defaults: $rootScope
-    $rootScope.$state = $state;
-    $rootScope._ = window._;
-    $rootScope.moment = window.moment;
-    $rootScope.CFG = window.CFG;
-
-    $rootScope.$watch("toast", function(newValue) {
-        if (undefined !== newValue) {
-            notify(newValue);
-            delete $rootScope.toast;
-        }
-    });
-    $rootScope.$on("$translatePartialLoaderStructureChanged", function() {
-        $translate.refresh();
-    });
-    $rootScope.switchLanguage = function(langKey) {
-        $translate.use(langKey);
-    };
-
-    // $http
-    $http.defaults.route = CFG.app.url + "/api/";
 }
 
-})();
+})(Lockr);

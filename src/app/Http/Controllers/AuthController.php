@@ -140,7 +140,7 @@ class AuthController extends Controller
      * The "login" action
      *
      * @param   \Request $request
-     * @return  \Symfony\Component\HttpFoundation\Response
+     * @return  array|\Symfony\Component\HttpFoundation\Response
      * @throws  JWTException
      */
     public function postLogin(\Request $request)
@@ -150,11 +150,13 @@ class AuthController extends Controller
         {
             return $this->postLogout();
         }
-        elseif (true === (bool)$request::get('identity'))
+
+        if (true === (bool)$request::get('identity'))
         {
             return $this->postIdentity($request);
         }
-        elseif (true === (bool)$request::get('reset'))
+
+        if (true === (bool)$request::get('reset'))
         {
             return $this->postReset($request);
         }

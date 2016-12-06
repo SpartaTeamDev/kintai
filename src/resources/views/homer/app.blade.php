@@ -110,4 +110,4 @@ window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['ses
     <script src="scripts/kintai/staff/staff.route.js"></script>
 @endif
 </body>
-</html><!-- ntd1712 -->
+</html><!-- developed by ntd1712 -->

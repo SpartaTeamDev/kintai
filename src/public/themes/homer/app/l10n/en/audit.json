@@ -1,3 +1,13 @@
 {
-  
+  "AUDIT_TRAIL": "Audit Trail",
+
+  "DATE": "Date",
+  "NAME": "User",
+  "ACTION": "Action",
+  "INFORMATION": "Information",
+  "TYPE": "Type",
+  "IP_ADDRESS": "IP Address",
+  "REQUEST": "Request",
+  "PARAMETERS": "Parameters",
+  "REFERRER": "Referrer"
 }

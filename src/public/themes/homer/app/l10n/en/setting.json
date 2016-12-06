@@ -1,4 +1,9 @@
 {
+  "SETTING": "Setting",
+  "MANAGE_SETTINGS": "Manage Settings",
+  "NEW_SETTING": "New Setting",
+  "EDIT_SETTING": "Edit Setting",
+
   "NAME": "Name",
   "VALUE": "Value",
   "DESCRIPTION": "Description"

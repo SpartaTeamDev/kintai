@@ -1,3 +1,9 @@
 {
-  
+  "PERMISSION": "允许",
+  "MANAGE_PERMISSIONS": "管理权限",
+  "NEW_PERMISSION": "新权限",
+  "EDIT_PERMISSION": "编辑权限",
+
+  "NAME": "名称",
+  "DESCRIPTION": "描述"
 }

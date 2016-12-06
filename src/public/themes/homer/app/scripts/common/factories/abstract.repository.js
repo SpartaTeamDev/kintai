@@ -24,7 +24,7 @@ function Anonymous($cacheFactory, $http) {
     // Public, non-privileged methods
     AbstractRepository.prototype = {
         /**
-         * @param {Object.<String|Object>} [params]
+         * @param {Object.<string|Object>} [params]
          * @returns {Object} HttpPromise
          */
         index: function(params) {

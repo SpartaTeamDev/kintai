@@ -14,11 +14,11 @@ function Anonymous($scope, RegisterRepository, AbstractController) {
         this.repository.store(model).then(
             function() {
                 delete $scope.$parent.error;
-                $scope.$parent.toast = "You have successfully registered";
+                $scope.$parent.toast = "YOU_HAVE_SUCCESSFULLY_REGISTERED";
                 $scope.$state.go("login", {}, { reload: true });
             },
             function(response) {
-                $scope.$parent.error = response.data.error || "Could not register";
+                $scope.$parent.error = response.data.error || t("COULD_NOT_REGISTER");
             });
 
         return this;
@@ -28,7 +28,7 @@ function Anonymous($scope, RegisterRepository, AbstractController) {
         delete $scope.model;
     };
 
-    return RegisterController.construct(arguments);
+    return RegisterController.newInstance(arguments);
 }
 
 })();

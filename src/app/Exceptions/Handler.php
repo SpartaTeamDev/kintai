@@ -29,9 +29,10 @@ class Handler extends ExceptionHandler
     public function render($request, \Exception $e)
     {
         if ($e instanceof \Chaos\Common\Exceptions\ValidateException || // status code: 418, 404
-            $e instanceof \Chaos\Common\Exceptions\ServiceException)
+            $e instanceof \Chaos\Common\Exceptions\ServiceException ||
+            $e instanceof \Doctrine\DBAL\Exception\ConstraintViolationException)
         {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+            return response()->json(['error' => $e->getMessage()], $e->getCode() ?: 418);
         }
         elseif ($e instanceof \Tymon\JWTAuth\Exceptions\JWTException || // status code: 0, 400, 401, 404, 500
             $e instanceof \League\OAuth2\Client\Provider\Exception\IdentityProviderException)

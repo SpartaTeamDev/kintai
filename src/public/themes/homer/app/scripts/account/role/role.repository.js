@@ -10,7 +10,7 @@ function Anonymous(RoleModel, AbstractRepository) {
     }
     extend(RoleRepository, AbstractRepository);
 
-    return RoleRepository.construct(arguments);
+    return RoleRepository.newInstance(arguments);
 }
 
 })();

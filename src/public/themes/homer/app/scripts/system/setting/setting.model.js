@@ -27,12 +27,12 @@ function Anonymous(AbstractModel) {
             visible: false
         },{
             data: "Name",
-            title: "Name",
+            title: t("NAME"),
             value: "",
             class: "col-xs-3"
         },{
             data: "Value",
-            title: "Value",
+            title: t("VALUE"),
             value: "",
             class: "text-wrap",
             sortable: false

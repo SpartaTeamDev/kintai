@@ -64,7 +64,7 @@ function unescape() {
                         .replace(/&#0?39;|&apos;/g, "'")
                         .replace(/&#0?34;/g, '"');
                 }
-                return undefined;
+                return void 0;
             });
         }
     };

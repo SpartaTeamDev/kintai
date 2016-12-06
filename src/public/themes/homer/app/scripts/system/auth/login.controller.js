@@ -18,7 +18,7 @@ function Anonymous($scope, LoginRepository, AbstractController) {
                 $scope.$state.go(CFG.app.defaultRoute, {}, { reload: true });
             },
             function(response) {
-                $scope.$parent.error = response.data.error || "Could not log in";
+                $scope.$parent.error = response.data.error || t("COULD_NOT_LOG_IN");
             });
 
         return this;
@@ -40,11 +40,11 @@ function Anonymous($scope, LoginRepository, AbstractController) {
         this.repository.store(model).then(
             function() {
                 delete $scope.$parent.error;
-                $scope.$parent.toast = "Please check your email for the reset password instructions";
+                $scope.$parent.toast = "PLEASE_CHECK_YOUR_EMAIL_FOR_THE_RESET_PASSWORD_INSTRUCTIONS";
                 $scope.$state.go("login", {}, { reload: true });
             },
             function(response) {
-                $scope.$parent.error = response.data.error || "Your email is invalid";
+                $scope.$parent.error = response.data.error || t("YOUR_EMAIL_IS_INVALID");
             });
 
         return this;
@@ -52,7 +52,7 @@ function Anonymous($scope, LoginRepository, AbstractController) {
 
     LoginController.prototype.reset = function(model) {
         if (model.password !== model.confirmPassword) {
-            return $scope.$parent.error = "Password does not match the confirm password";
+            return $scope.$parent.error = t("PASSWORD_DOES_NOT_MATCH_THE_CONFIRM_PASSWORD");
         }
 
         this.repository.store(model).then(
@@ -61,13 +61,13 @@ function Anonymous($scope, LoginRepository, AbstractController) {
                 $scope.$state.go("login", {}, { reload: true });
             },
             function(response) {
-                $scope.$parent.error = response.data.error || "Could not reset password";
+                $scope.$parent.error = response.data.error || t("COULD_NOT_RESET_PASSWORD");
             });
 
         return this;
     };
 
-    return LoginController.construct(arguments);
+    return LoginController.newInstance(arguments);
 }
 
 })();

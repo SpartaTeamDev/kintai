@@ -10,7 +10,7 @@ function Anonymous(PermissionModel, AbstractRepository) {
     }
     extend(PermissionRepository, AbstractRepository);
 
-    return PermissionRepository.construct(arguments);
+    return PermissionRepository.newInstance(arguments);
 }
 
 })();

@@ -10,7 +10,7 @@ function Anonymous(UserModel, AbstractRepository) {
     }
     extend(UserRepository, AbstractRepository);
 
-    return UserRepository.construct(arguments);
+    return UserRepository.newInstance(arguments);
 }
 
 })();

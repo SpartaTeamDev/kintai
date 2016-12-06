@@ -19,8 +19,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "Audit Trails",
-                pageDesc: "From here you can browse all of the latest audit trails"
+                pageTitle: "AUDIT_TRAIL",
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
             },
             onEnter: function($rootScope) {
                 $rootScope.dtColumns = { ops: ["show", "destroy"] };
@@ -41,8 +41,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "Audit Trails",
-                pageDesc: "From here you can view details of an existing audit trail",
+                pageTitle: "AUDIT_TRAIL",
+                pageDesc: "FROM_HERE_YOU_CAN_VIEW_DETAILS_OF_AN_EXISTING_ITEM",
                 isNew: false
             }
         });

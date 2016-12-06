@@ -27,22 +27,22 @@ function Anonymous(AbstractModel) {
             visible: false
         },{
             data: "Name",
-            title: "Name",
+            title: t("NAME"),
             value: "",
             sortable: false
         },{
             data: "Code",
-            title: "Code",
+            title: t("CODE"),
             value: 0,
             class: "col-xs-1 text-center",
             sortable: false
         },{
             data: "Type",
-            title: "Type",
+            title: t("TYPE"),
             value: ""
         },{
             data: "Position",
-            title: "Position",
+            title: t("POSITION"),
             value: 0,
             class: "col-xs-1 text-center",
             sortable: false

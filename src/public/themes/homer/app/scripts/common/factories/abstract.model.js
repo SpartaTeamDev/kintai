@@ -20,7 +20,7 @@ function Anonymous() {
     function AbstractModel(data, fields) {
         $data = data || {};
 
-        if (undefined !== fields) {
+        if (void 0 !== fields) {
             for (var i = 0, len = fields.length; i < len; i++) {
                 this[fields[i][map.data]] = $data[fields[i][map.data]] || fields[i][map.value];
             }

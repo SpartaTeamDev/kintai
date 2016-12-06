@@ -13,8 +13,8 @@ function RequestProvider() {
                 }
                 else if (response.data) {
                     switch (response.data.error) {
-                        case "token_expired":
                         case "token_not_provided":
+                        case "token_expired":
                         case "token_invalid":
                         case "user_not_found":
                             $rootScope.$broadcast("unauthenticated", response);
@@ -24,7 +24,7 @@ function RequestProvider() {
                             break;
                         default:
                             if (418 !== response.status) {
-                                alert("Oops...", response.data.error || "unknown_error", "error");
+                                alert(t("OOPS"), response.data.error || t("UNKNOWN_ERROR"), "error");
                             }
                     }
                 }

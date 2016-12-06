@@ -20,7 +20,7 @@ Route::group(['prefix' => 'api'], function() // access without authorization; us
     ]);
 });
 
-Route::group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function()
+Route::group(['prefix' => 'api'/*, 'middleware' => 'jwt.auth'*/], function()
 {
     foreach (glob(__DIR__ . '/Controllers/*/*.*') as $v)
     {

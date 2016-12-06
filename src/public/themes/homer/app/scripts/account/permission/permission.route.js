@@ -11,7 +11,7 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "/permission",
             templateUrl: "views/common/content-small.html",
             data: {
-                pageTitle: "Permission"
+                pageTitle: "PERMISSION"
             },
             controller: "PermissionController as ctrl",
             abstract: true
@@ -20,8 +20,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "",
             templateUrl: "views/common/simple-grid.html",
             data: {
-                pageTitle: "Manage Permissions",
-                pageDesc: "From here you can browse all of the latest permissions"
+                pageTitle: "MANAGE_PERMISSIONS",
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
             }
         })
         .state("permission.create", {
@@ -35,8 +35,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "New Permission",
-                pageDesc: "From here you can create a new permission",
+                pageTitle: "NEW_PERMISSION",
+                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_ITEM",
                 isNew: true
             }
         })
@@ -51,8 +51,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "Edit Permission",
-                pageDesc: "From here you can edit an existing permission",
+                pageTitle: "EDIT_PERMISSION",
+                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_ITEM",
                 isNew: false
             }
         });

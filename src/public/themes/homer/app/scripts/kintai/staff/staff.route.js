@@ -20,8 +20,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "",
             templateUrl: "views/common/simple-grid.html",
             data: {
-                pageTitle: "Manage Staffs",
-                pageDesc: "From here you can browse all of the latest staffs"
+                pageTitle: "MANAGE_STAFS",
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
             }
         })
         .state("staff.create", {
@@ -35,8 +35,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "New Staff",
-                pageDesc: "From here you can create a new staff",
+                pageTitle: "NEW_STAFF",
+                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_ITEM",
                 isNew: true
             }
         })
@@ -51,8 +51,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "Edit Staff",
-                pageDesc: "From here you can edit an existing staff",
+                pageTitle: "EDIT_STAFF",
+                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_ITEM",
                 isNew: false
             }
         });

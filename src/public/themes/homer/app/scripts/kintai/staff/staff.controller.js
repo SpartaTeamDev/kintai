@@ -10,7 +10,7 @@ function Anonymous($scope, StaffRepository, AbstractController) {
     }
     extend(StaffController, AbstractController);
 
-    return StaffController.construct(arguments);
+    return StaffController.newInstance(arguments);
 }
 
 })();

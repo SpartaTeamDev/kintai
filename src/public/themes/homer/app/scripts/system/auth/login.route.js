@@ -5,14 +5,14 @@
 chaos.config(configBlocks);
 
 function configBlocks($stateProvider, $translatePartialLoaderProvider) {
-    $translatePartialLoaderProvider.addPart("login");
+    $translatePartialLoaderProvider.addPart("user");
     $stateProvider
         .state("login", {
             url: "/login",
             templateUrl: "views/system/auth/login.html",
             data: {
                 allowGuest: true,
-                pageTitle: "Login",
+                pageTitle: "LOGIN",
                 specialClass: "blank"
             },
             controller: "LoginController as ctrl",
@@ -41,7 +41,7 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             templateUrl: "views/system/auth/recovery.html",
             data: {
                 allowGuest: true,
-                pageTitle: "Recovery Password",
+                pageTitle: "RECOVERY_PASSWORD",
                 specialClass: "blank"
             },
             controller: "LoginController as ctrl"
@@ -51,7 +51,7 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             templateUrl: "views/system/auth/reset.html",
             data: {
                 allowGuest: true,
-                pageTitle: "Reset Password",
+                pageTitle: "RESET_PASSWORD",
                 specialClass: "blank"
             },
             controller: "LoginController as ctrl"
@@ -72,7 +72,7 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                     return $state.go(CFG.app.defaultRoute, {}, { reload: true });
                 }
 
-                throw new Error("invalid_token");
+                throw new Error("INVALID_TOKEN");
             }
         });
 }

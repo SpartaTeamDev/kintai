@@ -8,6 +8,18 @@
     </div></form-->
     <!-- notification -->
     <div class="navbar-right"><ul class="nav navbar-nav no-borders">
+        <li class="dropdown" dropdown>
+            <a class="count-info dropdown-toggle" href="" title="{{ 'CHANGE_LANGUAGE' | translate }}" data-toggle="dropdown" dropdown-toggle>
+                <i class="pe-7s-global"></i></a>
+            <ul class="animated fadeInRight m-t-xs dropdown-menu">
+                <li><a ng-click="changeLanguage('en')"><span class="label">
+                    <img alt="" class="flag" src="{{ 'images/flag-en.png' }}" ng-src="{{ 'images/flag-en.png' }}"/>
+                </span> English</a></li>
+                <li><a ng-click="changeLanguage('zh')"><span class="label">
+                    <img alt="" class="flag"src="{{ 'images/flag-zh.png' }}" ng-src="{{ 'images/flag-zh.png' }}"/>
+                </span> &#x4E2D;&#x6587;</a></li>
+            </ul>
+        </li>
         <!--li class="dropdown" dropdown>
             <a class="dropdown-toggle" href="#" dropdown-toggle><i class="pe-7s-speaker"></i></a>
             <ul class="dropdown-menu hdropdown notification animated flipInX">
@@ -32,7 +44,7 @@
             </ul>
         </li-->
         <li class="dropdown">
-            <a ui-sref="logout"><i class="pe-7s-upload pe-rotate-90"></i></a>
+            <a ui-sref="logout" title="{{ 'LOGOUT' | translate }}"><i class="pe-7s-upload pe-rotate-90"></i></a>
         </li>
     </ul></div>
 </nav>

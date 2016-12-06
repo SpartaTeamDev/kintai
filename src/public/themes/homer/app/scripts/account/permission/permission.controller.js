@@ -10,7 +10,7 @@ function Anonymous($scope, PermissionRepository, AbstractController) {
     }
     extend(PermissionController, AbstractController);
 
-    return PermissionController.construct(arguments);
+    return PermissionController.newInstance(arguments);
 }
 
 })();

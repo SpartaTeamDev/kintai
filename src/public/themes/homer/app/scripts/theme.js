@@ -1,7 +1,7 @@
 (function($) { "use strict";
 /**
  * HOMER - Responsive Admin Theme
- * version 1.7
+ * version 1.8
  */
 function fixWrapperHeight($window) {
     // get and set current height
@@ -20,7 +20,7 @@ function fixWrapperHeight($window) {
 }
 
 function setBodySmall($window) {
-    if ($window.width() < 769) {
+    if (769 > $window.width()) {
         $("body").addClass("page-small");
     }
     else {
@@ -34,7 +34,7 @@ function setPanelSize($window) {
     var $wrapper = $("#wrapper"),
         height = $window.height() - $("#logo").height() - $(".color-line").height();
 
-    if ($wrapper.height() < height) {
+    if (height > $wrapper.height()) {
         $wrapper.css("height", height + "px");
     }
 }

@@ -5,14 +5,14 @@
 chaos.config(configBlocks);
 
 function configBlocks($stateProvider, $translatePartialLoaderProvider) {
-    $translatePartialLoaderProvider.addPart("register");
+    $translatePartialLoaderProvider.addPart("user");
     $stateProvider
         .state("register", {
             url: "/register",
             templateUrl: "views/system/auth/register.html",
             data: {
                 allowGuest: true,
-                pageTitle: "Register",
+                pageTitle: "REGISTER",
                 specialClass: "blank"
             },
             controller: "RegisterController as ctrl"

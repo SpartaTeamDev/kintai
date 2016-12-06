@@ -10,7 +10,7 @@ function Anonymous(LoginModel, AbstractRepository) {
     }
     extend(LoginRepository, AbstractRepository);
 
-    return LoginRepository.construct(arguments);
+    return LoginRepository.newInstance(arguments);
 }
 
 })();

@@ -10,7 +10,7 @@ function Anonymous(AuditModel, AbstractRepository) {
     }
     extend(AuditRepository, AbstractRepository);
 
-    return AuditRepository.construct(arguments);
+    return AuditRepository.newInstance(arguments);
 }
 
 })();

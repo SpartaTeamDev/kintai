@@ -27,7 +27,7 @@ function Anonymous(AbstractModel) {
             visible: false
         },{
             data: "Name",
-            title: "Name",
+            title: t("NAME"),
             value: "",
             sortable: false
         }];

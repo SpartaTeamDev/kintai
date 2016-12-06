@@ -10,7 +10,7 @@ function Anonymous(StaffModel, AbstractRepository) {
     }
     extend(StaffRepository, AbstractRepository);
 
-    return StaffRepository.construct(arguments);
+    return StaffRepository.newInstance(arguments);
 }
 
 })();

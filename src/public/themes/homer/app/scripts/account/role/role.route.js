@@ -11,7 +11,7 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "/role",
             templateUrl: "views/common/content-small.html",
             data: {
-                pageTitle: "Role"
+                pageTitle: "ROLE"
             },
             controller: "RoleController as ctrl",
             abstract: true
@@ -20,8 +20,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "",
             templateUrl: "views/common/simple-grid.html",
             data: {
-                pageTitle: "Manage Roles",
-                pageDesc: "From here you can browse all of the latest roles"
+                pageTitle: "MANAGE_ROLES",
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
             }
         })
         .state("role.create", {
@@ -35,8 +35,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "New Role",
-                pageDesc: "From here you can create a new role",
+                pageTitle: "NEW_ROLE",
+                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_ITEM",
                 isNew: true
             }
         })
@@ -51,8 +51,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "Edit Role",
-                pageDesc: "From here you can edit an existing role",
+                pageTitle: "EDIT_ROLE",
+                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_ITEM",
                 isNew: false
             }
         });

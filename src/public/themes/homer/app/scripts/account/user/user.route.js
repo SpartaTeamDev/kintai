@@ -11,7 +11,7 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "/user",
             templateUrl: "views/common/content-small.html",
             data: {
-                pageTitle: "User"
+                pageTitle: "USER"
             },
             controller: "UserController as ctrl",
             abstract: true
@@ -20,8 +20,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
             url: "",
             templateUrl: "views/account/user/grid.html",
             data: {
-                pageTitle: "Manage Users",
-                pageDesc: "From here you can browse all of the latest user accounts"
+                pageTitle: "MANAGE_USERS",
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_USER_ACCOUNTS"
             }
         })
         .state("user.create", {
@@ -35,8 +35,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "New User",
-                pageDesc: "From here you can create a new user account",
+                pageTitle: "NEW_USER",
+                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_USER_ACCOUNT",
                 isNew: true
             }
         })
@@ -51,8 +51,8 @@ function configBlocks($stateProvider, $translatePartialLoaderProvider) {
                 }
             },
             data: {
-                pageTitle: "Edit User",
-                pageDesc: "From here you can edit an existing user account",
+                pageTitle: "EDIT_USER",
+                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_USER_ACCOUNT",
                 isNew: false
             }
         });

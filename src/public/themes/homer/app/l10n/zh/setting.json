@@ -1,4 +1,9 @@
 {
+  "SETTING": "设置",
+  "MANAGE_SETTINGS": "管理设置",
+  "NEW_SETTING": "新设置",
+  "EDIT_SETTING": "编辑设置",
+
   "NAME": "名称",
   "VALUE": "值",
   "DESCRIPTION": "描述"

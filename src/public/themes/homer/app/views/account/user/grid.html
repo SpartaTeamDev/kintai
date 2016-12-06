@@ -8,10 +8,12 @@
             </div>
             <div class="panel-footer contact-footer"><div class="row">
                 <div class="col-xs-6 border-right"><div class="contact-stat">
-                    <a class="btn btn-info btn-xs" ui-sref="user.edit({ id: model.Id })" title="Edit"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-info btn-xs" ui-sref="user.edit({ id: model.Id })" title="{{ 'EDIT' | translate }}">
+                        <i class="fa fa-edit"></i></a>
                 </div></div>
                 <div class="col-xs-6"><div class="contact-stat">
-                    <a class="btn btn-danger btn-xs" ng-click="ctrl.destroy(model.Id)" title="Delete"><i class="fa fa-trash-o"></i></a>
+                    <a class="btn btn-danger btn-xs" ng-click="ctrl.destroy(model.Id)" title="{{ 'DELETE' | translate }}">
+                        <i class="fa fa-trash-o"></i></a>
                 </div></div>
             </div></div>
         </div>

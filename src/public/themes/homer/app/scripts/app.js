@@ -1,6 +1,7 @@
-(function() { "use strict";
+(function(angular, Lockr) { "use strict";
 /**
  * @author ntd1712
+ * @namespace
  */
 window.chaos = angular.module("homer", [
     "ngSanitize",
@@ -24,12 +25,27 @@ chaos.factory("Lockr", function() {
     });
 });
 
+/**
+ * @param {string|Object} message
+ */
+chaos.notify = function(message) {
+    if (void 0 !== window.Snarl) {
+        Snarl.addNotification(angular.extend({
+            text: "...",
+            icon: '<i class="fa fa-info-circle"></i>'
+        }, "string" === typeof message ? { text: message } : Object(message)));
+    }
+    else {
+        alert.apply(null, arguments);
+    }
+};
+
 if (void 0 !== window.swal) {
     /**
      * @param {string|Object} message
      * @param {string=} text
      * @param {("error"|"warning"|"info"|"success"|"input"|"prompt")} type The allowed type of the message
-     * @link https://lipis.github.io/bootstrap-sweetalert Documentation of swal
+     * @link https://lipis.github.io/bootstrap-sweetalert The documentation of swal
      */
     window.alert = function(message, text, type) {
         swal("object" === typeof message ? message : String(message), text, type);
@@ -63,7 +79,7 @@ if (void 0 !== window.swal) {
             type: "warning",
             showCancelButton: true,
             showLoaderOnConfirm: true,
-            confirmButtonText: "Yes, do it"
+            confirmButtonText: "Yes, do it!"
         }, message),
         function(isConfirm) {
             if (isConfirm && "function" === typeof handler) {
@@ -73,24 +89,7 @@ if (void 0 !== window.swal) {
     };
 }
 
-if (void 0 === window.notify) {
-    /**
-     * @param {string|Object} message
-     */
-    window.notify = function(message) {
-        if (void 0 !== window.Snarl) {
-            Snarl.addNotification(angular.extend({
-                text: "...",
-                icon: '<i class="fa fa-info-circle"></i>'
-            }, "string" === typeof message ? { text: message } : Object(message)));
-        }
-        else {
-            alert.apply(null, arguments);
-        }
-    }
-}
-
-})();
+})(angular, Lockr);
 
 if (void 0 === Object.create) {
     /**
@@ -104,12 +103,12 @@ if (void 0 === Object.create) {
     };
 }
 
-if (void 0 === Function.prototype.construct) {
+if (void 0 === Function.prototype.newInstance) {
     /**
      * @param   {Array=} args
      * @returns {Object}
      */
-    Function.prototype.construct = function(args) {
+    Function.prototype.newInstance = function(args) {
         var instance = Object.create(this.prototype);
         this.apply(instance, args);
         return instance;

@@ -79,7 +79,7 @@ function Anonymous($compile) {
          */
         edit: function(id) {
             if (!id) {
-                throw new Error("Your request is invalid");
+                throw new Error(t("YOUR_REQUEST_IS_INVALID"));
             }
 
             if ("function" === typeof this.beforeForm) {
@@ -89,7 +89,7 @@ function Anonymous($compile) {
             var me = this;
             var handler = function(response) {
                 if (!response[map.success]) {
-                    throw new Error(response[map.data] || "Your request is invalid");
+                    throw new Error(response[map.data] || t("YOUR_REQUEST_IS_INVALID"));
                 }
 
                 $scope.model = response[map.data];
@@ -100,10 +100,10 @@ function Anonymous($compile) {
                 }
             };
 
-            if (undefined !== $scope.collection) {
+            if (void 0 !== $scope.collection) {
                 var model = _.find($scope.collection,
                     eval("({" + map.id + ":" + ("number" === typeof id ? id : '"' + String(id).replace(/"/g, "&quot;") + '"') + "})"));
-                handler({ data: model, success: undefined !== model });
+                handler({ data: model, success: void 0 !== model });
             }
             else {
                 this.repository.show(id).then(
@@ -132,7 +132,7 @@ function Anonymous($compile) {
          */
         destroy: function(id) {
             if (!id) {
-                throw new Error("Your request is invalid");
+                throw new Error(t("YOUR_REQUEST_IS_INVALID"));
             }
 
             if ("function" === typeof this.beforeDestroy) {
@@ -147,11 +147,11 @@ function Anonymous($compile) {
                             me.afterDestroy.call(me, id, response);
                         }
 
-                        $scope.$parent.toast = "Deleted successfully";
+                        $scope.$parent.toast = "DELETED_SUCCESSFULLY";
                         $scope.$state.reload();
                     },
                     function() {
-                        $scope.$parent.toast = "Deleted unsuccessfully, maybe it is in use";
+                        $scope.$parent.toast = "DELETED_UNSUCCESSFULLY_PERHAPS_IT_IS_IN_USE_OR_CORRUPTED";
                     });
             });
 
@@ -163,7 +163,7 @@ function Anonymous($compile) {
          */
         bootstrap: function(mode) {
             if (!mode) {
-                mode = undefined !== $scope.$state.current.data.isNew ? "form" : "grid";
+                mode = void 0 !== $scope.$state.current.data.isNew ? "form" : "grid";
             }
 
             switch (mode) {
@@ -223,7 +223,7 @@ function Anonymous($compile) {
                 }
 
                 if (!id) {
-                    throw new Error("Your request is invalid");
+                    throw new Error(t("YOUR_REQUEST_IS_INVALID"));
                 }
             }
 
@@ -232,7 +232,7 @@ function Anonymous($compile) {
             }
 
             if (angular.equals(model, Object($scope.mistr))) {
-                $scope.$parent.toast = "There's no changes";
+                $scope.$parent.toast = "THERE_IS_NO_CHANGES";
                 return $scope.$state.reload();
             }
 
@@ -243,7 +243,7 @@ function Anonymous($compile) {
                 }
 
                 delete $scope.$parent.error;
-                $scope.$parent.toast = "Data saved successfully";
+                $scope.$parent.toast = "DATA_SAVED_SUCCESSFULLY";
                 $scope.$state.go(me.route);
             };
 
@@ -284,11 +284,11 @@ function Anonymous($compile) {
                     class: "col-sm-1 text-center",
                     sortable: false,
                     render: function(model) {
-                        return '<a class="btn btn-success btn-xs" title="View Details" ng-if="' + (-1 !== actions.indexOf("show")) + '"' +
+                        return '<a class="btn btn-success btn-xs" title="' + t("VIEW_DETAILS") + '" ng-if="' + (-1 !== actions.indexOf("show")) + '"' +
                             ' ui-sref="' + state + '.show({ id: ' + model.Id + ' })"><i class="fa fa-file-text-o"></i></a> ' +
-                            '<a class="btn btn-info btn-xs" title="Edit" ng-if="' + (-1 !== actions.indexOf("edit")) + '"' +
+                            '<a class="btn btn-info btn-xs" title="' + t("EDIT") + '" ng-if="' + (-1 !== actions.indexOf("edit")) + '"' +
                             ' ui-sref="' + state + '.edit({ id: ' + model.Id + ' })"><i class="fa fa-edit"></i></a> ' +
-                            '<a class="btn btn-danger btn-xs" title="Delete" ng-if="' + (-1 !== actions.indexOf("destroy")) + '"' +
+                            '<a class="btn btn-danger btn-xs" title="' + t("DELETE") + '" ng-if="' + (-1 !== actions.indexOf("destroy")) + '"' +
                             ' ng-click="ctrl.destroy(' + model.Id + ')"><i class="fa fa-trash-o"></i></a>';
                     }
                 });
@@ -306,7 +306,7 @@ function Anonymous($compile) {
             return angular.extend({
                 aaSorting: [],
                 // bStateSave: true,
-                oLanguage: { sUrl: "l10n/" + CFG.app.locale + "/.datatables.json" },
+                oLanguage: { sUrl: "l10n/" + Lockr.get("NG_TRANSLATE_LANG_KEY") + "/.datatables.json" },
                 processing: true,
                 serverSide: true,
                 sAjaxDataProp: map.data,

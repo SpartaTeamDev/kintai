@@ -10,7 +10,7 @@ function Anonymous($scope, SettingRepository, AbstractController) {
     }
     extend(SettingController, AbstractController);
 
-    return SettingController.construct(arguments);
+    return SettingController.newInstance(arguments);
 }
 
 })();

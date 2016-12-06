@@ -27,11 +27,11 @@ function Anonymous(AbstractModel) {
             visible: false
         },{
             data: "Name",
-            title: "Username",
+            title: t("USERNAME"),
             value: ""
         },{
             data: "Email",
-            title: "Email",
+            title: t("EMAIL"),
             value: ""
         },{
             data: "Password",
