@@ -2,7 +2,7 @@
 /**
  * @author ntd1712
  */
-chaos.controller("AuditController", Anonymous);
+angular.module("homer").controller("AuditController", Anonymous);
 
 function Anonymous($scope, AuditRepository, AbstractController) {
     function AuditController() {

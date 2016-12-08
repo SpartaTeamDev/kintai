@@ -2,7 +2,7 @@
 /**
  * @author ntd1712
  */
-chaos.controller("LoginController", Anonymous);
+angular.module("homer").controller("LoginController", Anonymous);
 
 function Anonymous($scope, LoginRepository, AbstractController) {
     function LoginController() {

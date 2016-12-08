@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../node_modules/bootstrap-sweetalert/dist/sweetalert.css"/>
     <link rel="stylesheet" href="../node_modules/datatables.net-bs/css/dataTables.bootstrap.css"/>
-    <link rel="stylesheet" href="../node_modules/ui-select/dist/select.css"/>
     <link rel="stylesheet" href="styles/pe-icon-7-stroke-helper.css"/>
     <link rel="stylesheet" href="styles/style.css"/>
     <link rel="stylesheet" href="styles/custom.css"/>
@@ -46,19 +45,15 @@
     <script src="../node_modules/datatables.net/js/jquery.dataTables.js"></script>
     <script src="../node_modules/drmonty-datatables-plugins/api/fnSetFilteringDelay.js"></script>
     <script src="../node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
-    <script src="../node_modules/icheck/icheck.js"></script>
-    <script src="../node_modules/masonry-layout/dist/masonry.pkgd.js"></script>
     <script src="../node_modules/metismenu/dist/metisMenu.js"></script>
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-sanitize/angular-sanitize.js"></script>
     <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="../node_modules/ui-select/dist/select.js"></script>
     <script src="../node_modules/angular-datatables/dist/angular-datatables.js"></script>
     <script src="../node_modules/angular-jwt/dist/angular-jwt.js"></script>
     <script src="../node_modules/angular-translate/dist/angular-translate.js"></script>
     <script src="../node_modules/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
-    <script src="../node_modules/checklist-model/checklist-model.js"></script>
-    <script src="../node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+    <script src="../node_modules/oclazyload/dist/ocLazyLoad.js"></script>
 @endif
     <script>/*<![CDATA[*/
 window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['session'], 'urls' => $config['urls']]) !!};
@@ -69,44 +64,19 @@ window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['ses
     <script src="scripts/theme.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/config.js"></script>
+    <script src="scripts/bundles.js"></script>
     <script src="scripts/common/directives/directives.js"></script>
-    <script src="scripts/common/directives/touchSpin.js"></script>
-    <script src="scripts/common/filters/props.js"></script>
     <script src="scripts/common/factories/abstract.model.js"></script>
     <script src="scripts/common/factories/abstract.repository.js"></script>
     <script src="scripts/common/factories/abstract.controller.js"></script>
     <script src="scripts/common/providers/request.provider.js"></script>
-    <script src="scripts/system/auth/login.model.js"></script>
-    <script src="scripts/system/auth/login.repository.js"></script>
-    <script src="scripts/system/auth/login.controller.js"></script>
     <script src="scripts/system/auth/login.route.js"></script>
-    <script src="scripts/system/audit/audit.model.js"></script>
-    <script src="scripts/system/audit/audit.repository.js"></script>
-    <script src="scripts/system/audit/audit.controller.js"></script>
     <script src="scripts/system/audit/audit.route.js"></script>
-    <script src="scripts/system/lookup/lookup.model.js"></script>
-    <script src="scripts/system/lookup/lookup.repository.js"></script>
-    <script src="scripts/system/lookup/lookup.controller.js"></script>
     <script src="scripts/system/lookup/lookup.route.js"></script>
-    <script src="scripts/system/setting/setting.model.js"></script>
-    <script src="scripts/system/setting/setting.repository.js"></script>
-    <script src="scripts/system/setting/setting.controller.js"></script>
     <script src="scripts/system/setting/setting.route.js"></script>
-    <script src="scripts/account/permission/permission.model.js"></script>
-    <script src="scripts/account/permission/permission.repository.js"></script>
-    <script src="scripts/account/permission/permission.controller.js"></script>
     <script src="scripts/account/permission/permission.route.js"></script>
-    <script src="scripts/account/role/role.model.js"></script>
-    <script src="scripts/account/role/role.repository.js"></script>
-    <script src="scripts/account/role/role.controller.js"></script>
     <script src="scripts/account/role/role.route.js"></script>
-    <script src="scripts/account/user/user.model.js"></script>
-    <script src="scripts/account/user/user.repository.js"></script>
-    <script src="scripts/account/user/user.controller.js"></script>
     <script src="scripts/account/user/user.route.js"></script>
-    <script src="scripts/kintai/staff/staff.model.js"></script>
-    <script src="scripts/kintai/staff/staff.repository.js"></script>
-    <script src="scripts/kintai/staff/staff.controller.js"></script>
     <script src="scripts/kintai/staff/staff.route.js"></script>
 @endif
 </body>

@@ -3,13 +3,14 @@
 <aside id="menu" ng-include="'views/common/navigation.html'"></aside>
 <!-- wrapper -->
 <div id="wrapper">
-    <div small-header class="small-header">
+    <!-- breadcrumb -->
+    <div class="small-header" small-header>
         <div class="hpanel">
             <div class="panel-body">
                 <div id="hbreadcrumb" class="pull-right"><ol class="hbreadcrumb breadcrumb">
                     <img src="{{ 'images/topcutting.jpg' }}" alt="breadcrumb" style="width:180px"/>
-                    <li ng-repeat="state in $state.$current.path" ng-switch="$last || !!state.abstract" ng-class="{ active: $last }">
-                        <a ng-switch-when="false" href="#{{ state.url.format($stateParams) }}">{{ state.data.pageTitle | translate }}</a>
+                    <li ng-repeat="state in $state.$current.path" ng-switch="$last" ng-class="{ active: $last }" ng-if="state.data.pageTitle">
+                        <a href="/#{{ state.url.format($stateParams) }}" ng-switch-when="false">{{ state.data.pageTitle | translate }}</a>
                         <span ng-switch-when="true">{{ state.data.pageTitle | translate }}</span>
                     </li>
                 </ol></div>
@@ -18,6 +19,7 @@
             </div>
         </div>
     </div>
+    <!-- content -->
     <div class="content">
         <div ui-view></div>
     </div>

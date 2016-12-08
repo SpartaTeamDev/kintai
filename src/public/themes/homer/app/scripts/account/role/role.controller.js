@@ -2,7 +2,7 @@
 /**
  * @author ntd1712
  */
-chaos.controller("RoleController", Anonymous);
+angular.module("homer").controller("RoleController", Anonymous);
 
 function Anonymous($scope, RoleRepository, PermissionRepository, AbstractController) {
     function RoleController() {

@@ -2,7 +2,7 @@
 /**
  * @author ntd1712
  */
-chaos.controller("SettingController", Anonymous);
+angular.module("homer").controller("SettingController", Anonymous);
 
 function Anonymous($scope, SettingRepository, AbstractController) {
     function SettingController() {

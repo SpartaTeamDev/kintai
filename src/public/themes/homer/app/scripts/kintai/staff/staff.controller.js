@@ -2,7 +2,7 @@
 /**
  * @author ntd1712
  */
-chaos.controller("StaffController", Anonymous);
+angular.module("homer").controller("StaffController", Anonymous);
 
 function Anonymous($scope, StaffRepository, AbstractController) {
     function StaffController() {

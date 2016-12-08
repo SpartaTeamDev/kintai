@@ -1,4 +1,4 @@
-(function(angular, Lockr) { "use strict";
+(function() { "use strict";
 /**
  * @author ntd1712
  * @namespace
@@ -6,18 +6,15 @@
 window.chaos = angular.module("homer", [
     "ngSanitize",
     "ui.router",
-    "ui.select",
     "datatables",
     "angular-jwt",
     "pascalprecht.translate",
-    "checklist-model",
-    "ngFileUpload"
-]);
-
+    "oc.lazyLoad"
+])
 /**
  * To support pascalprecht.translate::useStorage
  */
-chaos.factory("Lockr", function() {
+.factory("Lockr", function() {
     return angular.extend(Lockr, {
         put: function() {
             return Lockr.set.apply(this, arguments);
@@ -89,7 +86,7 @@ if (void 0 !== window.swal) {
     };
 }
 
-})(angular, Lockr);
+})();
 
 if (void 0 === Object.create) {
     /**

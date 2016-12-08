@@ -2,7 +2,7 @@
 /**
  * @author ntd1712
  */
-chaos.controller("PermissionController", Anonymous);
+angular.module("homer").controller("PermissionController", Anonymous);
 
 function Anonymous($scope, PermissionRepository, AbstractController) {
     function PermissionController() {
