@@ -10,18 +10,18 @@ function configBlocks($ocLazyLoadProvider) {
         // packages
             name: "icheck",
             files: [
-                "../node_modules/icheck/icheck.js"
+                "../node_modules/icheck/icheck.min.js"
             ]
         },{
             name: "masonry",
             files: [
-                "../node_modules/masonry-layout/dist/masonry.pkgd.js"
+                "../node_modules/masonry-layout/dist/masonry.pkgd.min.js"
             ]
         },{
             name: "ui-select",
             files: [
-                "../node_modules/ui-select/dist/select.css",
-                "../node_modules/ui-select/dist/select.js"
+                "../node_modules/ui-select/dist/select.min.css",
+                "../node_modules/ui-select/dist/select.min.js"
             ]
         },{
             name: "checklist-model",
@@ -31,7 +31,7 @@ function configBlocks($ocLazyLoadProvider) {
         },{
             name: "ng-file-upload",
             files: [
-                "../node_modules/ng-file-upload/dist/ng-file-upload.js"
+                "../node_modules/ng-file-upload/dist/ng-file-upload.min.js"
             ]
         },{
         // account
@@ -57,13 +57,6 @@ function configBlocks($ocLazyLoadProvider) {
             ]
         },{
         // system
-            name: "login",
-            files: [
-                "scripts/system/auth/login.model.js",
-                "scripts/system/auth/login.repository.js",
-                "scripts/system/auth/login.controller.js"
-            ]
-        },{
             name: "register",
             files: [
                 "scripts/system/auth/register.model.js",

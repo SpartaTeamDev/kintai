@@ -1,7 +1,4 @@
 {
-  "PERMISSION": "允许",
-  "MANAGE_PERMISSIONS": "管理权限",
-  "CREATE_PERMISSION": "新权限",
   "EDIT_PERMISSION": "编辑权限",
 
   "NAME": "名称",

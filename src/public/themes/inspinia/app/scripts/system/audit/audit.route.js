@@ -31,7 +31,7 @@ function configBlocks($stateProvider) {
             },
             data: {
                 pageTitle: "AUDIT_TRAIL",
-                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_RECORDS"
             }
         })
         .state("audit.show", {
@@ -47,7 +47,7 @@ function configBlocks($stateProvider) {
             },
             data: {
                 pageTitle: "AUDIT_TRAIL",
-                pageDesc: "FROM_HERE_YOU_CAN_VIEW_DETAILS_OF_AN_EXISTING_ITEM",
+                pageDesc: "FROM_HERE_YOU_CAN_VIEW_DETAILS_OF_AN_EXISTING_RECORD",
                 isNew: false
             }
         });

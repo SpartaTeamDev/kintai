@@ -12,7 +12,7 @@ function configBlocks($stateProvider) {
             resolve: {
                 deps: function($ocLazyLoad, $translatePartialLoader) {
                     $translatePartialLoader.addPart("user");
-                    return $ocLazyLoad.load(["icheck", "login"]);
+                    return $ocLazyLoad.load(["icheck"]);
                 }
             },
             onEnter: function() {

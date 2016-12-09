@@ -1,10 +1,26 @@
 {
   "DASHBOARD": "Dashboard",
   "ACCOUNT": "Account",
+  "USER": "User",
+  "MANAGE_USERS": "Manage Users",
+  "CREATE_USER": "Create User",
+  "ROLE": "Role",
+  "MANAGE_ROLES": "Manage Roles",
+  "CREATE_ROLE": "Create Role",
+  "PERMISSION": "Permission",
+  "MANAGE_PERMISSIONS": "Manage Permissions",
+  "CREATE_PERMISSION": "Create Permission",
   "SYSTEM": "System",
+  "SETTING": "Setting",
+  "MANAGE_SETTINGS": "Manage Settings",
+  "CREATE_SETTING": "Create Setting",
+  "LOOKUP": "Lookup",
+  "MANAGE_LOOKUPS": "Manage Lookups",
+  "CREATE_LOOKUP": "Create Lookup",
+  "AUDIT_TRAIL": "Audit Trail",
 
   "LANGUAGE": "Language",
-  "CHANGE_LANGUAGE": "Language...",
+  "CHANGE_LANGUAGE": "Change Language",
   "LOGOUT": "Logout",
 
   "BACK_TO_LIST": "Back to List",
@@ -34,8 +50,8 @@
   "YOUR_REQUEST_IS_INVALID": "Your request is invalid.",
 
   "OOPS": "Oops...",
-  "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS": "From here you can browse all of the latest items.",
-  "FROM_HERE_YOU_CAN_CREATE_A_NEW_ITEM": "From here you can create a new item.",
-  "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_ITEM": "From here you can edit an existing item.",
-  "FROM_HERE_YOU_CAN_VIEW_DETAILS_OF_AN_EXISTING_ITEM": "From here you can view details of an existing item."
+  "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_RECORDS": "From here you can browse all of the latest records.",
+  "FROM_HERE_YOU_CAN_CREATE_A_NEW_RECORD": "From here you can create a new record.",
+  "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_RECORD": "From here you can edit an existing record.",
+  "FROM_HERE_YOU_CAN_VIEW_DETAILS_OF_AN_EXISTING_RECORD": "From here you can view details of an existing record."
 }

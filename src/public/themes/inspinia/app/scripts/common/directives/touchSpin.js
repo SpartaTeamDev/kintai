@@ -1,6 +1,9 @@
 /**
- * @author ntd1712
+ * INSPINIA - Responsive Admin Theme
+ * Copyright 2015 Webapplayers.com
+ *
  */
+
 angular
     .module('inspinia')
     .directive('touchSpin', touchSpin);
