@@ -26,7 +26,7 @@ function configBlocks($stateProvider) {
             templateUrl: "views/common/simple-grid.html",
             data: {
                 pageTitle: "MANAGE_SETTINGS",
-                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_RECORDS"
             }
         })
         .state("setting.create", {
@@ -41,7 +41,7 @@ function configBlocks($stateProvider) {
             },
             data: {
                 pageTitle: "CREATE_SETTING",
-                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_ITEM",
+                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_RECORD",
                 isNew: true
             }
         })
@@ -57,7 +57,7 @@ function configBlocks($stateProvider) {
             },
             data: {
                 pageTitle: "EDIT_SETTING",
-                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_ITEM",
+                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_RECORD",
                 isNew: false
             }
         });

@@ -7,10 +7,10 @@
         <input name="search" type="text" class="form-control" placeholder="Search something special"/>
     </div></form-->
     <div class="navbar-right"><ul class="nav navbar-nav no-borders">
-        <li class="dropdown" dropdown>
-            <a class="count-info dropdown-toggle" href="" title="{{ 'CHANGE_LANGUAGE' | translate }}" data-toggle="dropdown" dropdown-toggle>
-                <i class="pe-7s-global"></i></a>
-            <ul class="animated fadeInRight m-t-xs dropdown-menu">
+        <li class="dropdown">
+            <a href="" title="{{ 'CHANGE_LANGUAGE' | translate }}" class="count-info dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-globe"></i></a>
+            <ul class="dropdown-menu hdropdown animated flipInX">
                 <li><a ng-click="changeLanguage('en')"><span class="label">
                     <img alt="" class="flag" src="{{ 'images/flag-en.png' }}" ng-src="{{ 'images/flag-en.png' }}"/>
                 </span> English</a></li>
@@ -19,8 +19,8 @@
                 </span> &#x4E2D;&#x6587;</a></li>
             </ul>
         </li>
-        <!--li class="dropdown" dropdown>
-            <a class="dropdown-toggle" href="#" dropdown-toggle><i class="pe-7s-speaker"></i></a>
+        <!--li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bullhorn"></i></a>
             <ul class="dropdown-menu hdropdown notification animated flipInX">
                 <li><a><span class="label label-success">NEW</span> It is a long established.</a></li>
                 <li><a><span class="label label-warning">WAR</span> There are many variations.</a></li>
@@ -28,9 +28,9 @@
                 <li class="summary"><a href="#">See all notifications</a></li>
             </ul>
         </li>
-        <li class="dropdown" dropdown>
-            <a class="dropdown-toggle label-menu-corner" href="#" dropdown-toggle>
-                <i class="pe-7s-mail"></i>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle label-menu-corner" data-toggle="dropdown">
+                <i class="fa fa-comment-o"></i>
                 <span class="label label-success">4</span>
             </a>
             <ul class="dropdown-menu hdropdown animated flipInX">
@@ -43,7 +43,7 @@
             </ul>
         </li-->
         <li class="dropdown">
-            <a ui-sref="logout" title="{{ 'LOGOUT' | translate }}"><i class="pe-7s-upload pe-rotate-90"></i></a>
+            <a ui-sref="logout" title="{{ 'LOGOUT' | translate }}"><i class="fa fa-sign-in"></i></a>
         </li>
     </ul></div>
 </nav>

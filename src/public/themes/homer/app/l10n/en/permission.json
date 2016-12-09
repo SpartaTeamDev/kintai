@@ -1,7 +1,4 @@
 {
-  "PERMISSION": "Permission",
-  "MANAGE_PERMISSIONS": "Manage Permissions",
-  "CREATE_PERMISSION": "Create Permission",
   "EDIT_PERMISSION": "Edit Permission",
 
   "NAME": "Name",

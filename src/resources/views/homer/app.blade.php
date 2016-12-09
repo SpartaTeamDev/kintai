@@ -9,19 +9,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title page-title="{{ strip_tags($config['app.title']) }}"></title>
     <link rel="shortcut icon" type="image/ico" href="{{ url('/favicon.ico') }}"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Dosis:400,500,600,700|Open+Sans:400,600|EB+Garamond"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Montserrat:400,700|Dosis:400,500,600,700|EB+Garamond"/>
 @if ($isProduction)
     <link rel="stylesheet" href="styles/vendor.d78eb1c6.css"/>
     <link rel="stylesheet" href="styles/style.96716834.css"/>
 @else
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css"/>
-    <link rel="stylesheet" href="../node_modules/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.css"/>
     <link rel="stylesheet" href="../node_modules/animate.css/animate.css"/>
     <link rel="stylesheet" href="../node_modules/Snarl/dist/snarl.css"/>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../node_modules/bootstrap-sweetalert/dist/sweetalert.css"/>
     <link rel="stylesheet" href="../node_modules/datatables.net-bs/css/dataTables.bootstrap.css"/>
-    <link rel="stylesheet" href="styles/pe-icon-7-stroke-helper.css"/>
     <link rel="stylesheet" href="styles/style.css"/>
     <link rel="stylesheet" href="styles/custom.css"/>
 @endif
@@ -70,6 +68,9 @@ window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['ses
     <script src="scripts/common/factories/abstract.repository.js"></script>
     <script src="scripts/common/factories/abstract.controller.js"></script>
     <script src="scripts/common/providers/request.provider.js"></script>
+    <script src="scripts/system/auth/login.model.js"></script>
+    <script src="scripts/system/auth/login.repository.js"></script>
+    <script src="scripts/system/auth/login.controller.js"></script>
     <script src="scripts/system/auth/login.route.js"></script>
     <script src="scripts/system/audit/audit.route.js"></script>
     <script src="scripts/system/lookup/lookup.route.js"></script>

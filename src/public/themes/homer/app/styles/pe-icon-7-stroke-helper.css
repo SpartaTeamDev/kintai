@@ -1,5 +1,5 @@
 
-/* HELPER CLASS 
+/* HELPER CLASS
  * -------------------------- */
 
 /* FA based classes */
@@ -53,12 +53,6 @@
   padding: .2em .25em .15em;
   border: solid 0.08em #eeeeee;
   border-radius: .1em;
-}
-.pull-right {
-  float: right;
-}
-.pull-left {
-  float: left;
 }
 .pe.pull-left {
   margin-right: .3em;

@@ -69,6 +69,9 @@ window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['ses
     <script src="scripts/common/factories/abstract.repository.js"></script>
     <script src="scripts/common/factories/abstract.controller.js"></script>
     <script src="scripts/common/providers/request.provider.js"></script>
+    <script src="scripts/system/auth/login.model.js"></script>
+    <script src="scripts/system/auth/login.repository.js"></script>
+    <script src="scripts/system/auth/login.controller.js"></script>
     <script src="scripts/system/auth/login.route.js"></script>
     <script src="scripts/system/audit/audit.route.js"></script>
     <script src="scripts/system/lookup/lookup.route.js"></script>
