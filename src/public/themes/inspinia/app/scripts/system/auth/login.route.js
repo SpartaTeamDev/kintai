@@ -33,7 +33,7 @@ function configBlocks($stateProvider) {
             data: {
                 allowGuest: true,
                 pageTitle: "LOGIN",
-                specialClass: "blank"
+                specialClass: "gray-bg"
             },
             controller: "LoginController as ctrl"
         })

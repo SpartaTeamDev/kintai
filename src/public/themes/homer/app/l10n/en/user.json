@@ -21,8 +21,8 @@
 
   "LOGIN": "Login",
   "PLEASE_LOGIN": "PLEASE LOGIN",
-  "REMEMBER_LOGIN": "Remember Login",
-  "IF_THIS_IS_A_PRIVATE_COMPUTER": "( if this is a private computer )",
+  "REMEMBER_ME": "Remember me?",
+  "IF_ON_A_PRIVATE_COMPUTER": "( if on a private computer )",
   "PLEASE_ENTER_YOUR_EMAIL_ADDRESS": "Please enter you email address.",
   "PLEASE_ENTER_YOUR_PASSWORD": "Please enter your password.",
   "COULD_NOT_LOG_IN": "Could not log in.",

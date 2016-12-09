@@ -21,8 +21,8 @@
 
   "LOGIN": "登录",
   "PLEASE_LOGIN": "请登录",
-  "REMEMBER_LOGIN": "记住登录",
-  "IF_THIS_IS_A_PRIVATE_COMPUTER": "( 如果这是一台私人电脑 )",
+  "REMEMBER_ME": "记住登录",
+  "IF_ON_A_PRIVATE_COMPUTER": "( 如果这是一台私人电脑 )",
   "PLEASE_ENTER_YOUR_EMAIL_ADDRESS": "请输入您的电子邮件地址。",
   "PLEASE_ENTER_YOUR_PASSWORD": "请输入您的密码。",
   "COULD_NOT_LOG_IN": "无法登录。",
