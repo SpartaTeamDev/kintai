@@ -239,7 +239,7 @@ textarea {
     margin-top: 10px
 }
 .color-line {
-    height: 20px;
+    height: 6px;
     background-image: url(../images/hairbg.jpg)!important;
     background: 100%;
     background-repeat: repeat-x;
