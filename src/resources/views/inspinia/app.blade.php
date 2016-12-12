@@ -11,8 +11,8 @@
     <link rel="shortcut icon" type="image/ico" href="{{ url('/favicon.ico') }}"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,300,500,700"/>
 @if ($isProduction)
-    <link rel="stylesheet" href="styles/vendor.d78eb1c6.css"/>
-    <link rel="stylesheet" href="styles/style.96716834.css"/>
+    <link rel="stylesheet" href="styles/vendor.098540d4.css"/>
+    <link rel="stylesheet" href="styles/style.84f5fbd4.css"/>
 @else
     <link rel="stylesheet" href="../node_modules/animate.css/animate.css"/>
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css"/>
@@ -30,7 +30,7 @@
     <![endif]-->
     <div ui-view autoscroll="true"></div>
 @if ($isProduction)
-    <script src="scripts/vendor.962c27e6.js"></script>
+    <script src="scripts/vendor.ac05fb5b.js"></script>
 @else
     <script src="../node_modules/lockr/lockr.js"></script>
     <script src="../node_modules/lodash/lodash.js"></script>
@@ -57,7 +57,7 @@
 window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['session'], 'urls' => $config['urls']]) !!};
     /*]]>*/</script>
 @if ($isProduction)
-    <script src="scripts/scripts.71903b23.js"></script>
+    <script src="scripts/scripts.6f2f7f9c.js"></script>
 @else
     <script src="scripts/theme.js"></script>
     <script src="scripts/app.js"></script>

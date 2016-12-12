@@ -1,8 +1,15 @@
 bower_components
 node_modules
-vendor
-.tmp
-.sass-cache
-.idea
-.settings
-nbproject
+vendor/
+.tmp/
+.sass-cache/
+
+## IDE & Sublime
+.idea/
+.settings/
+nbproject/
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
