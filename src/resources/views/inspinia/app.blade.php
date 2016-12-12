@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="styles/vendor.d78eb1c6.css"/>
     <link rel="stylesheet" href="styles/style.96716834.css"/>
 @else
-    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="../node_modules/animate.css/animate.css"/>
-    <link rel="stylesheet" href="../node_modules/Snarl/dist/snarl.css"/>
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../node_modules/bootstrap-sweetalert/dist/sweetalert.css"/>
     <link rel="stylesheet" href="../node_modules/datatables.net-bs/css/dataTables.bootstrap.css"/>
@@ -36,7 +35,6 @@
     <script src="../node_modules/lockr/lockr.js"></script>
     <script src="../node_modules/lodash/lodash.js"></script>
     <script src="../node_modules/moment/moment.js"></script>
-    <script src="../node_modules/Snarl/dist/snarl.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="../node_modules/bootstrap-sweetalert/dist/sweetalert.js"></script>
@@ -44,6 +42,7 @@
     <script src="../node_modules/drmonty-datatables-plugins/api/fnSetFilteringDelay.js"></script>
     <script src="../node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
     <script src="../node_modules/metismenu/dist/metisMenu.js"></script>
+    <script src="../node_modules/noty/js/noty/packaged/jquery.noty.packaged.js"></script>
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-sanitize/angular-sanitize.js"></script>
     <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
@@ -63,7 +62,7 @@ window.CFG = {!! json_encode(['app' => $config['app'], 'session' => $config['ses
     <script src="scripts/theme.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/config.js"></script>
-    <script src="scripts/bundles.js"></script>
+    <script src="scripts/bundle.js"></script>
     <script src="scripts/common/directives/directives.js"></script>
     <script src="scripts/common/factories/abstract.model.js"></script>
     <script src="scripts/common/factories/abstract.repository.js"></script>

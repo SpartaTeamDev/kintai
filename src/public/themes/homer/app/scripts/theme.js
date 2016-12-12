@@ -5,17 +5,16 @@
  */
 function fixWrapperHeight($window) {
     // get and set current height
-    var headerH = 62,
-        navigationH = $("#navigation").height(),
+    var navigationH = $("#navigation").height(),
         contentH = $("div.content").height(),
         windowH = $window.height();
 
     if (contentH < navigationH) {
-        $("#wrapper").css("min-height", (navigationH < windowH ? windowH - headerH : navigationH) + "px");
+        $("#wrapper").css("min-height", (navigationH < windowH ? windowH - 62 : navigationH) + "px");
     }
     else if (contentH > navigationH && contentH < windowH) {
         // set new height when content is higher than navigation but less than window
-        $("#wrapper").css("min-height", (windowH - headerH) + "px");
+        $("#wrapper").css("min-height", (windowH - 62) + "px");
     }
 }
 
@@ -32,7 +31,7 @@ function setBodySmall($window) {
 
 function setPanelSize($window) {
     var $wrapper = $("#wrapper"),
-        height = $window.height() - $("#logo").height() - $(".color-line").height();
+        height = $window.height() - $("#logo").height() - $("div.color-line").height();
 
     if (height > $wrapper.height()) {
         $wrapper.css("height", height + "px");

@@ -40,7 +40,7 @@ function Anonymous($scope, LoginRepository, AbstractController) {
         this.repository.store(model).then(
             function() {
                 delete $scope.$parent.error;
-                $scope.$parent.toast = "PLEASE_CHECK_YOUR_EMAIL_FOR_THE_RESET_PASSWORD_INSTRUCTIONS";
+                $scope.$parent.growl = "PLEASE_CHECK_YOUR_EMAIL_FOR_THE_RESET_PASSWORD_INSTRUCTIONS";
                 $scope.$state.go("login", {}, { reload: true });
             },
             function(response) {

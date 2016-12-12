@@ -1,4 +1,4 @@
-(function() { "use strict";
+(function(Lockr) { "use strict";
 /**
  * @author ntd1712
  */
@@ -85,10 +85,10 @@ function runBlocks($http, $rootScope, $state, $transitions, $translate, jwtHelpe
     $rootScope.$on("$translatePartialLoaderStructureChanged", function() {
         $translate.refresh();
     });
-    $rootScope.$watch("toast", function(newValue) {
+    $rootScope.$watch("growl", function(newValue) {
         if (void 0 !== newValue) {
-            chaos.notify(t(newValue));
-            delete $rootScope.toast;
+            chaos.growl(t(newValue));
+            delete $rootScope.growl;
         }
     });
 
@@ -121,4 +121,4 @@ function runBlocks($http, $rootScope, $state, $transitions, $translate, jwtHelpe
     });
 }
 
-})();
+})(Lockr);

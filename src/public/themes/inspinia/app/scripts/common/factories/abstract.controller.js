@@ -147,11 +147,11 @@ function Anonymous($compile) {
                             me.afterDestroy.call(me, id, response);
                         }
 
-                        $scope.$parent.toast = "DELETED_SUCCESSFULLY";
+                        $scope.$parent.growl = "DELETED_SUCCESSFULLY";
                         $scope.$state.reload();
                     },
                     function() {
-                        $scope.$parent.toast = "DELETED_UNSUCCESSFULLY_PERHAPS_IT_IS_IN_USE_OR_CORRUPTED";
+                        $scope.$parent.growl = "DELETED_UNSUCCESSFULLY_PERHAPS_IT_IS_IN_USE_OR_CORRUPTED";
                     });
             });
 
@@ -232,7 +232,7 @@ function Anonymous($compile) {
             }
 
             if (angular.equals(model, Object($scope.mistr))) {
-                $scope.$parent.toast = "THERE_IS_NO_CHANGES";
+                $scope.$parent.growl = "THERE_IS_NO_CHANGES";
                 return $scope.$state.reload();
             }
 
@@ -243,7 +243,7 @@ function Anonymous($compile) {
                 }
 
                 delete $scope.$parent.error;
-                $scope.$parent.toast = "DATA_SAVED_SUCCESSFULLY";
+                $scope.$parent.growl = "DATA_SAVED_SUCCESSFULLY";
                 $scope.$state.go(me.route);
             };
 

@@ -14,7 +14,7 @@ function Anonymous($scope, RegisterRepository, AbstractController) {
         this.repository.store(model).then(
             function() {
                 delete $scope.$parent.error;
-                $scope.$parent.toast = "YOU_HAVE_SUCCESSFULLY_REGISTERED";
+                $scope.$parent.growl = "YOU_HAVE_SUCCESSFULLY_REGISTERED";
                 $scope.$state.go("login", {}, { reload: true });
             },
             function(response) {

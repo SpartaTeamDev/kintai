@@ -25,8 +25,8 @@ function configBlocks($stateProvider) {
             url: "",
             templateUrl: "views/common/simple-grid.html",
             data: {
-                pageTitle: "MANAGE_STAFS",
-                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_ITEMS"
+                pageTitle: "MANAGE_STAFFS",
+                pageDesc: "FROM_HERE_YOU_CAN_BROWSE_ALL_OF_THE_LATEST_RECORDS"
             }
         })
         .state("staff.create", {
@@ -41,7 +41,7 @@ function configBlocks($stateProvider) {
             },
             data: {
                 pageTitle: "NEW_STAFF",
-                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_ITEM",
+                pageDesc: "FROM_HERE_YOU_CAN_CREATE_A_NEW_RECORD",
                 isNew: true
             }
         })
@@ -57,7 +57,7 @@ function configBlocks($stateProvider) {
             },
             data: {
                 pageTitle: "EDIT_STAFF",
-                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_ITEM",
+                pageDesc: "FROM_HERE_YOU_CAN_EDIT_AN_EXISTING_RECORD",
                 isNew: false
             }
         });

@@ -1,4 +1,4 @@
-(function() { "use strict";
+(function(Lockr) { "use strict";
 /**
  * @author ntd1712
  * @namespace
@@ -26,11 +26,19 @@ window.chaos = angular.module("inspinia", [
 /**
  * @param {string|Object} message
  */
-chaos.notify = function(message) {
-    if (void 0 !== window.Snarl) {
-        Snarl.addNotification(angular.extend({
+chaos.growl = function(message) {
+    if (void 0 !== window.noty) {
+        noty(angular.extend({
+            layout: "topLeft",
+            theme: "relax",
+            type: "information",
             text: "...",
-            icon: '<i class="fa fa-info-circle"></i>'
+            animation: {
+                open: "animated flipInX",
+                close: "animated flipOutX"
+            },
+            timeout: 5000,
+            closeWith: ["click", "timeout"]
         }, "string" === typeof message ? { text: message } : Object(message)));
     }
     else {
@@ -87,7 +95,7 @@ if (void 0 !== window.swal) {
     };
 }
 
-})();
+})(Lockr);
 
 if (void 0 === Object.create) {
     /**

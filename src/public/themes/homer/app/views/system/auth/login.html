@@ -13,8 +13,8 @@
                        title="{{ 'PLEASE_ENTER_YOUR_PASSWORD' | translate }}" ng-model="model.password" required/>
             </div>
             <div class="checkbox">
-                <input type="checkbox" icheck ng-init="model.remember_token = true" ng-model="model.remember_token"/> {{ 'REMEMBER_LOGIN' | translate }}
-                <p class="help-block small">{{ 'IF_THIS_IS_A_PRIVATE_COMPUTER' | translate }}</p>
+                <input type="checkbox" icheck ng-init="model.remember_token = true" ng-model="model.remember_token"/>&nbsp;
+                {{ 'REMEMBER_ME' | translate }} {{ 'IF_ON_A_PRIVATE_COMPUTER' | translate }}
             </div>
             <button class="btn btn-success btn-block" ng-disabled="!error && loginForm.$submitted">{{ 'LOGIN' | translate }}</button>
         </form>
