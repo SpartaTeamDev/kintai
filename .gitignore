@@ -3,6 +3,7 @@ node_modules
 vendor/
 .tmp/
 .sass-cache/
+.DS_Store
 
 ## IDE & Sublime
 .idea/
