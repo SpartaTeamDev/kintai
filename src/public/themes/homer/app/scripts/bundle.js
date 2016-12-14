@@ -85,124 +85,12 @@ function configBlocks($ocLazyLoadProvider) {
                 "scripts/system/setting/setting.controller.js"
             ]
         },{
-        // store
-            name: "booking",
+        // kintai
+            name: "staff",
             files: [
-                "scripts/store/booking/booking.jmodel.js",
-                "scripts/store/booking/booking.jpageviewmodel.js",
-                "scripts/store/booking/booking.jviewmodel.js",
-                "scripts/store/booking/booking.jsviewmodel.js",
-                "scripts/store/booking/booking.admin.js",
-                "scripts/store/booking/booking.management.js",
-                "scripts/store/booking/booking.register.js"
-            ]
-        },{
-            name: "calendar",
-            files: [
-                "scripts/store/calendar/calendar.model.js",
-                "scripts/store/calendar/calendar.repository.js",
-                "scripts/store/calendar/calendar.controller.js"
-            ]
-        },{
-            name: "category",
-            files: [
-                "scripts/store/category/category.jmodel.js",
-                "scripts/store/category/category.jpageviewmodel.js",
-                "scripts/store/category/category.jviewmodel.js",
-                "scripts/store/category/category.jsviewmodel.js",
-                "scripts/store/category/category.admin.js",
-                "scripts/store/category/category.management.js"
-            ]
-        },{
-            name: "customer",
-            files: [
-                "scripts/store/customer/customer.jmodel.js",
-                "scripts/store/customer/customer.jpageviewmodel.js",
-                "scripts/store/customer/customer.jviewmodel.js",
-                "scripts/store/customer/customer.jsviewmodel.js",
-                "scripts/store/customer/customer.admin.js",
-                "scripts/store/customer/customer.management.js",
-                "scripts/store/customer/customer.detail.js"
-            ]
-        },{
-            name: "expense",
-            files: [
-                "scripts/store/expense/expense.jmodel.js",
-                "scripts/store/expense/expense.jpageviewmodel.js",
-                "scripts/store/expense/expense.jviewmodel.js",
-                "scripts/store/expense/expense.jsviewmodel.js",
-                "scripts/store/expense/expense.admin.js",
-                "scripts/store/expense/expense.management.js",
-                "scripts/store/expense/expense.detail.js",
-                "scripts/store/expense/expense.report.js"
-            ]
-        },{
-            name: "expensedetail",
-            files: [
-                "scripts/store/expensedetail/expensedetail.jmodel.js",
-                "scripts/store/expensedetail/expensedetail.jpageviewmodel.js",
-                "scripts/store/expensedetail/expensedetail.jviewmodel.js",
-                "scripts/store/expensedetail/expensedetail.jsviewmodel.js",
-                "scripts/store/expensedetail/expensedetail.admin.js"
-            ]
-        },{
-            name: "income",
-            files: [
-                "scripts/store/income/income.jmodel.js",
-                "scripts/store/income/income.jpageviewmodel.js",
-                "scripts/store/income/income.jviewmodel.js",
-                "scripts/store/income/income.jsviewmodel.js",
-                "scripts/store/income/income.admin.js",
-                "scripts/store/income/income.management.js",
-                "scripts/store/income/income.detail.js",
-                "scripts/store/income/income.report.js"
-            ]
-        },{
-            name: "incomedetail",
-            files: [
-                "scripts/store/incomedetail/incomedetail.jmodel.js",
-                "scripts/store/incomedetail/incomedetail.jpageviewmodel.js",
-                "scripts/store/incomedetail/incomedetail.jviewmodel.js",
-                "scripts/store/incomedetail/incomedetail.jsviewmodel.js",
-                "scripts/store/incomedetail/incomedetail.admin.js"
-            ]
-        },{
-            name: "incomepromotion",
-            files: [
-                "scripts/store/incomepromotion/incomepromotion.jmodel.js",
-                "scripts/store/incomepromotion/incomepromotion.jpageviewmodel.js",
-                "scripts/store/incomepromotion/incomepromotion.jviewmodel.js",
-                "scripts/store/incomepromotion/incomepromotion.jsviewmodel.js",
-                "scripts/store/incomepromotion/incomepromotion.admin.js"
-            ]
-        },{
-            name: "media",
-            files: [
-                "scripts/store/media/media.jmodel.js",
-                "scripts/store/media/media.jpageviewmodel.js",
-                "scripts/store/media/media.jviewmodel.js",
-                "scripts/store/media/media.jsviewmodel.js",
-                "scripts/store/media/media.admin.js"
-            ]
-        },{
-            name: "product",
-            files: [
-                "scripts/store/product/product.jmodel.js",
-                "scripts/store/product/product.jpageviewmodel.js",
-                "scripts/store/product/product.jviewmodel.js",
-                "scripts/store/product/product.jsviewmodel.js",
-                "scripts/store/product/product.admin.js",
-                "scripts/store/product/product.management.js"
-            ]
-        },{
-            name: "promotion",
-            files: [
-                "scripts/store/promotion/promotion.jmodel.js",
-                "scripts/store/promotion/promotion.jpageviewmodel.js",
-                "scripts/store/promotion/promotion.jviewmodel.js",
-                "scripts/store/promotion/promotion.jsviewmodel.js",
-                "scripts/store/promotion/promotion.admin.js",
-                "scripts/store/promotion/promotion.management.js"
+                "scripts/kintai/staff/staff.model.js",
+                "scripts/kintai/staff/staff.repository.js",
+                "scripts/kintai/staff/staff.controller.js"
             ]
         }]
     });
