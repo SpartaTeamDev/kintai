@@ -12,7 +12,6 @@
     "chaos/common": "dev-master@dev",
     "league/oauth2-client": "1.4.*",
     "laravel/framework": "5.0.*",
-    "atrauzzi/laravel-doctrine": "dev-master@dev",
     "barryvdh/laravel-cors": "0.7.*",
     "tymon/jwt-auth": "0.5.*"
   },
@@ -39,9 +38,6 @@
   "repositories": [{
     "type": "vcs",
     "url": "https://github.com/ntd1712/common"
-  },{
-    "type": "vcs",
-    "url": "https://github.com/ntd1712/laravel-doctrine"
   }],
   "config": {
     "discard-changes": true,

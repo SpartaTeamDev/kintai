@@ -166,7 +166,6 @@ return [
         /*
          * Package Service Providers...
          */
-        'Atrauzzi\LaravelDoctrine\ServiceProvider',
         'Barryvdh\Cors\ServiceProvider',
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',

@@ -13,7 +13,7 @@ class SettingTableSeeder extends Seeder
         return [
             [
                 'name' => 'copyright',
-                'value' => 'Copyright 2016 by My Company. All Rights Reserved.'
+                'value' => 'Copyright 2016 My Company'
             ],[
                 'name' => 'title',
                 'value' => 'Admin Panel'
