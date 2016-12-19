@@ -48,7 +48,7 @@
     ],
     'connections' => [
         // Override your laravel environment database selection here if desired
-        'default' => env('DB_CONNECTION', 'mysql'),
+        'default' => env('DB_DRIVER', 'mysql'),
         // Override your laravel values here if desired.
         'mysql' => [
             'driver' => 'pdo_mysql',
@@ -91,7 +91,7 @@
         'provider' => env('CACHE_DRIVER', 'file'),
         'file' => [
             'directory' => storage_path('framework/cache'),
-            'extension' => '.' . env('CACHE_PREFIX', 'doctrinecache') . '.data'
+            'extension' => '.' . env('COOKIE_PREFIX', 'doctrinecache') . '.data'
         ],
         'redis' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),

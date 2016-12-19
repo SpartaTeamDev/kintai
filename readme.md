@@ -18,7 +18,7 @@ service apache2 reload
 127.0.0.1   kintai.local
 
 # Add the following line to c:\wamp\bin\apache\apache2.4.9\conf\extra\httpd-vhosts.conf
-IncludeOptional "d:/wamp/www/kintai/deploys/20151217/local/httpd-vhosts.conf"
+IncludeOptional "c:/wamp/www/kintai/deploys/20151217/local/httpd-vhosts.conf"
 
 # Restart WampServer
 
@@ -27,7 +27,7 @@ IncludeOptional "d:/wamp/www/kintai/deploys/20151217/local/httpd-vhosts.conf"
 ####################
 
 # Create a new database named "kintai"
+# Import DB from file "deploys/20151217/local/database/sql.zip" into your MySQL
 # cd to the "src" directory, run the command "composer install" in Terminal
-# And then run another command "php artisan db:seed"
 # cd to the "src/public/themes/homer" directory, run the command "npm install"
 # Login information: demo[@example.com] / @demo*

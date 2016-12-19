@@ -1,16 +1,28 @@
-bower_components
-node_modules
-vendor/
-.tmp/
-.sass-cache/
-.DS_Store
+*~
+*.bak
+*.log
+*.swp
+*.tmp
 
-## IDE & Sublime
-.idea/
+# Bower, Composer, Node, Sass
+bower_components
+vendor/
+node_modules
+npm-debug.log*
+.sass-cache/
+.tmp/
+*.css.map
+
+# Eclipse, NetBeans, PhpStorm, SublimeText
+.project
+.buildpath
 .settings/
 nbproject/
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-*.sublime-workspace
-*.sublime-project
+.idea/
+*.cache
+*.sublime-*
+
+# OS
+._*
+.DS_Store
+Thumbs.db

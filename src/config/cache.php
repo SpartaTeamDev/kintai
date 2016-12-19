@@ -86,6 +86,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', 'laravel'),
+    'prefix' => env('COOKIE_PREFIX', 'laravel'),
 
 ];

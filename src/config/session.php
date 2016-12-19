@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'cookie' => env('CACHE_PREFIX', 'laravel') . '_session',
+    'cookie' => env('COOKIE_PREFIX', 'laravel') . '_session',
 
     /*
     |--------------------------------------------------------------------------
@@ -148,7 +148,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+    'domain' => env('COOKIE_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------
