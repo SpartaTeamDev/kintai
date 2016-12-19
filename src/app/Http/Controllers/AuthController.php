@@ -142,6 +142,7 @@ class AuthController extends Controller
      * @param   \Request $request
      * @return  array|\Symfony\Component\HttpFoundation\Response
      * @throws  JWTException
+     * @throws  ValidateException
      */
     public function postLogin(\Request $request)
     {
