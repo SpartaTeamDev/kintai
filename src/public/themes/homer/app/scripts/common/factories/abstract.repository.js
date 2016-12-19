@@ -17,7 +17,7 @@ function Anonymous($cacheFactory, $http) {
      */
     function AbstractRepository(model) {
         this.model = model;
-        this.route = ($http.defaults.route || "/api/") + model.getRoute();
+        this.route = $http.defaults.route + model.getRoute();
         this.cache = true;
     }
 

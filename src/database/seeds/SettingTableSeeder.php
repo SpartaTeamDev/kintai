@@ -27,9 +27,6 @@ class SettingTableSeeder extends Seeder
                 'name' => 'imageMaxSize',
                 'value' => 2097152
             ],[
-                'name' => 'datetimeFormat',
-                'value' => 'Y-m-d H:i:s'
-            ],[
                 'name' => 'dateFormat',
                 'value' => 'Y-m-d'
             ],[

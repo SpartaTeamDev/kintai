@@ -1,6 +1,5 @@
 <?php return [
     'app' => [
-        'datetimeFormat' => 'Y-m-d H:i:s',
         'dateFormat' => 'Y-m-d',
         'timeFormat' => 'H:i:s',
         'itemsPerPage' => 10,
