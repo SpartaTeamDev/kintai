@@ -29,7 +29,7 @@ window.chaos = angular.module("inspinia", [
 chaos.growl = function(message) {
     if (void 0 !== window.noty) {
         noty(angular.extend({
-            layout: "topLeft",
+            layout: "topRight",
             theme: "relax",
             type: "information",
             text: "...",
