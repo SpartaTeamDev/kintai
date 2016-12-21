@@ -14,7 +14,7 @@ function Anonymous(AbstractModel) {
      * @returns {string}
      */
     RoleModel.getRoute = function() {
-        return "role";
+        return "account/role";
     };
 
     /**

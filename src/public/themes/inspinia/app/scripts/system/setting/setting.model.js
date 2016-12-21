@@ -14,7 +14,7 @@ function Anonymous(AbstractModel) {
      * @returns {string}
      */
     SettingModel.getRoute = function() {
-        return "setting";
+        return "system/setting";
     };
 
     /**

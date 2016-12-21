@@ -28,7 +28,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function()
 
         if (isset($matches[2]))
         {
-            $name = strtolower($matches[2]);
+            $name = strtolower($matches[1] . '/' . $matches[2]);
             $controller = $matches[1] . '\\' . $matches[2] . 'Controller';
 
             // if (!('Account' === $matches[1] || 'System' === $matches[1]))

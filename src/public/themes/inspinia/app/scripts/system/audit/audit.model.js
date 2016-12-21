@@ -14,7 +14,7 @@ function Anonymous(AbstractModel) {
      * @returns {string}
      */
     AuditModel.getRoute = function() {
-        return "audit";
+        return "system/audit";
     };
 
     /**

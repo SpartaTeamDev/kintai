@@ -14,7 +14,7 @@ function Anonymous(AbstractModel) {
      * @returns {string}
      */
     StaffModel.getRoute = function() {
-        return "staff";
+        return "kintai/staff";
     };
 
     /**

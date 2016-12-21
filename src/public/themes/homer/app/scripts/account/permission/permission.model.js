@@ -14,7 +14,7 @@ function Anonymous(AbstractModel) {
      * @returns {string}
      */
     PermissionModel.getRoute = function() {
-        return "permission";
+        return "account/permission";
     };
 
     /**
