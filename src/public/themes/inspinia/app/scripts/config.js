@@ -33,7 +33,7 @@ function configBlocks($compileProvider, $httpProvider, $urlRouterProvider,
 
             if (void 0 !== token && void 0 !== jwtHelper && jwtHelper.isTokenExpired(token)) {
                 return $http({
-                    url: CFG.app.url + "/api/auth/renewtoken?token=" + token,
+                    url: $http.defaults.route + "auth/renewtoken?token=" + token,
                     skipAuthorization: true,
                     method: "POST"
                 }).then(function(response) {

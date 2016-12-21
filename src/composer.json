@@ -1,8 +1,8 @@
 {
-  "name": "chaos/kintai",
+  "name": "chaos/lang",
   "description": "A Laravel 5 + Doctrine 2 + Angular skeleton application",
   "type": "project",
-  "keywords": ["ntd1712", "chaos", "kintai"],
+  "keywords": ["ntd1712", "chaos", "lang"],
   "homepage": "http://taingheso.com",
   "license": "ntd1712",
   "authors": [

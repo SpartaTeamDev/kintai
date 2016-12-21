@@ -9,9 +9,9 @@ else
         cp ../deploys/20151217/local/.env .env
     fi
 
-    echo "Creating modules/config.params.php file if any ..."
+    echo "Creating config.params.php file if any ..."
     if [ ! -f modules/config.params.php ]; then
-        cp vendor/chaos/common/config/config.params.php modules/config.params.php
+        cp ../deploys/20151217/local/config.params.php modules/config.params.php
     fi
 fi
 
