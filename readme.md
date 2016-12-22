@@ -8,19 +8,37 @@
 # Copy the .conf file
 cp /var/www/html/kintai/deploys/20151217/local/kintai.local.conf /etc/apache2/sites-available/
 a2ensite kintai.local.conf
+
+# Restart Apache
 service apache2 reload
 
 ####################
 # For WINDOWS users
 ####################
 
-# Add the following line to c:\Windows\System32\drivers\etc\hosts
+# Edit the hosts file: c:\Windows\System32\drivers\etc\hosts
 127.0.0.1   kintai.local
 
-# Add the following line to c:\wamp\bin\apache\apache2.4.9\conf\extra\httpd-vhosts.conf
+# Edit the vhosts file: c:\wamp\bin\apache\apache2.4.9\conf\extra\httpd-vhosts.conf
 IncludeOptional "c:/wamp/www/kintai/deploys/20151217/local/httpd-vhosts.conf"
 
 # Restart WampServer
+
+####################
+# Before Installation
+####################
+
+# Install the following first:
+https://git-scm.com
+https://nodejs.org [v4.4.7]
+http://rubyinstaller.org
+https://getcomposer.org
+
+# After Node is installed, run the following commands step by step:
+npm install -g bower
+npm install -g grunt-cli
+npm install -g less
+gem install sass
 
 ####################
 # Installation

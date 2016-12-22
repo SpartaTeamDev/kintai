@@ -1,6 +1,6 @@
 {
   "name": "chaos/lang",
-  "description": "A Laravel 5 + Doctrine 2 + Angular skeleton application",
+  "description": "A Laravel 5 + Doctrine 2 + Angular boilerplate",
   "type": "project",
   "keywords": ["ntd1712", "chaos", "lang"],
   "homepage": "http://taingheso.com",
@@ -10,12 +10,12 @@
   ],
   "require": {
     "chaos/common": "dev-master@dev",
-    "firebase/php-jwt": "4.0.*",
-    "league/oauth2-client": "1.4.*",
-    "laravel/framework": "5.0.*",
+    "firebase/php-jwt": "~4.0.0",
+    "league/oauth2-client": "~1.4.2",
+    "laravel/framework": "~5.0.35",
     "atrauzzi/laravel-doctrine": "dev-master@dev",
-    "barryvdh/laravel-cors": "0.7.*",
-    "tymon/jwt-auth": "0.5.*"
+    "barryvdh/laravel-cors": "~0.7.3",
+    "tymon/jwt-auth": "~0.5.9"
   },
   "require-dev": {
     "barryvdh/laravel-ide-helper": "dev-master",
